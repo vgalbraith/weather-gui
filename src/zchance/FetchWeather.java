@@ -4,7 +4,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
@@ -44,14 +43,6 @@ public class FetchWeather
 
          // Parse JSON
          results = new JsonParser().parse(br);
-      }
-      catch (UnsupportedEncodingException e)
-      {
-         e.printStackTrace();
-      }
-      catch (MalformedURLException e)
-      {
-         e.printStackTrace();
       }
       catch (IOException e)
       {

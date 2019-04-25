@@ -34,9 +34,9 @@ public class Controller
 
       if (w.isSuccessful())
       {
-         lblLocation.setText("Location: " + w.getLocationName() + ", " + w.getLocationState());
-         lblTemperature.setText("Temperature: " + w.getTemperatureF());
-         lblConditions.setText("Conditions: " + w.getConditions());
+         lblLocation.setText(w.getLocationName() + ", " + w.getLocationState());
+         lblTemperature.setText(w.getTemperatureF());
+         lblConditions.setText(w.getConditions());
       }
       else
       {
