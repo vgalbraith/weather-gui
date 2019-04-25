@@ -8,15 +8,12 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 /**
- * FetchWeather pulls weather data using AerisAPI
+ * FetchWeather pulls weather data using Aeris API
  *
  * @author Zed Chance
  */
 public class FetchWeather
 {
-   private final String CLIENT_ID = "wQhXMMnxoRV4HNKoRLZrL";
-   private final String CLIENT_SECRET = "rUOW0GEyf5bT9JhUzro2WQAuUpj3A7nFHgVCRGEK";
-
    private String query;
    private JsonElement results;
 
@@ -26,6 +23,9 @@ public class FetchWeather
     */
    public FetchWeather(String loc)
    {
+      final String CLIENT_ID = "wQhXMMnxoRV4HNKoRLZrL";
+      final String CLIENT_SECRET = "rUOW0GEyf5bT9JhUzro2WQAuUpj3A7nFHgVCRGEK";
+
       try
       {
          // Encode location
