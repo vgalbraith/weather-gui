@@ -58,6 +58,13 @@ public class FetchWeather
                     .getAsString();
    }
 
+   public String getLocationState()
+   {
+      return results.getAsJsonObject().get("response").getAsJsonObject()
+              .get("place").getAsJsonObject().get("state")
+              .getAsString();
+   }
+
    public String getConditions()
    {
       return results.getAsJsonObject().get("response").getAsJsonObject()

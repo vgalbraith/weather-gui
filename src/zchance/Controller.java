@@ -23,7 +23,7 @@ public class Controller
 
       FetchWeather w = new FetchWeather(location);
 
-      lblLocation.setText("Location: " + w.getLocationName());
+      lblLocation.setText("Location: " + w.getLocationName() + ", " + w.getLocationState());
       lblTemperature.setText("Temperature: " + w.getTemperature() + "F");
       lblConditions.setText("Conditions: " + w.getConditions());
    }
