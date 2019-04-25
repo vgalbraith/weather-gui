@@ -43,8 +43,7 @@ public class FetchWeather
          BufferedReader br = new BufferedReader(isr);
 
          // Parse JSON
-         JsonParser parser = new JsonParser();
-         results = parser.parse(br);
+         results = new JsonParser().parse(br);
       }
       catch (UnsupportedEncodingException e)
       {
@@ -84,9 +83,10 @@ public class FetchWeather
     */
    public String getLocationName()
    {
-      return results.getAsJsonObject().get("response").getAsJsonObject()
+      String temp = results.getAsJsonObject().get("response").getAsJsonObject()
                     .get("place").getAsJsonObject().get("name")
                     .getAsString();
+      return temp.substring(0, 1).toUpperCase() + temp.substring(1);
    }
 
    /**
@@ -97,7 +97,7 @@ public class FetchWeather
    {
       return results.getAsJsonObject().get("response").getAsJsonObject()
               .get("place").getAsJsonObject().get("state")
-              .getAsString();
+              .getAsString().toUpperCase();
    }
 
    /**
@@ -140,7 +140,7 @@ public class FetchWeather
     * (i.e. "dewpointF", "windMPH", "feelslikeF", "humidity", "windDir",
     * "sunrise", "sunset", "precipIN", "snowDepthIN" ... )
     *
-    * @param s stat requests
+    * @param s stat requested
     * @return string
     */
    public String getFromOb(String s)
