@@ -18,7 +18,7 @@ public class FetchWeather
    private final String CLIENT_ID = "wQhXMMnxoRV4HNKoRLZrL";
    private final String CLIENT_SECRET = "rUOW0GEyf5bT9JhUzro2WQAuUpj3A7nFHgVCRGEK";
 
-   private String location;
+   private String query;
    private JsonElement results;
 
    /**
@@ -30,10 +30,10 @@ public class FetchWeather
       try
       {
          // Encode location
-         location = URLEncoder.encode(loc, "UTF-8");
+         query = URLEncoder.encode(loc, "UTF-8");
 
          // Build url
-         String urlString = "https://api.aerisapi.com/observations/" + location
+         String urlString = "https://api.aerisapi.com/observations/" + query
                  + "?client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET;
          URL url = new URL(urlString);
 
@@ -58,6 +58,24 @@ public class FetchWeather
       {
          e.printStackTrace();
       }
+   }
+
+   /**
+    * Getter for query
+    * @return query as String
+    */
+   public String getQuery()
+   {
+      return query;
+   }
+
+   /**
+    * Checks if the API query was successful or not
+    * @return success true or false
+    */
+   public boolean isSuccessful()
+   {
+      return results.getAsJsonObject().get("success").getAsBoolean();
    }
 
    /**
@@ -115,5 +133,20 @@ public class FetchWeather
       return results.getAsJsonObject().get("response").getAsJsonObject()
               .get("ob").getAsJsonObject().get("tempC")
               .getAsString() + "C";
+   }
+
+   /**
+    * Returns stat from "ob" json object
+    * (i.e. "dewpointF", "windMPH", "feelslikeF", "humidity", "windDir",
+    * "sunrise", "sunset", "precipIN", "snowDepthIN" ... )
+    *
+    * @param s stat requests
+    * @return string
+    */
+   public String getFromOb(String s)
+   {
+      return results.getAsJsonObject().get("response").getAsJsonObject()
+              .get("ob").getAsJsonObject().get(s)
+              .getAsString();
    }
 }
