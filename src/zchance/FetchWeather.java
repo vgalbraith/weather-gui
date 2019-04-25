@@ -105,4 +105,15 @@ public class FetchWeather
                     .get("ob").getAsJsonObject().get("tempF")
                     .getAsString() + "F";
    }
+
+   /**
+    * Returns current temperature in Celsius
+    * @return current temp in C
+    */
+   public String getTemperatureC()
+   {
+      return results.getAsJsonObject().get("response").getAsJsonObject()
+              .get("ob").getAsJsonObject().get("tempC")
+              .getAsString() + "C";
+   }
 }
