@@ -24,9 +24,8 @@ public class FetchWeather
          location = URLEncoder.encode(loc, "UTF-8");
 
          // Build url
-         String urlString = "https://api.aerisapi.com/observations/"
-                 + location + "?client_id=" + CLIENT_ID
-                 + "&client_secret=" + CLIENT_SECRET;
+         String urlString = "https://api.aerisapi.com/observations/" + location
+                 + "?client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET;
          URL url = new URL(urlString);
 
          // Open streams
