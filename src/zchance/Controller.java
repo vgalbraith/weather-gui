@@ -32,8 +32,17 @@ public class Controller
 
       FetchWeather w = new FetchWeather(location);
 
-      lblLocation.setText("Location: " + w.getLocationName() + ", " + w.getLocationState());
-      lblTemperature.setText("Temperature: " + w.getTemperatureF());
-      lblConditions.setText("Conditions: " + w.getConditions());
+      if (w.isSuccessful())
+      {
+         lblLocation.setText("Location: " + w.getLocationName() + ", " + w.getLocationState());
+         lblTemperature.setText("Temperature: " + w.getTemperatureF());
+         lblConditions.setText("Conditions: " + w.getConditions());
+      }
+      else
+      {
+         lblLocation.setText("Can't pull data for " + w.getQuery());
+         lblTemperature.setText("");
+         lblConditions.setText("");
+      }
    }
 }
