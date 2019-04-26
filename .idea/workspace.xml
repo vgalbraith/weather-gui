@@ -6,11 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Refactored API variables and removed old out/production/weather-gui dir">
-      <change afterPath="$PROJECT_DIR$/src/zchance/FetchTester.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Added test class and removed redundant methods for general getFromOb method&#10;&#10;Added toString to FetchWeather">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/weather/zchance/FetchWeather.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/weather/zchance/FetchWeather.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/zchance/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zchance/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/weather/zchance/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/weather/zchance/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zchance/FetchTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zchance/FetchTester.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/zchance/FetchWeather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zchance/FetchWeather.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -23,7 +22,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="172" />
+    <option name="myElementSize" value="155" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -89,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/zchance/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
+            <state relative-caret-position="454">
+              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,17 +100,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/zchance/FetchWeather.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="974">
-              <caret line="145" column="64" selection-start-line="145" selection-start-column="64" selection-end-line="145" selection-end-column="64" />
+            <state relative-caret-position="199">
+              <caret line="112" column="29" selection-start-line="112" selection-start-column="29" selection-end-line="112" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1642#1643#0" expanded="true" />
                 <element signature="e#1716#1717#0" expanded="true" />
-                <element signature="e#3754#3755#0" expanded="true" />
-                <element signature="e#3823#3824#0" expanded="true" />
+                <element signature="e#3087#3088#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,8 +118,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/zchance/FetchTester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+            <state relative-caret-position="335">
+              <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -149,9 +147,9 @@
         <option value="$PROJECT_DIR$/src/zchance/module-info.java" />
         <option value="$PROJECT_DIR$/src/module-info.java" />
         <option value="$PROJECT_DIR$/src/zchance/Main.java" />
-        <option value="$PROJECT_DIR$/src/zchance/FetchWeather.java" />
-        <option value="$PROJECT_DIR$/src/zchance/FetchTester.java" />
         <option value="$PROJECT_DIR$/src/zchance/Controller.java" />
+        <option value="$PROJECT_DIR$/src/zchance/FetchTester.java" />
+        <option value="$PROJECT_DIR$/src/zchance/FetchWeather.java" />
       </list>
     </option>
   </component>
@@ -245,7 +243,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.FetchTester">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -477,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556236158717</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added test class and removed redundant methods for general getFromOb method&#10;&#10;Added toString to FetchWeather">
+      <created>1556237960816</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1556237960816</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -506,7 +511,7 @@
       <window_info anchor="bottom" id="Terminal" weight="0.329927" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32929292" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32846716" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.53868616" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -522,7 +527,7 @@
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="Palette&#9;" />
       <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32913518" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32857144" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24937028" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -547,13 +552,17 @@
     <MESSAGE value="Location name capitalizes first letter, state name full caps&#10;&#10;Refactored line 46" />
     <MESSAGE value="Added dedicated labels for fetched data instead of concatenating&#10;&#10;Removed unused import" />
     <MESSAGE value="Refactored API variables and removed old out/production/weather-gui dir" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored API variables and removed old out/production/weather-gui dir" />
+    <MESSAGE value="Added test class and removed redundant methods for general getFromOb method&#10;&#10;Added toString to FetchWeather" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added test class and removed redundant methods for general getFromOb method&#10;&#10;Added toString to FetchWeather" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/weather_gui$FetchTester.ic" NAME="FetchTester Coverage Results" MODIFIED="1556238936366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>zchance.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/weather_gui$Main.ic" NAME="Main Coverage Results" MODIFIED="1556232741346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>zchance.*</FILTER>
     </SUITE>
@@ -595,33 +604,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/zchance/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/zchance/FetchTester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+        <state relative-caret-position="335">
+          <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/zchance/FetchWeather.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="974">
-          <caret line="145" column="64" selection-start-line="145" selection-start-column="64" selection-end-line="145" selection-end-column="64" />
+        <state relative-caret-position="199">
+          <caret line="112" column="29" selection-start-line="112" selection-start-column="29" selection-end-line="112" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1642#1643#0" expanded="true" />
             <element signature="e#1716#1717#0" expanded="true" />
-            <element signature="e#3754#3755#0" expanded="true" />
-            <element signature="e#3823#3824#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/zchance/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3087#3088#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -102,9 +102,17 @@ public class FetchWeather
     */
    public String getFromOb(String s)
    {
-      return results.getAsJsonObject().get("response").getAsJsonObject()
-                    .get("ob").getAsJsonObject().get(s)
-                    .getAsString();
+      try
+      {
+         return results.getAsJsonObject().get("response").getAsJsonObject()
+                 .get("ob").getAsJsonObject().get(s)
+                 .getAsString();
+      }
+      catch (java.lang.UnsupportedOperationException e)
+      {
+         e.printStackTrace();
+      }
+      return "";
    }
 
    /**
@@ -113,7 +121,7 @@ public class FetchWeather
     */
    public String toString()
    {
-      return "Query: " + query + ", Success: " + isSuccessful();
+      return "Query: " + getQuery() + ", Success: " + isSuccessful();
    }
 
 }
