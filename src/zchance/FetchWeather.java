@@ -87,49 +87,15 @@ public class FetchWeather
    public String getLocationState()
    {
       return results.getAsJsonObject().get("response").getAsJsonObject()
-              .get("place").getAsJsonObject().get("state")
-              .getAsString().toUpperCase();
-   }
-
-   /**
-    * Returns a description of the current conditions
-    * (i.e. "Sunny", "Cloudy")
-    *
-    * @return current condition
-    */
-   public String getConditions()
-   {
-      return results.getAsJsonObject().get("response").getAsJsonObject()
-                    .get("ob").getAsJsonObject().get("weather")
-                    .getAsString();
-   }
-
-   /**
-    * Returns current temperature in Fahrenheit
-    * @return current temp in F
-    */
-   public String getTemperatureF()
-   {
-      return results.getAsJsonObject().get("response").getAsJsonObject()
-                    .get("ob").getAsJsonObject().get("tempF")
-                    .getAsString() + "F";
-   }
-
-   /**
-    * Returns current temperature in Celsius
-    * @return current temp in C
-    */
-   public String getTemperatureC()
-   {
-      return results.getAsJsonObject().get("response").getAsJsonObject()
-              .get("ob").getAsJsonObject().get("tempC")
-              .getAsString() + "C";
+                    .get("place").getAsJsonObject().get("state")
+                    .getAsString().toUpperCase();
    }
 
    /**
     * Returns stat from "ob" json object
-    * (i.e. "dewpointF", "windMPH", "feelslikeF", "humidity", "windDir",
-    * "sunrise", "sunset", "precipIN", "snowDepthIN" ... )
+    * (i.e. "tempF", "tempC", "weather", "dewpointF", "windMPH",
+    * "feelslikeF", "humidity", "windDir", "sunrise", "sunset",
+    * "precipIN", "snowDepthIN" ... )
     *
     * @param s stat requested
     * @return string
@@ -137,7 +103,17 @@ public class FetchWeather
    public String getFromOb(String s)
    {
       return results.getAsJsonObject().get("response").getAsJsonObject()
-              .get("ob").getAsJsonObject().get(s)
-              .getAsString();
+                    .get("ob").getAsJsonObject().get(s)
+                    .getAsString();
    }
+
+   /**
+    * String representation of FetchWeather object
+    * @return string
+    */
+   public String toString()
+   {
+      return "Query: " + query + ", Success: " + isSuccessful();
+   }
+
 }
