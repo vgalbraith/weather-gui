@@ -78,6 +78,7 @@ public class FetchWeather
                     .get("place").getAsJsonObject().get("name")
                     .getAsString();
       return temp.substring(0, 1).toUpperCase() + temp.substring(1);
+      /* TODO make this capitalize first letter of all words */
    }
 
    /**

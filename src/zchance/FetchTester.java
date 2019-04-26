@@ -1,12 +1,15 @@
 package zchance;
 
+/**
+ * Test class for FetchWeather
+ */
 public class FetchTester
 {
    public static void main(String[] args)
    {
-      FetchWeather f = new FetchWeather("95661");
+      FetchWeather f = new FetchWeather("sacramento, ca");
       System.out.println(f.toString());
-      System.out.println("Location: " + f.getLocationName() + ", " + f.getLocationState());
+      System.out.println("ocation: " + f.getLocationName() + ", " + f.getLocationState());
       System.out.println("timestamp: " + f.getFromOb("timestamp"));
       System.out.println("tempF: " + f.getFromOb("tempF"));
       System.out.println("dewpointF: " + f.getFromOb("dewpointF"));
