@@ -17,7 +17,8 @@ public class Controller
    TextField tfInput;
 
    @FXML
-   Label lblLocation, lblTemperature, lblConditions;
+   Label lblLocation, lblTemperature, lblConditions, lblWind, lblPressure, lblHumidity,
+         lblFeelsLike, lblDewpoint, lblVisibility, lblPrecip, lblSnowDepth;
 
    @FXML
    Button btnGo;
@@ -37,6 +38,14 @@ public class Controller
          lblLocation.setText(w.getLocationName() + ", " + w.getLocationState());
          lblTemperature.setText(w.getFromOb("tempF") + "F");
          lblConditions.setText(w.getFromOb("weather"));
+         lblWind.setText(w.getFromOb("windMPH") + " MPH " + w.getFromOb("windDir"));
+         lblPressure.setText(w.getFromOb("pressureIN") + " inHg");
+         lblHumidity.setText(w.getFromOb("humidity") + "%");
+         lblDewpoint.setText(w.getFromOb("dewpointF") + "F");
+         lblVisibility.setText(w.getFromOb("visibilityMI") + " MI");
+         lblPrecip.setText(w.getFromOb("precipIN") + " IN");
+         lblSnowDepth.setText(w.getFromOb("snowDepthIN") + " IN");
+         lblFeelsLike.setText(w.getFromOb("feelslikeF") + "F");
       }
       else
       {

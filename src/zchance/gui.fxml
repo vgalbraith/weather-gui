@@ -8,7 +8,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="168.0" prefWidth="311.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zchance.Controller">
    <children>
-      <TextField fx:id="tfInput" layoutX="19.0" layoutY="14.0" prefHeight="27.0" prefWidth="234.0" promptText="&quot;Sacramento, CA&quot;, &quot;90210&quot;, &quot;SFO&quot;">
+      <TextField fx:id="tfInput" focusTraversable="false" layoutX="19.0" layoutY="14.0" prefHeight="27.0" prefWidth="234.0" promptText="&quot;Sacramento, CA&quot;, &quot;90210&quot;, &quot;SFO&quot;">
          <tooltip>
             <Tooltip text="Examples: &quot;Sacramento, CA&quot;, &quot;90210&quot;, &quot;SFO&quot;" />
          </tooltip></TextField>
