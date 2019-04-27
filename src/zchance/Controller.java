@@ -29,8 +29,9 @@ public class Controller
     */
    public void handleGo(ActionEvent ae)
    {
-      String location = tfInput.getText();
+      clearLabels();
 
+      String location = tfInput.getText();
       FetchWeather w = new FetchWeather(location);
 
       if (w.isSuccessful())
@@ -53,5 +54,23 @@ public class Controller
          lblTemperature.setText("");
          lblConditions.setText("");
       }
+   }
+
+   /**
+    * Clears all labels
+    */
+   private void clearLabels()
+   {
+      lblLocation.setText("");
+      lblTemperature.setText("");
+      lblConditions.setText("");
+      lblWind.setText("");
+      lblPressure.setText("");
+      lblHumidity.setText("");
+      lblDewpoint.setText("");
+      lblVisibility.setText("");
+      lblPrecip.setText("");
+      lblSnowDepth.setText("");
+      lblFeelsLike.setText("");
    }
 }
