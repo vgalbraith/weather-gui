@@ -23,6 +23,8 @@ public class Controller
    @FXML
    Button btnGo;
 
+   boolean isFahrenheit = true;
+
    /**
     * Handles the go button
     * @param ae ActionEvent
@@ -53,6 +55,24 @@ public class Controller
          lblLocation.setText("Can't pull data for " + w.getQuery());
          lblTemperature.setText("");
          lblConditions.setText("");
+      }
+   }
+
+   /**
+    * Handles the btnTemp button
+    * displays temperature in degrees Celsius
+    */
+   public void handleBTNTemp
+   {
+      if (isFahrenheit)
+      {
+         lblTemperature.setText(w.getFromOb("tempC") + "C");
+         isFahrenheit = false;
+      }
+      else
+      {
+         lblTemperature.setText(w.getFromOb("tempF") + "F");
+         isFahrenheit = true;
       }
    }
 
