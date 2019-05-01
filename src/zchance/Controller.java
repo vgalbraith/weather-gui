@@ -38,8 +38,15 @@ public class Controller
 
       if (w.isSuccessful())
       {
+         if (isFahrenheit)
+         {
+            lblTemperature.setText(w.getFromOb("tempF") + "F");
+         }
+         else
+         {
+            lblTemperature.setText(w.getFromOb("tempF") + "F");
+         }
          lblLocation.setText(w.getLocationName() + ", " + w.getLocationState());
-         lblTemperature.setText(w.getFromOb("tempF") + "F");
          lblConditions.setText(w.getFromOb("weather"));
          lblWind.setText(w.getFromOb("windMPH") + " MPH " + w.getFromOb("windDir"));
          lblPressure.setText(w.getFromOb("pressureIN") + " inHg");
