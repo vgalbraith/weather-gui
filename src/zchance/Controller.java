@@ -21,7 +21,9 @@ public class Controller
          lblFeelsLike, lblDewpoint, lblVisibility, lblPrecip, lblSnowDepth;
 
    @FXML
-   Button btnGo;
+   Button btnGo, btnTemp;
+
+   boolean isFahrenheit = true;
 
    /**
     * Handles the go button
@@ -36,8 +38,15 @@ public class Controller
 
       if (w.isSuccessful())
       {
+         if (isFahrenheit)
+         {
+            lblTemperature.setText(w.getFromOb("tempF") + "F");
+         }
+         else
+         {
+            lblTemperature.setText(w.getFromOb("tempF") + "F");
+         }
          lblLocation.setText(w.getLocationName() + ", " + w.getLocationState());
-         lblTemperature.setText(w.getFromOb("tempF") + "F");
          lblConditions.setText(w.getFromOb("weather"));
          lblWind.setText(w.getFromOb("windMPH") + " MPH " + w.getFromOb("windDir"));
          lblPressure.setText(w.getFromOb("pressureIN") + " inHg");
@@ -53,6 +62,27 @@ public class Controller
          lblLocation.setText("Can't pull data for " + w.getQuery());
          lblTemperature.setText("");
          lblConditions.setText("");
+      }
+   }
+
+   /**
+    * Handles the btnTemp button
+    * displays temperature in degrees Celsius
+    */
+   public void handleBTNTemp()
+   {
+      String location = tfInput.getText();
+      FetchWeather w = new FetchWeather(location);
+
+      if (isFahrenheit)
+      {
+         lblTemperature.setText(w.getFromOb("tempC") + "C");
+         isFahrenheit = false;
+      }
+      else
+      {
+         lblTemperature.setText(w.getFromOb("tempF") + "F");
+         isFahrenheit = true;
       }
    }
 
