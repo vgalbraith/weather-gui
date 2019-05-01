@@ -35,6 +35,7 @@
             </TextField>
             <Button fx:id="btnGo" defaultButton="true" mnemonicParsing="false" onAction="#handleGo" prefHeight="27.0" prefWidth="107.0" text="Go" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Search: " />
+            <Button fx:id="btnTemp" mnemonicParsing="false" onAction="#handleBTNTemp" prefHeight="27.0" prefWidth="94.0" text="F to C" GridPane.columnIndex="1" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

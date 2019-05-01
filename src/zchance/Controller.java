@@ -62,8 +62,11 @@ public class Controller
     * Handles the btnTemp button
     * displays temperature in degrees Celsius
     */
-   public void handleBTNTemp
+   public void handleBTNTemp()
    {
+      String location = tfInput.getText();
+      FetchWeather w = new FetchWeather(location);
+
       if (isFahrenheit)
       {
          lblTemperature.setText(w.getFromOb("tempC") + "C");
