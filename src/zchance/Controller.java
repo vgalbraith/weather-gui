@@ -21,7 +21,7 @@ public class Controller
          lblFeelsLike, lblDewpoint, lblVisibility, lblPrecip, lblSnowDepth;
 
    @FXML
-   Button btnGo;
+   Button btnGo, btnTemp;
 
    /**
     * Handles the go button
