@@ -45,22 +45,22 @@ public class Controller
       {
          if (isFahrenheit)
          {
-            lblTemperature.setText(w.getFromOb("tempF") + "F");
+            lblTemperature.setText(w.getFromOb("tempF") + "\u00B0F");
          }
          else
          {
-            lblTemperature.setText(w.getFromOb("tempF") + "F");
+            lblTemperature.setText(w.getFromOb("tempF") + "\u00B0F");
          }
          lblLocation.setText(w.getLocationName() + ", " + w.getLocationState());
          lblConditions.setText(w.getFromOb("weather"));
          lblWind.setText(w.getFromOb("windMPH") + " MPH " + w.getFromOb("windDir"));
          lblPressure.setText(w.getFromOb("pressureIN") + " inHg");
          lblHumidity.setText(w.getFromOb("humidity") + "%");
-         lblDewpoint.setText(w.getFromOb("dewpointF") + "F");
+         lblDewpoint.setText(w.getFromOb("dewpointF") + "\u00B0F");
          lblVisibility.setText(w.getFromOb("visibilityMI") + " MI");
          lblPrecip.setText(w.getFromOb("precipIN") + " IN");
          lblSnowDepth.setText(w.getFromOb("snowDepthIN") + " IN");
-         lblFeelsLike.setText(w.getFromOb("feelslikeF") + "F");
+         lblFeelsLike.setText(w.getFromOb("feelslikeF") + "\u00B0F");
          weatherImageView.setImage(new Image("file:Images/" + w.getFromOb("icon")));
       }
       else
@@ -82,12 +82,12 @@ public class Controller
 
       if (isFahrenheit)
       {
-         lblTemperature.setText(w.getFromOb("tempC") + "C");
+         lblTemperature.setText(w.getFromOb("tempC") + "\u00B0C");
          isFahrenheit = false;
       }
       else
       {
-         lblTemperature.setText(w.getFromOb("tempF") + "F");
+         lblTemperature.setText(w.getFromOb("tempF") + "\u00B0F");
          isFahrenheit = true;
       }
    }
