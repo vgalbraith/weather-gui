@@ -86,7 +86,15 @@ public class Controller
    public void handleBTNTemp()
    {
       String location = tfInput.getText();
-      FetchWeather w = new FetchWeather(location);
+      FetchWeather w;
+      if (location.isEmpty())
+      {
+         w = new FetchWeather(":auto");
+      }
+      else
+      {
+         w = new FetchWeather(location);
+      }
 
       if (isFahrenheit)
       {
