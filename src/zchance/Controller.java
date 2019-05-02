@@ -57,7 +57,7 @@ public class Controller
          }
          else
          {
-            lblTemperature.setText(w.getFromOb("tempF") + "\u00B0F");
+            lblTemperature.setText(w.getFromOb("tempC") + "\u00B0C");
          }
          lblLocation.setText(w.getLocationName() + ", " + w.getLocationState());
          lblConditions.setText(w.getFromOb("weather"));
