@@ -111,7 +111,7 @@ public class FetchWeather
       }
       catch (java.lang.UnsupportedOperationException e)
       {
-         e.printStackTrace();
+         //e.printStackTrace();
       }
       return "";
    }
