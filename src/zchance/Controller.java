@@ -28,7 +28,7 @@ public class Controller
    @FXML
    ImageView weatherImageView;
 
-   boolean isFahrenheit = true;
+   private boolean isFahrenheit = true;
 
    /**
     * Handles the go button
@@ -37,9 +37,17 @@ public class Controller
    public void handleGo(ActionEvent ae)
    {
       clearLabels();
+      FetchWeather w;
 
       String location = tfInput.getText();
-      FetchWeather w = new FetchWeather(location);
+      if (location.isEmpty())
+      {
+         w = new FetchWeather(":auto");
+      }
+      else
+      {
+         w = new FetchWeather(location);
+      }
 
       if (w.isSuccessful())
       {
