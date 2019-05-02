@@ -154,7 +154,7 @@
                   <RowConstraints />
               </rowConstraints>
                <children>
-                  <Label fx:id="lblTemperature" prefHeight="59.0" prefWidth="382.0" text="0°F" GridPane.rowIndex="1">
+                  <Label fx:id="lblTemperature" prefHeight="59.0" prefWidth="382.0" text="0F" GridPane.rowIndex="1">
                      <font>
                         <Font size="54.0" />
                      </font>
