@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * Controller for weather-gui
@@ -22,6 +24,9 @@ public class Controller
 
    @FXML
    Button btnGo, btnTemp;
+
+   @FXML
+   ImageView weatherImageView;
 
    boolean isFahrenheit = true;
 
@@ -56,6 +61,7 @@ public class Controller
          lblPrecip.setText(w.getFromOb("precipIN") + " IN");
          lblSnowDepth.setText(w.getFromOb("snowDepthIN") + " IN");
          lblFeelsLike.setText(w.getFromOb("feelslikeF") + "F");
+         weatherImageView.setImage(new Image("file:Images/" + w.getFromOb("icon")));
       }
       else
       {
