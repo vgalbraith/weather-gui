@@ -29,6 +29,8 @@ public class Controller
    ImageView weatherImageView;
 
    private boolean isFahrenheit = true;
+   private String tempF = "0";
+   private String tempC = "0";
 
    /**
     * Handles the go button
@@ -51,13 +53,16 @@ public class Controller
 
       if (w.isSuccessful())
       {
+         tempF = w.getFromOb("tempF");
+         tempC = w.getFromOb("tempC");
+
          if (isFahrenheit)
          {
-            lblTemperature.setText(w.getFromOb("tempF") + "\u00B0F");
+            lblTemperature.setText(tempF + "\u00B0F");
          }
          else
          {
-            lblTemperature.setText(w.getFromOb("tempC") + "\u00B0C");
+            lblTemperature.setText(tempC + "\u00B0C");
          }
          lblLocation.setText(w.getLocationName() + ", " + w.getLocationState());
          lblConditions.setText(w.getFromOb("weather"));
@@ -85,25 +90,18 @@ public class Controller
     */
    public void handleBTNTemp()
    {
-      String location = tfInput.getText();
-      FetchWeather w;
-      if (location.isEmpty())
-      {
-         w = new FetchWeather(":auto");
-      }
-      else
-      {
-         w = new FetchWeather(location);
-      }
+
 
       if (isFahrenheit)
       {
-         lblTemperature.setText(w.getFromOb("tempC") + "\u00B0C");
+         lblTemperature.setText(tempC + "\u00B0C");
+         btnTemp.setText("\u00B0C");
          isFahrenheit = false;
       }
       else
       {
-         lblTemperature.setText(w.getFromOb("tempF") + "\u00B0F");
+         lblTemperature.setText(tempF + "\u00B0F");
+         btnTemp.setText("\u00B0F");
          isFahrenheit = true;
       }
    }
