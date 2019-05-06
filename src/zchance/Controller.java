@@ -119,6 +119,7 @@ public class Controller
          lblLocation.setText("Can't pull data for " + w.getQuery());
          lblTemperature.setText("");
          lblConditions.setText("");
+         weatherImageView.setImage(new Image("file:Images/na.png")); //puts a question mark on screen when location cannot be pulled
       }
    }
 
