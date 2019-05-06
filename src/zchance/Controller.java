@@ -37,12 +37,12 @@ public class Controller
    /**
     * Fahrenheit temp variable
     */
-   private String tempF;
+   private String tempF = "0";
 
    /**
     * Celsius temp variable
     */
-   private String tempC;
+   private String tempC = "0";
 
    /**
     * Feels like fahrenheit variable
