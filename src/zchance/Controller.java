@@ -28,9 +28,41 @@ public class Controller
    @FXML
    ImageView weatherImageView;
 
+   /**
+    * Boolean to check whether or not the temperature is in
+    * fahrenheit or celsius
+    */
    private boolean isFahrenheit = true;
-   private String tempF = "0";
-   private String tempC = "0";
+
+   /**
+    * Fahrenheit temp variable
+    */
+   private String tempF;
+
+   /**
+    * Celsius temp variable
+    */
+   private String tempC;
+
+   /**
+    * Feels like fahrenheit variable
+    */
+   private String feelsLikeF;
+
+   /**
+    * Feels like celsius variable
+    */
+   private String feelsLikeC;
+
+   /**
+    * Dewpoint fahrenheit variable
+    */
+   private String dewpointF;
+
+   /**
+    * Dewpoint celsius variable
+    */
+   private String dewpointC;
 
    /**
     * Handles the go button
@@ -55,25 +87,31 @@ public class Controller
       {
          tempF = w.getFromOb("tempF");
          tempC = w.getFromOb("tempC");
+         feelsLikeF = w.getFromOb("feelslikeF");
+         feelsLikeC = w.getFromOb("feelslikeC");
+         dewpointF = w.getFromOb("dewpointF");
+         dewpointC = w.getFromOb("dewpointC");
 
          if (isFahrenheit)
          {
             lblTemperature.setText(tempF + "\u00B0F");
+            lblFeelsLike.setText(feelsLikeF + "\u00B0F");
+            lblDewpoint.setText(dewpointF + "\u00B0F");
          }
          else
          {
             lblTemperature.setText(tempC + "\u00B0C");
+            lblFeelsLike.setText(feelsLikeC + "\u00B0C");
+            lblDewpoint.setText(dewpointC + "\u00B0C");
          }
          lblLocation.setText(w.getLocationName() + ", " + w.getLocationState());
          lblConditions.setText(w.getFromOb("weather"));
          lblWind.setText(w.getFromOb("windMPH") + " MPH " + w.getFromOb("windDir"));
          lblPressure.setText(w.getFromOb("pressureIN") + " inHg");
          lblHumidity.setText(w.getFromOb("humidity") + "%");
-         lblDewpoint.setText(w.getFromOb("dewpointF") + "\u00B0F");
          lblVisibility.setText(w.getFromOb("visibilityMI") + " MI");
          lblPrecip.setText(w.getFromOb("precipIN") + " IN");
          lblSnowDepth.setText(w.getFromOb("snowDepthIN") + " IN");
-         lblFeelsLike.setText(w.getFromOb("feelslikeF") + "\u00B0F");
          weatherImageView.setImage(new Image("file:Images/" + w.getFromOb("icon")));
       }
       else
@@ -90,17 +128,19 @@ public class Controller
     */
    public void handleBTNTemp()
    {
-
-
       if (isFahrenheit)
       {
          lblTemperature.setText(tempC + "\u00B0C");
+         lblFeelsLike.setText(feelsLikeC + "\u00B0C");
+         lblDewpoint.setText(dewpointC + "\u00B0C");
          btnTemp.setText("\u00B0C");
          isFahrenheit = false;
       }
       else
       {
          lblTemperature.setText(tempF + "\u00B0F");
+         lblFeelsLike.setText(feelsLikeF + "\u00B0F");
+         lblDewpoint.setText(dewpointF + "\u00B0F");
          btnTemp.setText("\u00B0F");
          isFahrenheit = true;
       }
