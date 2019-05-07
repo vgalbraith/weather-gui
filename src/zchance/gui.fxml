@@ -7,16 +7,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="389.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zchance.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="389.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zchance.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="121.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="191.0" minHeight="10.0" prefHeight="189.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="212.0" minHeight="0.0" prefHeight="83.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="350.0" minHeight="10.0" prefHeight="221.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="350.0" minHeight="10.0" prefHeight="141.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <GridPane GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
@@ -38,112 +40,27 @@
             <Label text="Search: " />
             <Button fx:id="btnTemp" mnemonicParsing="false" onAction="#handleBTNTemp" prefHeight="27.0" prefWidth="94.0" text="ºF" GridPane.columnIndex="1" />
          </children>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
       </GridPane>
       <GridPane prefHeight="121.0" prefWidth="373.0" GridPane.rowIndex="1">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="46.0" minHeight="0.0" prefHeight="39.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="127.0" minHeight="0.0" prefHeight="21.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="127.0" minHeight="0.0" prefHeight="96.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="49.0" minHeight="0.0" prefHeight="49.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="127.0" minHeight="0.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="127.0" minHeight="0.0" prefHeight="104.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="lblLocation" prefHeight="24.0" prefWidth="388.0" GridPane.rowIndex="1">
+            <Label fx:id="lblLocation" alignment="CENTER" prefHeight="24.0" prefWidth="359.0" GridPane.rowIndex="1">
                <font>
                   <Font size="19.0" />
                </font></Label>
-            <Label fx:id="lblConditions" prefHeight="20.0" prefWidth="361.0" style="-fx-font-style: italic; -fx-font-family: italic;" GridPane.rowIndex="2">
+            <Label fx:id="lblConditions" alignment="CENTER" prefHeight="20.0" prefWidth="359.0" style="-fx-font-style: italic; -fx-font-family: italic;" GridPane.rowIndex="2">
                <font>
                   <Font name="System Italic" size="16.0" />
                </font></Label>
-            <GridPane GridPane.rowIndex="3">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="70.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="104.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="89.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.0" minWidth="10.0" prefWidth="94.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label text="Pressure: " GridPane.rowIndex="2" />
-                  <Label text="Humidity: " GridPane.rowIndex="1" />
-                  <Label prefHeight="17.0" prefWidth="90.0" text="Wind: " GridPane.columnIndex="2">
-                     <padding>
-                        <Insets left="5.0" />
-                     </padding></Label>
-                  <Label text="Feels like: " />
-                  <Label text="Dewpoint: " GridPane.rowIndex="3" />
-                  <Label prefHeight="17.0" prefWidth="88.0" text="Visibility: " GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <padding>
-                        <Insets left="5.0" />
-                     </padding>
-                  </Label>
-                  <Label prefHeight="17.0" prefWidth="88.0" text="Precip:" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                     <padding>
-                        <Insets left="5.0" />
-                     </padding>
-                  </Label>
-                  <Label text="Snow depth: " GridPane.columnIndex="2" GridPane.rowIndex="3">
-                     <padding>
-                        <Insets left="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="lblFeelsLike" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="1">
-                     <padding>
-                        <Insets right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="lblHumidity" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <padding>
-                        <Insets right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="lblPressure" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <padding>
-                        <Insets right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="lblWind" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="3">
-                     <padding>
-                        <Insets right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="lblDewpoint" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <padding>
-                        <Insets right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="lblVisibility" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                     <padding>
-                        <Insets right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="lblPrecip" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                     <padding>
-                        <Insets right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="lblSnowDepth" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                     <padding>
-                        <Insets right="5.0" />
-                     </padding>
-                  </Label>
-               </children>
-            </GridPane>
-            <GridPane>
+            <GridPane prefWidth="359.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -153,7 +70,7 @@
                   <RowConstraints />
               </rowConstraints>
                <children>
-                  <Label fx:id="lblTemperature" prefHeight="65.0" prefWidth="201.0" text="0°F" GridPane.rowIndex="1">
+                  <Label fx:id="lblTemperature" alignment="CENTER_RIGHT" prefHeight="65.0" prefWidth="201.0" text="0°F" GridPane.rowIndex="1">
                      <font>
                         <Font size="48.0" />
                      </font>
@@ -161,13 +78,175 @@
                         <Insets bottom="5.0" />
                      </padding>
                   </Label>
-                  <ImageView fx:id="weatherImageView" fitHeight="72.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fx:id="weatherImageView" fitHeight="65.0" fitWidth="75.0" layoutX="25.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </Pane>
+               </children>
+            </GridPane>
+            <GridPane prefWidth="359.0" GridPane.rowIndex="3">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="75ºF" />
+                        <Label alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="45ºF" />
+                        <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Tues" />
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" />
+                        <Label alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" />
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="61.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                     <children>
+                        <Label alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" />
+                        <Label alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" />
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="112.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+                     <children>
+                        <Label alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" />
+                        <Label alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" />
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="163.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
+                     <children>
+                        <Label alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" />
+                        <Label alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" />
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="214.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5">
+                     <children>
+                        <Label alignment="CENTER" layoutX="1.0" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" />
+                        <Label alignment="CENTER" layoutX="1.0" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" />
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="11.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="265.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6">
+                     <children>
+                        <Label alignment="CENTER" layoutX="1.0" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" />
+                        <Label alignment="CENTER" layoutX="1.0" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" />
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="11.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
+                     </children>
+                  </Pane>
                </children>
             </GridPane>
          </children>
          <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" />
+            <Insets bottom="15.0" />
          </padding>
       </GridPane>
+      <GridPane GridPane.rowIndex="2">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="70.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="104.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="89.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.0" minWidth="10.0" prefWidth="94.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Pressure: " GridPane.rowIndex="2" />
+            <Label text="Humidity: " GridPane.rowIndex="1" />
+            <Label prefHeight="17.0" prefWidth="90.0" text="Wind: " GridPane.columnIndex="2">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <Label text="Feels like: " />
+            <Label text="Dewpoint: " GridPane.rowIndex="3" />
+            <Label prefHeight="17.0" prefWidth="88.0" text="Visibility: " GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="88.0" text="Precip:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <Label text="Snow depth: " GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="lblFeelsLike" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="lblHumidity" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="lblPressure" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="lblWind" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="3">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="lblDewpoint" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="lblVisibility" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="lblPrecip" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="lblSnowDepth" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+         </children>
+      </GridPane>
    </children>
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
 </GridPane>
