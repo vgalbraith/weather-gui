@@ -121,7 +121,7 @@ public class FetchWeather
     * (i.e. "America\/Los_Angeles")
     * @return timezone
     */
-   public String getTimezone(String s)
+   public String getTimezone()
    {
       try
       {
