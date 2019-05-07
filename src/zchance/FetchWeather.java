@@ -117,6 +117,27 @@ public class FetchWeather
    }
 
    /**
+    * Returns the timezone
+    * (i.e. "America\/Los_Angeles")
+    * @return timezone
+    */
+   public String getTimezone(String s)
+   {
+      try
+      {
+         return results.getAsJsonObject().get("response").getAsJsonObject()
+                 .get("profile").getAsJsonObject().get("tz")
+                 .getAsString();
+      }
+      catch (java.lang.UnsupportedOperationException e)
+      {
+         //e.printStackTrace();
+      }
+      return "";
+   }
+
+
+   /**
     * String representation of FetchWeather object
     * @return string
     */
