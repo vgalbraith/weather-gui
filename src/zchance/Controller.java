@@ -47,22 +47,22 @@ public class Controller
    /**
     * Feels like fahrenheit variable
     */
-   private String feelsLikeF;
+   private String feelsLikeF = "0";
 
    /**
     * Feels like celsius variable
     */
-   private String feelsLikeC;
+   private String feelsLikeC = "0";
 
    /**
     * Dewpoint fahrenheit variable
     */
-   private String dewpointF;
+   private String dewpointF = "0";
 
    /**
     * Dewpoint celsius variable
     */
-   private String dewpointC;
+   private String dewpointC = "0";
 
    /**
     * Handles the go button
