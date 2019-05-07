@@ -104,7 +104,7 @@ public class FetchForecast {
                     .getAsJsonObject().get("periods").getAsJsonArray().get(index)
                     .getAsJsonObject().get(accessLabel).getAsString();
         }
-        catch(java.lang.NullPointerException e)
+        catch(java.lang.NullPointerException e) //Exception disregards if checked object is empty
         {
         }
         return "";
