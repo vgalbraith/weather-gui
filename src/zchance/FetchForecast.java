@@ -24,7 +24,7 @@ public class FetchForecast {
      */
     public FetchForecast(String loc) {
         final String CLIENT_ID = "wQhXMMnxoRV4HNKoRLZrL";
-        final String CLIENT_SECRET = "rUOW0GEyf5bT9JhUzro2WQAuUpj3A7nFHgVCRGEK";
+        final String CLIENT_SECRET = "JIZobWk2qyfbStTUJSShF1kTLp06WTXLcJKA5dpD";
 
         try
         {
