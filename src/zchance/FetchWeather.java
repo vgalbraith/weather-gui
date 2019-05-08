@@ -26,13 +26,12 @@ public class FetchWeather
       final String CLIENT_ID = "wQhXMMnxoRV4HNKoRLZrL";
       final String CLIENT_SECRET = "JIZobWk2qyfbStTUJSShF1kTLp06WTXLcJKA5dpD";
 
+      query = CityFormatter.format(loc);
+
       try
       {
-         // Encode location
-         query = URLEncoder.encode(loc, "UTF-8");
-
          // Build url
-         String urlString = "https://api.aerisapi.com/observations/" + query
+         String urlString = "https://api.aerisapi.com/observations/" + URLEncoder.encode(query, "UTF-8")
                  + "?client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET;
          URL url = new URL(urlString);
 
@@ -74,11 +73,9 @@ public class FetchWeather
     */
    public String getLocationName()
    {
-      String temp = results.getAsJsonObject().get("response").getAsJsonObject()
+      return results.getAsJsonObject().get("response").getAsJsonObject()
                     .get("place").getAsJsonObject().get("name")
                     .getAsString();
-      return temp.substring(0, 1).toUpperCase() + temp.substring(1);
-      /* TODO make this capitalize first letter of all words */
    }
 
    /**
@@ -89,7 +86,17 @@ public class FetchWeather
    {
       return results.getAsJsonObject().get("response").getAsJsonObject()
                     .get("place").getAsJsonObject().get("state")
-                    .getAsString().toUpperCase();
+                    .getAsString();
+   }
+
+   /**
+    * Returns the location of the query in a formatted state
+    * @return formatted location
+    */
+   public String getLocation()
+   {
+      String temp = getLocationName() + " " + getLocationState();
+      return CityFormatter.format(temp);
    }
 
    /**

@@ -26,7 +26,7 @@ public class CityFormatter
    {
       String test1 = "san francisco ca";
       String test2 = "roseville, ca";
-      String test3 = "los angeles ca";
+      String test3 = "95661";
       String test4 = "SACRAMENTO CA";
 
       test1 = CityFormatter.format(test1);

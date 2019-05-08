@@ -104,7 +104,7 @@ public class Controller
             lblFeelsLike.setText(feelsLikeC + "\u00B0C");
             lblDewpoint.setText(dewpointC + "\u00B0C");
          }
-         lblLocation.setText(w.getLocationName() + ", " + w.getLocationState());
+         lblLocation.setText(w.getLocation());
          lblConditions.setText(w.getFromOb("weather"));
          lblWind.setText(w.getFromOb("windMPH") + " MPH " + w.getFromOb("windDir"));
          lblPressure.setText(w.getFromOb("pressureIN") + " inHg");
