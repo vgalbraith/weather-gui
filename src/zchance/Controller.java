@@ -8,6 +8,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+
 /**
  * Controller for weather-gui
  *
@@ -20,13 +25,14 @@ public class Controller
 
    @FXML
    Label lblLocation, lblTemperature, lblConditions, lblWind, lblPressure, lblHumidity,
-         lblFeelsLike, lblDewpoint, lblVisibility, lblPrecip, lblSnowDepth;
+         lblFeelsLike, lblDewpoint, lblVisibility, lblPrecip, lblSnowDepth,
+         lblWeekDay1, lblWeekDay2, lblWeekday3, lblWeekDay4, lblWeekDay5, lblWeekDay6, lblWeekDay7;
 
    @FXML
    Button btnGo, btnTemp;
 
    @FXML
-   ImageView weatherImageView;
+   ImageView weatherImageView, gCatView;
 
    /**
     * Boolean to check whether or not the temperature is in
@@ -64,6 +70,11 @@ public class Controller
     */
    private String dewpointC = "0";
 
+   /*
+    * UNIX timestamp variable
+    */
+   private long timestamp = 0l;
+
    /**
     * Handles the go button
     * @param ae ActionEvent
@@ -92,6 +103,7 @@ public class Controller
          dewpointF = w.getFromOb("dewpointF");
          dewpointC = w.getFromOb("dewpointC");
 
+
          if (isFahrenheit)
          {
             lblTemperature.setText(tempF + "\u00B0F");
@@ -113,6 +125,9 @@ public class Controller
          lblPrecip.setText(w.getFromOb("precipIN") + " IN");
          lblSnowDepth.setText(w.getFromOb("snowDepthIN") + " IN");
          weatherImageView.setImage(new Image("file:Images/" + w.getFromOb("icon")));
+
+         gCatView.setImage(new Image("file:Images/gCat.gif"));
+
       }
       else
       {

@@ -10,14 +10,16 @@ public class TimestampMachine
 
     // Constructor
     // Initializes day to ""
-    public TimestampMachine()
+    /*public TimestampMachine()
     {
         day = "";
     }
 
-    public String getDay(long ts)
+     */
+
+    public String getDay(String ts)
     {
-        long timestamp = ts;
+        long timestamp = Long.parseLong(ts);
 
         // EEE makes it a shorthand date (i.e. "Mon"), Locale.US gives us our day names
         SimpleDateFormat dateFormat = new SimpleDateFormat("EEE", Locale.US);

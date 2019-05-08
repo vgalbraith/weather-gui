@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -14,8 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane prefHeight="487.0" prefWidth="389.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zchance.Controller">
+<Pane prefHeight="503.0" prefWidth="389.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zchance.Controller">
    <children>
       <GridPane layoutX="17.0" layoutY="14.0" prefHeight="32.0" prefWidth="356.0">
         <columnConstraints>
@@ -39,9 +39,9 @@
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </opaqueInsets>
       </GridPane>
-      <TabPane layoutY="53.0" prefHeight="435.0" prefWidth="389.0">
+      <TabPane layoutY="53.0" prefHeight="451.0" prefWidth="389.0">
          <tabs>
-            <Tab closable="false" text="Weather Conditions">
+            <Tab closable="false" style="-fx-padding: 10px; -fx-pref-width: 185px; -fx-alignment: CENTER;" text="Weather Conditions">
                <content>
                   <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="389.0">
                     <columnConstraints>
@@ -266,9 +266,16 @@
                   </GridPane>
                </content>
             </Tab>
-            <Tab closable="false" text="Radar">
+            <Tab closable="false" style="-fx-pref-width: 185px; -fx-padding: 10px;" text="Radar">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane prefHeight="392.0" prefWidth="383.0">
+                     <children>
+                        <ImageView fx:id="gCatView" fitHeight="150.0" fitWidth="200.0" layoutX="245.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Images/gCat.gif" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
               </content>
             </Tab>
          </tabs>
