@@ -4,6 +4,10 @@ public class CityFormatter
 {
    public static String format(String query)
    {
+      if (query.equals(":auto"))
+      {
+         return ":auto";
+      }
       query = query.stripLeading();
       query = query.replaceAll(",", " ");
       query = query.replaceAll("  +", " ");
