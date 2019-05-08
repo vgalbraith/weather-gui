@@ -75,6 +75,7 @@ public class Controller
     */
    private String[] forecastHis = new String[7];
    private String[] forecastLos = new String[7];
+   FetchForecast f7Day;
 
    /**
     * Handles the go button
@@ -84,7 +85,6 @@ public class Controller
    {
       clearLabels();
       FetchWeather w;
-      FetchForecast f7Day;
 
       String location = tfInput.getText();
       if (location.isEmpty())
@@ -203,6 +203,32 @@ public class Controller
          lblFeelsLike.setText(feelsLikeC + "\u00B0C");
          lblDewpoint.setText(dewpointC + "\u00B0C");
          btnTemp.setText("\u00B0C");
+         //instantiation for forecast elements in degrees Celsius
+         for(int index = 0; index < 7; index++)
+         {
+            forecastHis[index] = f7Day.getDayForecasts("maxTempC", index) + "\u00B0C";
+         }
+         for(int index = 0; index < 7; index++)
+         {
+            forecastLos[index] = f7Day.getDayForecasts("minTempC", index) + "\u00B0C";
+         }
+
+         lblForecastHi0.setText(forecastHis[0]);
+         lblForecastHi1.setText(forecastHis[1]);
+         lblForecastHi2.setText(forecastHis[2]);
+         lblForecastHi3.setText(forecastHis[3]);
+         lblForecastHi4.setText(forecastHis[4]);
+         lblForecastHi5.setText(forecastHis[5]);
+         lblForecastHi6.setText(forecastHis[6]);
+
+         lblForecastLo0.setText(forecastLos[0]);
+         lblForecastLo1.setText(forecastLos[1]);
+         lblForecastLo2.setText(forecastLos[2]);
+         lblForecastLo3.setText(forecastLos[3]);
+         lblForecastLo4.setText(forecastLos[4]);
+         lblForecastLo5.setText(forecastLos[5]);
+         lblForecastLo6.setText(forecastLos[6]);
+
          isFahrenheit = false;
       }
       else
@@ -211,6 +237,33 @@ public class Controller
          lblFeelsLike.setText(feelsLikeF + "\u00B0F");
          lblDewpoint.setText(dewpointF + "\u00B0F");
          btnTemp.setText("\u00B0F");
+
+         //instantiation for forecast elements in degrees Fahrenheit
+         for(int index = 0; index < 7; index++)
+         {
+            forecastHis[index] = f7Day.getDayForecasts("maxTempF", index) + "\u00B0F";
+         }
+         for(int index = 0; index < 7; index++)
+         {
+            forecastLos[index] = f7Day.getDayForecasts("minTempF", index) + "\u00B0F";
+         }
+
+         lblForecastHi0.setText(forecastHis[0]);
+         lblForecastHi1.setText(forecastHis[1]);
+         lblForecastHi2.setText(forecastHis[2]);
+         lblForecastHi3.setText(forecastHis[3]);
+         lblForecastHi4.setText(forecastHis[4]);
+         lblForecastHi5.setText(forecastHis[5]);
+         lblForecastHi6.setText(forecastHis[6]);
+
+         lblForecastLo0.setText(forecastLos[0]);
+         lblForecastLo1.setText(forecastLos[1]);
+         lblForecastLo2.setText(forecastLos[2]);
+         lblForecastLo3.setText(forecastLos[3]);
+         lblForecastLo4.setText(forecastLos[4]);
+         lblForecastLo5.setText(forecastLos[5]);
+         lblForecastLo6.setText(forecastLos[6]);
+
          isFahrenheit = true;
       }
    }
