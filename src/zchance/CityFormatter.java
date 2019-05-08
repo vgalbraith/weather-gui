@@ -4,6 +4,7 @@ public class CityFormatter
 {
    public static String format(String query)
    {
+      query = query.stripLeading();
       query = query.replaceAll(",", " ");
       query = query.replaceAll("  +", " ");
 
