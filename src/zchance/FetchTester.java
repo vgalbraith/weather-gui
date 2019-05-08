@@ -29,7 +29,7 @@ public class FetchTester
       System.out.println("precipIN: " + f.getFromOb("precipIN"));
       System.out.println("light: " + f.getFromOb("light"));
 
-      FetchForecast f2 = new FetchForecast("95678", "Wednesday");
-      System.out.println("avgTempF: " + f2.getDayForecasts("avgTempF"));
+      FetchForecast f2 = new FetchForecast("95678");
+      System.out.println("avgTempF: " + f2.getDayForecasts("avgTempF", 0));
    }
 }

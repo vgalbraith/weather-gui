@@ -22,8 +22,7 @@ public class FetchForecast {
      * Constructs a FetchForecast object which consists of
      * the weather conditions for a specific day of the week
      */
-    public FetchForecast(String loc, String day) {
-        dayoftheWeek = day;
+    public FetchForecast(String loc) {
         final String CLIENT_ID = "wQhXMMnxoRV4HNKoRLZrL";
         final String CLIENT_SECRET = "rUOW0GEyf5bT9JhUzro2WQAuUpj3A7nFHgVCRGEK";
 
@@ -68,45 +67,21 @@ public class FetchForecast {
      * of the requested object (i.e. maxTempC, timestamp) using the specified
      * day of the week as a means to access the index
      */
-    public String getDayForecasts(String accessLabel)
+    public String getDayForecasts(String accessLabel, int index)
     {
-        int index;
-        switch(dayoftheWeek)
-        {
-            case "Sunday":
-                index = 0;
-                break;
-            case "Monday":
-                index = 1;
-                break;
-            case "Tuesday":
-                index = 2;
-                break;
-            case "Wednesday":
-                index = 3;
-                break;
-            case "Thursday":
-                index = 4;
-                break;
-            case "Friday":
-                index = 5;
-                break;
-            case "Saturday":
-                index = 6;
-                break;
-            default:
-                return "Invalid Day of the Week";
+        if (index >= 0 && index <= 6) {
+            try {
+                return results.getAsJsonObject().get("response").getAsJsonArray().get(0)
+                        .getAsJsonObject().get("periods").getAsJsonArray().get(index)
+                        .getAsJsonObject().get(accessLabel).getAsString();
+            } catch (java.lang.NullPointerException e) //Exception disregards if checked object is empty
+            {
+            }
+            return "";
         }
-
-        try
+        else
         {
-            return results.getAsJsonObject().get("response").getAsJsonArray().get(0)
-                    .getAsJsonObject().get("periods").getAsJsonArray().get(index)
-                    .getAsJsonObject().get(accessLabel).getAsString();
+            return "invalid index";
         }
-        catch(java.lang.NullPointerException e) //Exception disregards if checked object is empty
-        {
-        }
-        return "";
     }
 }
