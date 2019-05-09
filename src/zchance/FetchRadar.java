@@ -27,6 +27,16 @@ public class FetchRadar {
 
         try
         {
+            if (query.equals(":auto"))
+            {
+                FetchWeather w = new FetchWeather(":auto");
+                query = CityFormatter.format(w.getLocation());
+            }
+            else
+            {
+                URLEncoder.encode(query, "UTF-8");
+            }
+
             // Build url
             /** Sample URL:
              *
@@ -35,7 +45,7 @@ public class FetchRadar {
              */
             urlString = "https://maps.aerisapi.com/" + CLIENT_ID + "_" + CLIENT_SECRET
                     + "/flat-dk,radar,counties,interstates,admin-cities-dk/380x390/"
-                    + URLEncoder.encode(query, "UTF-8") + ",8/current.png";
+                    + query + ",8/current.png";
         }
         catch (IOException e)
         {

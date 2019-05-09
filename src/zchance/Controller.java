@@ -22,9 +22,9 @@ public class Controller
    @FXML
    Label lblLocation, lblTemperature, lblConditions, lblWind, lblPressure, lblHumidity,
          lblFeelsLike, lblDewpoint, lblVisibility, lblPrecip, lblSnowDepth,
-           lblForecastHi0, lblForecastLo0, lblForecastHi1, lblForecastLo1, lblForecastHi2, lblForecastLo2,
-           lblForecastHi3, lblForecastLo3,lblForecastHi4, lblForecastLo4,lblForecastHi5,
-           lblForecastLo5, lblForecastHi6, lblForecastLo6;
+         lblForecastHi0, lblForecastLo0, lblForecastHi1, lblForecastLo1, lblForecastHi2, lblForecastLo2,
+         lblForecastHi3, lblForecastLo3,lblForecastHi4, lblForecastLo4,lblForecastHi5,
+         lblForecastLo5, lblForecastHi6, lblForecastLo6;
 
    @FXML
    Button btnGo, btnTemp;
@@ -99,9 +99,9 @@ public class Controller
       }
       else
       {
+         location = CityFormatter.format(location);
          w = new FetchWeather(location);
          f7Day = new FetchForecast(location);
-
       }
 
       if (w.isSuccessful()) {
@@ -189,7 +189,6 @@ public class Controller
             {
                r = new FetchRadar(location);
             }
-            System.out.println(r.getImage());
             radarView.setImage(new Image(r.getImage()));
          }
       }
