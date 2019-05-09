@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -118,14 +117,14 @@
                                           <Label fx:id="lblForecastHi0" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="75ºF" />
                                           <Label fx:id="lblForecastLo0" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="45ºF" />
                                           <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Today" />
-                                          <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="forecastIcon0" fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </Pane>
                                     <Pane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                                        <children>
                                           <Label fx:id="lblForecastHi1" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" />
                                           <Label fx:id="lblForecastLo1" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" />
-                                          <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="forecastIcon1" fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                           <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
                                        </children>
                                     </Pane>
@@ -133,7 +132,7 @@
                                        <children>
                                           <Label fx:id="lblForecastHi2" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" />
                                           <Label fx:id="lblForecastLo2" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" />
-                                          <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="forecastIcon2" fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                           <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
                                        </children>
                                     </Pane>
@@ -141,7 +140,7 @@
                                        <children>
                                           <Label fx:id="lblForecastHi3" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" />
                                           <Label fx:id="lblForecastLo3" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" />
-                                          <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="forecastIcon3" fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                           <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
                                        </children>
                                     </Pane>
@@ -149,7 +148,7 @@
                                        <children>
                                           <Label fx:id="lblForecastHi4" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" />
                                           <Label fx:id="lblForecastLo4" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" />
-                                          <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="forecastIcon4" fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                           <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
                                        </children>
                                     </Pane>
@@ -157,7 +156,7 @@
                                        <children>
                                           <Label fx:id="lblForecastHi5" alignment="CENTER" layoutX="1.0" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" />
                                           <Label fx:id="lblForecastLo5" alignment="CENTER" layoutX="1.0" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" />
-                                          <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="11.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="forecastIcon5" fitHeight="32.0" fitWidth="32.0" layoutX="11.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                           <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
                                        </children>
                                     </Pane>
@@ -165,7 +164,7 @@
                                        <children>
                                           <Label fx:id="lblForecastHi6" alignment="CENTER" layoutX="1.0" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" />
                                           <Label fx:id="lblForecastLo6" alignment="CENTER" layoutX="1.0" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" />
-                                          <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="11.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="forecastIcon6" fitHeight="32.0" fitWidth="32.0" layoutX="11.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                           <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
                                        </children>
                                     </Pane>

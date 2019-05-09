@@ -36,7 +36,8 @@ public class Controller
    Button btnGo, btnTemp;
 
    @FXML
-   ImageView weatherImageView, gCatView, radarView;
+   ImageView weatherImageView, gCatView, radarView, forecastIcon0, forecastIcon1, forecastIcon2,
+           forecastIcon3, forecastIcon4, forecastIcon5, forecastIcon6;
 
    @FXML
    Tab weatherTab, radarTab;
@@ -90,7 +91,7 @@ public class Controller
     */
    private String[] forecastHis = new String[7];
    private String[] forecastLos = new String[7];
-   FetchForecast f7Day;
+   private FetchForecast f7Day;
 
    /**
     * Handles the go button
@@ -199,6 +200,14 @@ public class Controller
             lblPrecip.setText(w.getFromOb("precipIN") + " IN");
             lblSnowDepth.setText(w.getFromOb("snowDepthIN") + " IN");
             weatherImageView.setImage(new Image("file:Images/" + w.getFromOb("icon")));
+
+            forecastIcon0.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 0)));
+            forecastIcon1.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 1)));
+            forecastIcon2.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 2)));
+            forecastIcon3.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 3)));
+            forecastIcon4.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 4)));
+            forecastIcon5.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 5)));
+            forecastIcon6.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 6)));
 
             //gCatView.setImage(new Image("file:Images/gCat.gif"));
          }
