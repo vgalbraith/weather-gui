@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -29,7 +30,10 @@ public class Controller
    Button btnGo, btnTemp;
 
    @FXML
-   ImageView weatherImageView;
+   ImageView weatherImageView, radarView;
+
+   @FXML
+   Tab weatherTab, radarTab;
 
    /**
     * Boolean to check whether or not the temperature is in
@@ -85,6 +89,7 @@ public class Controller
    {
       clearLabels();
       FetchWeather w;
+      FetchRadar r;
 
       String location = tfInput.getText();
       if (location.isEmpty())
@@ -99,88 +104,94 @@ public class Controller
 
       }
 
-      if (w.isSuccessful())
-      {
-         tempF = w.getFromOb("tempF");
-         tempC = w.getFromOb("tempC");
-         feelsLikeF = w.getFromOb("feelslikeF");
-         feelsLikeC = w.getFromOb("feelslikeC");
-         dewpointF = w.getFromOb("dewpointF");
-         dewpointC = w.getFromOb("dewpointC");
+      if (w.isSuccessful()) {
+         if (weatherTab.isSelected()) {
+            tempF = w.getFromOb("tempF");
+            tempC = w.getFromOb("tempC");
+            feelsLikeF = w.getFromOb("feelslikeF");
+            feelsLikeC = w.getFromOb("feelslikeC");
+            dewpointF = w.getFromOb("dewpointF");
+            dewpointC = w.getFromOb("dewpointC");
 
-         if (isFahrenheit)
-         {
-            //instantiation for forecast elements in degrees Fahrenheit
-            for(int index = 0; index < 7; index++)
-            {
-               forecastHis[index] = f7Day.getDayForecasts("maxTempF", index) + "\u00B0F";
+            if (isFahrenheit) {
+               //instantiation for forecast elements in degrees Fahrenheit
+               for (int index = 0; index < 7; index++) {
+                  forecastHis[index] = f7Day.getDayForecasts("maxTempF", index) + "\u00B0F";
+               }
+               for (int index = 0; index < 7; index++) {
+                  forecastLos[index] = f7Day.getDayForecasts("minTempF", index) + "\u00B0F";
+               }
+
+               lblForecastHi0.setText(forecastHis[0]);
+               lblForecastHi1.setText(forecastHis[1]);
+               lblForecastHi2.setText(forecastHis[2]);
+               lblForecastHi3.setText(forecastHis[3]);
+               lblForecastHi4.setText(forecastHis[4]);
+               lblForecastHi5.setText(forecastHis[5]);
+               lblForecastHi6.setText(forecastHis[6]);
+
+               lblForecastLo0.setText(forecastLos[0]);
+               lblForecastLo1.setText(forecastLos[1]);
+               lblForecastLo2.setText(forecastLos[2]);
+               lblForecastLo3.setText(forecastLos[3]);
+               lblForecastLo4.setText(forecastLos[4]);
+               lblForecastLo5.setText(forecastLos[5]);
+               lblForecastLo6.setText(forecastLos[6]);
+
+               lblTemperature.setText(tempF + "\u00B0F");
+               lblFeelsLike.setText(feelsLikeF + "\u00B0F");
+               lblDewpoint.setText(dewpointF + "\u00B0F");
+            } else {
+               //instantiation for forecast elements in degrees Celsius
+               for (int index = 0; index < 7; index++) {
+                  forecastHis[index] = f7Day.getDayForecasts("maxTempC", index) + "\u00B0C";
+               }
+               for (int index = 0; index < 7; index++) {
+                  forecastLos[index] = f7Day.getDayForecasts("minTempC", index) + "\u00B0C";
+               }
+
+               lblForecastHi0.setText(forecastHis[0]);
+               lblForecastHi1.setText(forecastHis[1]);
+               lblForecastHi2.setText(forecastHis[2]);
+               lblForecastHi3.setText(forecastHis[3]);
+               lblForecastHi4.setText(forecastHis[4]);
+               lblForecastHi5.setText(forecastHis[5]);
+               lblForecastHi6.setText(forecastHis[6]);
+
+               lblForecastLo0.setText(forecastLos[0]);
+               lblForecastLo1.setText(forecastLos[1]);
+               lblForecastLo2.setText(forecastLos[2]);
+               lblForecastLo3.setText(forecastLos[3]);
+               lblForecastLo4.setText(forecastLos[4]);
+               lblForecastLo5.setText(forecastLos[5]);
+               lblForecastLo6.setText(forecastLos[6]);
+
+               lblTemperature.setText(tempC + "\u00B0C");
+               lblFeelsLike.setText(feelsLikeC + "\u00B0C");
+               lblDewpoint.setText(dewpointC + "\u00B0C");
             }
-            for(int index = 0; index < 7; index++)
-            {
-               forecastLos[index] = f7Day.getDayForecasts("minTempF", index) + "\u00B0F";
-            }
-
-            lblForecastHi0.setText(forecastHis[0]);
-            lblForecastHi1.setText(forecastHis[1]);
-            lblForecastHi2.setText(forecastHis[2]);
-            lblForecastHi3.setText(forecastHis[3]);
-            lblForecastHi4.setText(forecastHis[4]);
-            lblForecastHi5.setText(forecastHis[5]);
-            lblForecastHi6.setText(forecastHis[6]);
-
-            lblForecastLo0.setText(forecastLos[0]);
-            lblForecastLo1.setText(forecastLos[1]);
-            lblForecastLo2.setText(forecastLos[2]);
-            lblForecastLo3.setText(forecastLos[3]);
-            lblForecastLo4.setText(forecastLos[4]);
-            lblForecastLo5.setText(forecastLos[5]);
-            lblForecastLo6.setText(forecastLos[6]);
-
-            lblTemperature.setText(tempF + "\u00B0F");
-            lblFeelsLike.setText(feelsLikeF + "\u00B0F");
-            lblDewpoint.setText(dewpointF + "\u00B0F");
+            lblLocation.setText(w.getLocation());
+            lblConditions.setText(w.getFromOb("weather"));
+            lblWind.setText(w.getFromOb("windMPH") + " MPH " + w.getFromOb("windDir"));
+            lblPressure.setText(w.getFromOb("pressureIN") + " inHg");
+            lblHumidity.setText(w.getFromOb("humidity") + "%");
+            lblVisibility.setText(w.getFromOb("visibilityMI") + " MI");
+            lblPrecip.setText(w.getFromOb("precipIN") + " IN");
+            lblSnowDepth.setText(w.getFromOb("snowDepthIN") + " IN");
+            weatherImageView.setImage(new Image("file:Images/" + w.getFromOb("icon")));
          }
-         else
-         {
-            //instantiation for forecast elements in degrees Celsius
-            for(int index = 0; index < 7; index++)
+         else if (radarTab.isSelected()) {
+            if (location.isEmpty())
             {
-               forecastHis[index] = f7Day.getDayForecasts("maxTempC", index) + "\u00B0C";
+               r = new FetchRadar(":auto");
             }
-            for(int index = 0; index < 7; index++)
+            else
             {
-               forecastLos[index] = f7Day.getDayForecasts("minTempC", index) + "\u00B0C";
+               r = new FetchRadar(location);
             }
-
-            lblForecastHi0.setText(forecastHis[0]);
-            lblForecastHi1.setText(forecastHis[1]);
-            lblForecastHi2.setText(forecastHis[2]);
-            lblForecastHi3.setText(forecastHis[3]);
-            lblForecastHi4.setText(forecastHis[4]);
-            lblForecastHi5.setText(forecastHis[5]);
-            lblForecastHi6.setText(forecastHis[6]);
-
-            lblForecastLo0.setText(forecastLos[0]);
-            lblForecastLo1.setText(forecastLos[1]);
-            lblForecastLo2.setText(forecastLos[2]);
-            lblForecastLo3.setText(forecastLos[3]);
-            lblForecastLo4.setText(forecastLos[4]);
-            lblForecastLo5.setText(forecastLos[5]);
-            lblForecastLo6.setText(forecastLos[6]);
-
-            lblTemperature.setText(tempC + "\u00B0C");
-            lblFeelsLike.setText(feelsLikeC + "\u00B0C");
-            lblDewpoint.setText(dewpointC + "\u00B0C");
+            System.out.println(r.getImage());
+            radarView.setImage(new Image(r.getImage()));
          }
-         lblLocation.setText(w.getLocation());
-         lblConditions.setText(w.getFromOb("weather"));
-         lblWind.setText(w.getFromOb("windMPH") + " MPH " + w.getFromOb("windDir"));
-         lblPressure.setText(w.getFromOb("pressureIN") + " inHg");
-         lblHumidity.setText(w.getFromOb("humidity") + "%");
-         lblVisibility.setText(w.getFromOb("visibilityMI") + " MI");
-         lblPrecip.setText(w.getFromOb("precipIN") + " IN");
-         lblSnowDepth.setText(w.getFromOb("snowDepthIN") + " IN");
-         weatherImageView.setImage(new Image("file:Images/" + w.getFromOb("icon")));
       }
       else
       {
@@ -195,7 +206,7 @@ public class Controller
     * Handles the btnTemp button
     * displays temperature in degrees Celsius
     */
-   public void handleBTNTemp()
+   public void handleBTNTemp(ActionEvent ae)
    {
       if (isFahrenheit)
       {

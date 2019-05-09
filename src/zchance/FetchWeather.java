@@ -95,7 +95,7 @@ public class FetchWeather
     */
    public String getLocation()
    {
-      String temp = getLocationName() + " " + getLocationState();
+      String temp = getLocationName() + "," + getLocationState();
       return CityFormatter.format(temp);
    }
 
