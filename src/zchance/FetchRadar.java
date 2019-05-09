@@ -17,23 +17,16 @@ public class FetchRadar {
         final String CLIENT_ID = "wQhXMMnxoRV4HNKoRLZrL";
         final String CLIENT_SECRET = "JIZobWk2qyfbStTUJSShF1kTLp06WTXLcJKA5dpD";
 
-        if (loc.equals(":auto")) {
-            FetchWeather w = new FetchWeather(":auto");
-            query = w.getLocation();
-        }
-        else {
-            query = CityFormatter.format(loc);
-        }
-
         try
         {
-            if (query.equals(":auto"))
+            if (loc.equals(":auto"))
             {
                 FetchWeather w = new FetchWeather(":auto");
                 query = CityFormatter.format(w.getLocation());
             }
             else
             {
+                query = CityFormatter.format(loc);
                 URLEncoder.encode(query, "UTF-8");
             }
 
