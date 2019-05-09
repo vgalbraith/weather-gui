@@ -98,7 +98,6 @@ public class Controller
     */
    public void handleGo(ActionEvent ae)
    {
-      clearLabels();
       FetchWeather w;
       FetchRadar r;
 
@@ -119,6 +118,7 @@ public class Controller
       {
          if (weatherTab.isSelected())
          {
+            clearLabels();
             tempF = w.getFromOb("tempF");
             tempC = w.getFromOb("tempC");
             feelsLikeF = w.getFromOb("feelslikeF");
