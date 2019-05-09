@@ -39,9 +39,9 @@
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </opaqueInsets>
       </GridPane>
-      <TabPane layoutY="53.0" prefHeight="451.0" prefWidth="389.0">
+      <TabPane layoutY="53.0" prefHeight="435.0" prefWidth="389.0">
          <tabs>
-            <Tab closable="false" style="-fx-padding: 10px; -fx-pref-width: 185px; -fx-alignment: CENTER;" text="Weather Conditions">
+            <Tab fx:id="weatherTab" closable="false" style="-fx-padding: 10px; -fx-pref-width: 185px; -fx-alignment: CENTER;" text="Weather Conditions">
                <content>
                   <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="389.0">
                     <columnConstraints>
@@ -266,15 +266,11 @@
                   </GridPane>
                </content>
             </Tab>
-            <Tab closable="false" style="-fx-pref-width: 185px; -fx-padding: 10px;" text="Radar">
+            <Tab fx:id="radarTab" closable="false" style="-fx-pref-width: 185px; -fx-padding: 10px;" text="Radar">
               <content>
-                <AnchorPane prefHeight="392.0" prefWidth="383.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ImageView fx:id="gCatView" fitHeight="150.0" fitWidth="200.0" layoutX="245.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Images/gCat.gif" />
-                           </image>
-                        </ImageView>
+                        <ImageView fx:id="radarView" fitHeight="390.0" fitWidth="380.0" layoutX="5.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
                      </children></AnchorPane>
               </content>
             </Tab>
