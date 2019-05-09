@@ -3,7 +3,8 @@ package zchance;
 import java.io.IOException;
 import java.net.URLEncoder;
 
-class FetchRadar {
+class FetchRadar
+{
     private String urlString;
 
     /**
@@ -15,14 +16,17 @@ class FetchRadar {
         final String CLIENT_ID = "wQhXMMnxoRV4HNKoRLZrL";
         final String CLIENT_SECRET = "JIZobWk2qyfbStTUJSShF1kTLp06WTXLcJKA5dpD";
 
-        try {
+        try
+        {
             String query;
 
-            if (loc.equals(":auto")) {
+            if (loc.equals(":auto"))
+            {
                 FetchWeather w = new FetchWeather(":auto");
                 query = CityFormatter.format(w.getLocation());
             }
-            else {
+            else
+            {
                 query = CityFormatter.format(loc);
                 URLEncoder.encode(query, "UTF-8");
             }
@@ -33,7 +37,8 @@ class FetchRadar {
                     + "/flat-dk,radar,counties,interstates,admin-cities-dk/380x390/"
                     + query + ",8/current.png";
         }
-        catch (IOException e) {
+        catch (IOException e)
+        {
             e.printStackTrace();
         }
     }

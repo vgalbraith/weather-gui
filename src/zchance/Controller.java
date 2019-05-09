@@ -202,11 +202,14 @@ public class Controller
 
             //gCatView.setImage(new Image("file:Images/gCat.gif"));
          }
-         else if (radarTab.isSelected()) {
-            if (location.isEmpty()) {
+         else if (radarTab.isSelected())
+         {
+            if (location.isEmpty())
+            {
                r = new FetchRadar(":auto");
             }
-            else {
+            else
+            {
                r = new FetchRadar(location);
             }
             radarView.setImage(new Image(r.getImage()));
