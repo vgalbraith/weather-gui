@@ -209,10 +209,8 @@ public class Controller
             forecastIcon5.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 5)));
             forecastIcon6.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 6)));
 
-            /*
-             * Handle weekday abbreviations
-             */
 
+            // Handle weekday abbreviations.
             // Get an abbr list of names from the 7day forcast - into weekdays.
             for(int i = 0; i < weekdays.length; i++)
             {
@@ -226,8 +224,6 @@ public class Controller
             lblWeekday4.setText(weekdays[4]);
             lblWeekday5.setText(weekdays[5]);
             lblWeekday6.setText(weekdays[6]);
-
-
 
 
             //gCatView.setImage(new Image("file:Images/gCat.gif"));
