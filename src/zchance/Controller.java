@@ -209,12 +209,16 @@ public class Controller
             forecastIcon5.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 5)));
             forecastIcon6.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 6)));
 
+            /*
+             * Handle weekday abbreviations
+             */
 
-            // Handle weekday abbreviations
+            // Get an abbr list of names from the 7day forcast - into weekdays.
             for(int i = 0; i < weekdays.length; i++)
             {
                weekdays[i] = new TimestampMachine().getDay(f7Day.getDayForecasts("timestamp", i));
             }
+            // Set weekday labels
             lblWeekday0.setText("Today");
             lblWeekday1.setText(weekdays[1]);
             lblWeekday2.setText(weekdays[2]);
