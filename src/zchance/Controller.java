@@ -29,8 +29,8 @@ public class Controller
          lblFeelsLike, lblDewpoint, lblVisibility, lblPrecip, lblSnowDepth,
          lblForecastHi0, lblForecastLo0, lblForecastHi1, lblForecastLo1, lblForecastHi2, lblForecastLo2,
          lblForecastHi3, lblForecastLo3,lblForecastHi4, lblForecastLo4,lblForecastHi5,
-         lblForecastLo5, lblForecastHi6, lblForecastLo6, lblWeekDay1, lblWeekDay2, lblWeekday3, lblWeekDay4,
-         lblWeekDay5, lblWeekDay6, lblWeekDay7;
+         lblForecastLo5, lblForecastHi6, lblForecastLo6, lblWeekday0, lblWeekday1, lblWeekday2, lblWeekday3, lblWeekday4,
+         lblWeekday5, lblWeekday6;
 
    @FXML
    Button btnGo, btnTemp;
@@ -78,11 +78,6 @@ public class Controller
     */
    private String dewpointC = "0";
 
-   /*
-    * UNIX timestamp variable
-    */
-   private long timestamp = 0l;
-
    /**
     * These arrays create sets of labels representing the different
     * names of each day and their respective high and low temps
@@ -92,6 +87,11 @@ public class Controller
    private String[] forecastHis = new String[7];
    private String[] forecastLos = new String[7];
    private FetchForecast f7Day;
+
+   /*
+    * An array list of the 7day forcast abbreviations
+    */
+   private String[] weekdays = new String[7];
 
    /**
     * Handles the go button
@@ -208,6 +208,23 @@ public class Controller
             forecastIcon4.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 4)));
             forecastIcon5.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 5)));
             forecastIcon6.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 6)));
+
+
+            // Handle weekday abbreviations.
+            // Get an abbr list of names from the 7day forcast - into weekdays.
+            for(int i = 0; i < weekdays.length; i++)
+            {
+               weekdays[i] = new TimestampMachine().getDay(f7Day.getDayForecasts("timestamp", i));
+            }
+            // Set weekday labels
+            lblWeekday0.setText("Today");
+            lblWeekday1.setText(weekdays[1]);
+            lblWeekday2.setText(weekdays[2]);
+            lblWeekday3.setText(weekdays[3]);
+            lblWeekday4.setText(weekdays[4]);
+            lblWeekday5.setText(weekdays[5]);
+            lblWeekday6.setText(weekdays[6]);
+
 
             //gCatView.setImage(new Image("file:Images/gCat.gif"));
          }

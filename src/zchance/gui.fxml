@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="487.0" prefWidth="389.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zchance.Controller">
+<Pane prefHeight="500.0" prefWidth="389.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zchance.Controller">
    <children>
       <GridPane layoutX="17.0" layoutY="14.0" prefHeight="32.0" prefWidth="356.0">
         <columnConstraints>
@@ -116,7 +116,7 @@
                                        <children>
                                           <Label fx:id="lblForecastHi0" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="75ºF" textFill="RED" />
                                           <Label fx:id="lblForecastLo0" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="45ºF" textFill="BLUE" />
-                                          <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Today" />
+                                          <Label fx:id="lblWeekday0" alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Today" />
                                           <ImageView fx:id="forecastIcon0" fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </Pane>
@@ -125,7 +125,7 @@
                                           <Label fx:id="lblForecastHi1" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" textFill="RED" />
                                           <Label fx:id="lblForecastLo1" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" textFill="BLUE" />
                                           <ImageView fx:id="forecastIcon1" fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
+                                          <Label fx:id="lblWeekday1" alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
                                        </children>
                                     </Pane>
                                     <Pane layoutX="61.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
@@ -133,7 +133,7 @@
                                           <Label fx:id="lblForecastHi2" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" textFill="RED" />
                                           <Label fx:id="lblForecastLo2" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" textFill="BLUE" />
                                           <ImageView fx:id="forecastIcon2" fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
+                                          <Label fx:id="lblWeekday2" alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
                                        </children>
                                     </Pane>
                                     <Pane layoutX="112.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
@@ -141,7 +141,7 @@
                                           <Label fx:id="lblForecastHi3" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" textFill="RED" />
                                           <Label fx:id="lblForecastLo3" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" textFill="BLUE" />
                                           <ImageView fx:id="forecastIcon3" fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
+                                          <Label fx:id="lblWeekday3" alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
                                        </children>
                                     </Pane>
                                     <Pane layoutX="163.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
@@ -149,7 +149,7 @@
                                           <Label fx:id="lblForecastHi4" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" textFill="RED" />
                                           <Label fx:id="lblForecastLo4" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" textFill="BLUE" />
                                           <ImageView fx:id="forecastIcon4" fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
+                                          <Label fx:id="lblWeekday4" alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
                                        </children>
                                     </Pane>
                                     <Pane layoutX="214.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5">
@@ -157,7 +157,7 @@
                                           <Label fx:id="lblForecastHi5" alignment="CENTER" layoutX="1.0" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" textFill="RED" />
                                           <Label fx:id="lblForecastLo5" alignment="CENTER" layoutX="1.0" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" textFill="BLUE" />
                                           <ImageView fx:id="forecastIcon5" fitHeight="32.0" fitWidth="32.0" layoutX="11.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
+                                          <Label fx:id="lblWeekday5" alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
                                        </children>
                                     </Pane>
                                     <Pane layoutX="265.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6">
@@ -165,7 +165,7 @@
                                           <Label fx:id="lblForecastHi6" alignment="CENTER" layoutX="1.0" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" text="High" textFill="RED" />
                                           <Label fx:id="lblForecastLo6" alignment="CENTER" layoutX="1.0" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" text="Low" textFill="BLUE" />
                                           <ImageView fx:id="forecastIcon6" fitHeight="32.0" fitWidth="32.0" layoutX="11.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
+                                          <Label fx:id="lblWeekday6" alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" text="Day" />
                                        </children>
                                     </Pane>
                                  </children>
