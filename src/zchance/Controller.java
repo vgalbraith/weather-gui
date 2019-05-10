@@ -123,7 +123,10 @@ public class Controller
       {
          if (weatherTab.isSelected())
          {
+            showLabels(true);
             clearLabels();
+
+
             tempF = w.getFromOb("tempF");
             tempC = w.getFromOb("tempC");
             feelsLikeF = w.getFromOb("feelslikeF");
@@ -347,5 +350,17 @@ public class Controller
       lblPrecip.setText("");
       lblSnowDepth.setText("");
       lblFeelsLike.setText("");
+   }
+
+   private void showLabels(boolean b)
+   {
+      lblFeelsLikeTag.setVisible(b);
+      lblHumidityTag.setVisible(b);
+      lblPressureTag.setVisible(b);
+      lblDewpointTag.setVisible(b);
+      lblWindTag.setVisible(b);
+      lblVisibilityTag.setVisible(b);
+      lblPrecipTag.setVisible(b);
+      lblSnowDepthTag.setVisible(b);
    }
 }
