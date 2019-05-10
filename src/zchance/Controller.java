@@ -25,6 +25,10 @@ public class Controller
    TextField tfInput;
 
    @FXML
+   Label lblFeelsLikeTag, lblHumidityTag, lblPressureTag, lblDewpointTag, lblWindTag, lblVisibilityTag,
+         lblPrecipTag, lblSnowDepthTag;
+
+   @FXML
    Label lblLocation, lblTemperature, lblConditions, lblWind, lblPressure, lblHumidity,
          lblFeelsLike, lblDewpoint, lblVisibility, lblPrecip, lblSnowDepth,
          lblForecastHi0, lblForecastLo0, lblForecastHi1, lblForecastLo1, lblForecastHi2, lblForecastLo2,

@@ -82,7 +82,7 @@
                                     <RowConstraints />
                                 </rowConstraints>
                                  <children>
-                                    <Label fx:id="lblTemperature" alignment="CENTER_RIGHT" prefHeight="65.0" prefWidth="201.0" text="0°F" GridPane.rowIndex="1">
+                                    <Label fx:id="lblTemperature" alignment="CENTER_RIGHT" prefHeight="65.0" prefWidth="201.0" text="0°F" visible="false" GridPane.rowIndex="1">
                                        <font>
                                           <Font size="48.0" />
                                        </font>
@@ -93,7 +93,7 @@
                                     <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <children>
                                           <ImageView fx:id="weatherImageView" fitHeight="65.0" fitWidth="75.0" layoutX="25.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Button fx:id="btnTemp" layoutX="142.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleBTNTemp" prefHeight="27.0" prefWidth="37.0" text="ºF" />
+                                          <Button fx:id="btnTemp" layoutX="142.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleBTNTemp" prefHeight="27.0" prefWidth="37.0" text="ºF" visible="false" />
                                        </children>
                                     </Pane>
                                  </children>
@@ -189,26 +189,26 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Pressure: " GridPane.rowIndex="2" />
-                              <Label text="Humidity: " GridPane.rowIndex="1" />
-                              <Label prefHeight="17.0" prefWidth="90.0" text="Wind: " GridPane.columnIndex="2">
+                              <Label fx:id="lblPressureTag" text="Pressure: " visible="false" GridPane.rowIndex="2" />
+                              <Label fx:id="lblHumidityTag" text="Humidity: " visible="false" GridPane.rowIndex="1" />
+                              <Label fx:id="lblWindTag" prefHeight="17.0" prefWidth="90.0" text="Wind: " visible="false" GridPane.columnIndex="2">
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
                               </Label>
-                              <Label text="Feels like: " />
-                              <Label text="Dewpoint: " GridPane.rowIndex="3" />
-                              <Label prefHeight="17.0" prefWidth="88.0" text="Visibility: " GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <Label fx:id="lblFeelsLikeTag" text="Feels like: " visible="false" />
+                              <Label fx:id="lblDewpointTag" text="Dewpoint: " visible="false" GridPane.rowIndex="3" />
+                              <Label fx:id="lblVisibilityTag" prefHeight="17.0" prefWidth="88.0" text="Visibility: " visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
                               </Label>
-                              <Label prefHeight="17.0" prefWidth="88.0" text="Precip:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                              <Label fx:id="lblPrecipTag" prefHeight="17.0" prefWidth="88.0" text="Precip:" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
                               </Label>
-                              <Label text="Snow depth: " GridPane.columnIndex="2" GridPane.rowIndex="3">
+                              <Label fx:id="lblSnowDepthTag" text="Snow depth: " visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
