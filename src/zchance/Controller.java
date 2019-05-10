@@ -125,6 +125,7 @@ public class Controller
          {
             showLabels(true);
             clearLabels();
+            showFCButton(true);
 
 
             tempF = w.getFromOb("tempF");
@@ -352,8 +353,12 @@ public class Controller
       lblFeelsLike.setText("");
    }
 
+   /**
+    * Sets visability of hidden labels
+    */
    private void showLabels(boolean b)
    {
+      lblTemperature.setVisible(b);
       lblFeelsLikeTag.setVisible(b);
       lblHumidityTag.setVisible(b);
       lblPressureTag.setVisible(b);
@@ -362,5 +367,13 @@ public class Controller
       lblVisibilityTag.setVisible(b);
       lblPrecipTag.setVisible(b);
       lblSnowDepthTag.setVisible(b);
+   }
+
+   /**
+    * Sets visability of F/C button
+    */
+   private void showFCButton(boolean b)
+   {
+      btnTemp.setVisible(b);
    }
 }
