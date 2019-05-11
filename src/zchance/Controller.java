@@ -101,6 +101,7 @@ public class Controller
             showLabels(true);
             clearLabels();
             showFCButton(true);
+            showForecast(true);
             gCatView.setVisible(false);
 
             tempF = w.getFromOb("tempF");
@@ -229,6 +230,7 @@ public class Controller
          clearLabels();
          showLabels(false);
          showFCButton(false);
+         showForecast(false);
 
          lblLocation.setText("Can't pull data for " + w.getQuery());
          lblTemperature.setText("");
@@ -338,7 +340,7 @@ public class Controller
    }
 
    /**
-    * Sets visability of hidden labels
+    * Sets visibility of hidden labels
     */
    private void showLabels(boolean b)
    {
@@ -354,10 +356,48 @@ public class Controller
    }
 
    /**
-    * Sets visability of F/C button
+    * Sets visibility of F/C button
     */
    private void showFCButton(boolean b)
    {
       btnTemp.setVisible(b);
+   }
+
+   /**
+    * Sets visibility for forecast
+    */
+   public void showForecast(boolean b)
+   {
+      lblForecastHi0.setVisible(b);
+      lblForecastHi1.setVisible(b);
+      lblForecastHi2.setVisible(b);
+      lblForecastHi3.setVisible(b);
+      lblForecastHi4.setVisible(b);
+      lblForecastHi5.setVisible(b);
+      lblForecastHi6.setVisible(b);
+
+      lblForecastLo0.setVisible(b);
+      lblForecastLo1.setVisible(b);
+      lblForecastLo2.setVisible(b);
+      lblForecastLo3.setVisible(b);
+      lblForecastLo4.setVisible(b);
+      lblForecastLo5.setVisible(b);
+      lblForecastLo6.setVisible(b);
+
+      lblWeekday0.setVisible(b);
+      lblWeekday1.setVisible(b);
+      lblWeekday2.setVisible(b);
+      lblWeekday3.setVisible(b);
+      lblWeekday4.setVisible(b);
+      lblWeekday5.setVisible(b);
+      lblWeekday6.setVisible(b);
+
+      forecastIcon0.setVisible(b);
+      forecastIcon1.setVisible(b);
+      forecastIcon2.setVisible(b);
+      forecastIcon3.setVisible(b);
+      forecastIcon4.setVisible(b);
+      forecastIcon5.setVisible(b);
+      forecastIcon6.setVisible(b);
    }
 }
