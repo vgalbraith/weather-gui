@@ -237,7 +237,7 @@ public class Controller
          lblConditions.setText("");
 
          // Displays a question mark when location cannot be pulled
-         weatherImageView.setImage(new Image("file:Images/na.png"));
+         weatherImageView.setImage(new Image("file:Images/na.png!"));
          gCatView.setVisible(true);
          gCatView.setImage(new Image("file:Images/gCat.gif"));
       }
