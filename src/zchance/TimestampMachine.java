@@ -3,7 +3,7 @@ package zchance;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-public class TimestampMachine
+class TimestampMachine
 {
     // Instance Variables
     private String day;
@@ -13,11 +13,9 @@ public class TimestampMachine
     /*public TimestampMachine()
     {
         day = "";
-    }
+    }*/
 
-     */
-
-    public String getDay(String ts)
+    String getDay(String ts)
     {
         long timestamp = Long.parseLong(ts);
 

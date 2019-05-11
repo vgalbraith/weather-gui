@@ -2,7 +2,7 @@ package zchance;
 
 public class CityFormatter
 {
-   public static String format(String query)
+   static String format(String query)
    {
       if (query.equals(":auto"))
       {
@@ -13,21 +13,21 @@ public class CityFormatter
       query = query.replaceAll("  +", " ");
 
       String[] tokens = query.split( " ");
-      String ret = "";
+      StringBuilder ret = new StringBuilder();
 
       for (int i = 0; i < tokens.length - 1; i++)
       {
          tokens[i] = tokens[i].substring(0, 1).toUpperCase() + tokens[i].substring(1).toLowerCase();
-         ret += tokens[i];
+         ret.append(tokens[i]);
          if (i == tokens.length - 2 && !tokens[i].contains(","))
          {
-            ret += ",";
+            ret.append(",");
          }
-         ret += " ";
+         ret.append(" ");
       }
-      ret += tokens[tokens.length - 1].toUpperCase();
+      ret.append(tokens[tokens.length - 1].toUpperCase());
 
-      return ret;
+      return ret.toString();
    }
 
    public static void main(String[] args)

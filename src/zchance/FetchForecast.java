@@ -11,27 +11,24 @@ import java.net.URLEncoder;
  * inserted into an array representing the forecast
  * for the seven different days of the week.
  */
-class FetchForecast {
-    private String query;
+class FetchForecast
+{
     private JsonElement results;
-    private String dayoftheWeek;
 
     /**
      * Constructs a FetchForecast object which consists of
      * the weather conditions for a specific day of the week
      */
-    FetchForecast(String loc) {
-        final String CLIENT_ID = "wQhXMMnxoRV4HNKoRLZrL";
-        final String CLIENT_SECRET = "JIZobWk2qyfbStTUJSShF1kTLp06WTXLcJKA5dpD";
-
+    FetchForecast(String loc)
+    {
         try
         {
             //Encode location
-            query = URLEncoder.encode(loc, "UTF-8");
+            String query = URLEncoder.encode(loc, "UTF-8");
 
             //URL concatenation
-            String urlString = "https://api.aerisapi.com/forecasts/" + query
-                    + "?client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET;
+            String urlString = "https://api.aerisapi.com/forecasts/" + query +
+                               "?client_id=" + APIKeys.CLIENT_ID + "&client_secret=" + APIKeys.CLIENT_SECRET;
             URL url = new URL(urlString);
 
             // Open streams
@@ -42,7 +39,6 @@ class FetchForecast {
 
             // Parse JSON
             results = new JsonParser().parse(br);
-
         }
         catch (IOException e)
         {
@@ -64,9 +60,9 @@ class FetchForecast {
                               .getAsJsonObject().get("periods").getAsJsonArray().get(index)
                               .getAsJsonObject().get(accessLabel).getAsString();
             }
-            catch (java.lang.NullPointerException e) //Exception disregards if checked object is empty
+            catch (java.lang.NullPointerException e)
             {
-
+                //Exception disregards if checked object is empty
             }
             return "";
         }

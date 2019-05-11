@@ -2,14 +2,12 @@ package zchance;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-
 import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
 
 /**
  * FetchWeather pulls weather data using Aeris API
- *
  * @author Zed Chance
  */
 public class FetchWeather
@@ -21,18 +19,15 @@ public class FetchWeather
     * Constructs a FetchWeather object
     * @param loc location to fetch
     */
-   public FetchWeather(String loc)
+   FetchWeather(String loc)
    {
-      final String CLIENT_ID = "wQhXMMnxoRV4HNKoRLZrL";
-      final String CLIENT_SECRET = "JIZobWk2qyfbStTUJSShF1kTLp06WTXLcJKA5dpD";
-
-      query = CityFormatter.format(loc);
+      query = loc;
 
       try
       {
          // Build url
-         String urlString = "https://api.aerisapi.com/observations/" + URLEncoder.encode(query, "UTF-8")
-                 + "?client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET;
+         String urlString = "https://api.aerisapi.com/observations/" + URLEncoder.encode(loc, "UTF-8")
+                            + "?client_id=" + APIKeys.CLIENT_ID + "&client_secret=" + APIKeys.CLIENT_SECRET;
          URL url = new URL(urlString);
 
          // Open streams
@@ -53,7 +48,7 @@ public class FetchWeather
     * Getter for query
     * @return query as String
     */
-   public String getQuery()
+   String getQuery()
    {
       return query;
    }
@@ -62,7 +57,7 @@ public class FetchWeather
     * Checks if the API query was successful or not
     * @return success true or false
     */
-   public boolean isSuccessful()
+   boolean isSuccessful()
    {
       return results.getAsJsonObject().get("success").getAsBoolean();
    }
@@ -71,7 +66,7 @@ public class FetchWeather
     * Returns the location name
     * @return location name
     */
-   public String getLocationName()
+   String getLocationName()
    {
       return results.getAsJsonObject().get("response").getAsJsonObject()
                     .get("place").getAsJsonObject().get("name")
@@ -82,7 +77,7 @@ public class FetchWeather
     * Returns the location's state
     * @return location's state
     */
-   public String getLocationState()
+   String getLocationState()
    {
       return results.getAsJsonObject().get("response").getAsJsonObject()
                     .get("place").getAsJsonObject().get("state")
@@ -93,7 +88,7 @@ public class FetchWeather
     * Returns the location of the query in a formatted state
     * @return formatted location
     */
-   public String getLocation()
+   String getLocation()
    {
       String temp = getLocationName() + "," + getLocationState();
       return CityFormatter.format(temp);
@@ -108,7 +103,7 @@ public class FetchWeather
     * @param s stat requested
     * @return string
     */
-   public String getFromOb(String s)
+   String getFromOb(String s)
    {
       try
       {
@@ -143,7 +138,6 @@ public class FetchWeather
       return "";
    }
 
-
    /**
     * String representation of FetchWeather object
     * @return string
@@ -152,5 +146,4 @@ public class FetchWeather
    {
       return "Query: " + getQuery() + ", Success: " + isSuccessful();
    }
-
 }

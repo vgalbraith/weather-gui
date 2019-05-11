@@ -9,11 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
-
 /**
  * Controller for weather-gui
  *
@@ -29,19 +24,19 @@ public class Controller
          lblPrecipTag, lblSnowDepthTag;
 
    @FXML
-   Label lblLocation, lblTemperature, lblConditions, lblWind, lblPressure, lblHumidity,
-         lblFeelsLike, lblDewpoint, lblVisibility, lblPrecip, lblSnowDepth,
+   Label lblLocation, lblTemperature, lblConditions, lblFeelsLike, lblHumidity,
+         lblPressure, lblDewpoint, lblWind, lblVisibility, lblPrecip, lblSnowDepth,
          lblForecastHi0, lblForecastLo0, lblForecastHi1, lblForecastLo1, lblForecastHi2, lblForecastLo2,
-         lblForecastHi3, lblForecastLo3,lblForecastHi4, lblForecastLo4,lblForecastHi5,
-         lblForecastLo5, lblForecastHi6, lblForecastLo6, lblWeekday0, lblWeekday1, lblWeekday2, lblWeekday3, lblWeekday4,
+         lblForecastHi3, lblForecastLo3, lblForecastHi4, lblForecastLo4, lblForecastHi5, lblForecastLo5,
+         lblForecastHi6, lblForecastLo6, lblWeekday0, lblWeekday1, lblWeekday2, lblWeekday3, lblWeekday4,
          lblWeekday5, lblWeekday6;
 
    @FXML
    Button btnGo, btnTemp;
 
    @FXML
-   ImageView weatherImageView, gCatView, radarView, forecastIcon0, forecastIcon1, forecastIcon2,
-           forecastIcon3, forecastIcon4, forecastIcon5, forecastIcon6;
+   ImageView weatherImageView, radarView, gCatView, forecastIcon0, forecastIcon1, forecastIcon2,
+             forecastIcon3, forecastIcon4, forecastIcon5, forecastIcon6;
 
    @FXML
    Tab weatherTab, radarTab;
@@ -53,33 +48,13 @@ public class Controller
    private boolean isFahrenheit = true;
 
    /**
-    * Fahrenheit temp variable
+    * Fahrenheit & celsius variables
     */
    private String tempF = "0";
-
-   /**
-    * Celsius temp variable
-    */
-   private String tempC = "0";
-
-   /**
-    * Feels like fahrenheit variable
-    */
    private String feelsLikeF = "0";
-
-   /**
-    * Feels like celsius variable
-    */
-   private String feelsLikeC = "0";
-
-   /**
-    * Dewpoint fahrenheit variable
-    */
    private String dewpointF = "0";
-
-   /**
-    * Dewpoint celsius variable
-    */
+   private String tempC = "0";
+   private String feelsLikeC = "0";
    private String dewpointC = "0";
 
    /**
@@ -90,10 +65,10 @@ public class Controller
     */
    private String[] forecastHis = new String[7];
    private String[] forecastLos = new String[7];
-   private FetchForecast f7Day;
+   private FetchForecast f;
 
-   /*
-    * An array list of the 7day forcast abbreviations
+   /**
+    * An array list of the 7day forecast abbreviations
     */
    private String[] weekdays = new String[7];
 
@@ -103,21 +78,21 @@ public class Controller
     */
    public void handleGo(ActionEvent ae)
    {
-      FetchWeather w;
       FetchRadar r;
+      FetchWeather w;
 
       String location = tfInput.getText();
       if (location.isEmpty())
       {
-         w = new FetchWeather(":auto");
-         f7Day = new FetchForecast(":auto");
+         location = ":auto";
       }
       else
       {
          location = CityFormatter.format(location);
-         w = new FetchWeather(location);
-         f7Day = new FetchForecast(location);
       }
+
+      w = new FetchWeather(location);
+      f = new FetchForecast(location);
 
       if (w.isSuccessful())
       {
@@ -140,11 +115,11 @@ public class Controller
                // Instantiation for forecast elements in degrees Fahrenheit
                for(int index = 0; index < 7; index++)
                {
-                  forecastHis[index] = f7Day.getDayForecasts("maxTempF", index) + "\u00B0F";
+                  forecastHis[index] = f.getDayForecasts("maxTempF", index) + "\u00B0F";
                }
                for(int index = 0; index < 7; index++)
                {
-                  forecastLos[index] = f7Day.getDayForecasts("minTempF", index) + "\u00B0F";
+                  forecastLos[index] = f.getDayForecasts("minTempF", index) + "\u00B0F";
                }
 
                lblForecastHi0.setText(forecastHis[0]);
@@ -172,11 +147,11 @@ public class Controller
                // Instantiation for forecast elements in degrees Celsius
                for(int index = 0; index < 7; index++)
                {
-                  forecastHis[index] = f7Day.getDayForecasts("maxTempC", index) + "\u00B0C";
+                  forecastHis[index] = f.getDayForecasts("maxTempC", index) + "\u00B0C";
                }
                for(int index = 0; index < 7; index++)
                {
-                  forecastLos[index] = f7Day.getDayForecasts("minTempC", index) + "\u00B0C";
+                  forecastLos[index] = f.getDayForecasts("minTempC", index) + "\u00B0C";
                }
 
                lblForecastHi0.setText(forecastHis[0]);
@@ -199,6 +174,7 @@ public class Controller
                lblFeelsLike.setText(feelsLikeC + "\u00B0C");
                lblDewpoint.setText(dewpointC + "\u00B0C");
             }
+
             lblLocation.setText(w.getLocation());
             lblConditions.setText(w.getFromOb("weather"));
             lblWind.setText(w.getFromOb("windMPH") + " MPH " + w.getFromOb("windDir"));
@@ -209,21 +185,21 @@ public class Controller
             lblSnowDepth.setText(w.getFromOb("snowDepthIN") + " IN");
             weatherImageView.setImage(new Image("file:Images/" + w.getFromOb("icon")));
 
-            forecastIcon0.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 0)));
-            forecastIcon1.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 1)));
-            forecastIcon2.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 2)));
-            forecastIcon3.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 3)));
-            forecastIcon4.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 4)));
-            forecastIcon5.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 5)));
-            forecastIcon6.setImage(new Image("file:Images/" + f7Day.getDayForecasts("icon", 6)));
-
+            forecastIcon0.setImage(new Image("file:Images/" + f.getDayForecasts("icon", 0)));
+            forecastIcon1.setImage(new Image("file:Images/" + f.getDayForecasts("icon", 1)));
+            forecastIcon2.setImage(new Image("file:Images/" + f.getDayForecasts("icon", 2)));
+            forecastIcon3.setImage(new Image("file:Images/" + f.getDayForecasts("icon", 3)));
+            forecastIcon4.setImage(new Image("file:Images/" + f.getDayForecasts("icon", 4)));
+            forecastIcon5.setImage(new Image("file:Images/" + f.getDayForecasts("icon", 5)));
+            forecastIcon6.setImage(new Image("file:Images/" + f.getDayForecasts("icon", 6)));
 
             // Handle weekday abbreviations.
-            // Get an abbr list of names from the 7day forcast - into weekdays.
+            // Get an abbr list of names from the 7day forecast into weekdays.
             for(int i = 0; i < weekdays.length; i++)
             {
-               weekdays[i] = new TimestampMachine().getDay(f7Day.getDayForecasts("timestamp", i));
+               weekdays[i] = new TimestampMachine().getDay(f.getDayForecasts("timestamp", i));
             }
+
             // Set weekday labels
             lblWeekday0.setText("Today");
             lblWeekday1.setText(weekdays[1]);
@@ -233,19 +209,20 @@ public class Controller
             lblWeekday5.setText(weekdays[5]);
             lblWeekday6.setText(weekdays[6]);
 
-
             //gCatView.setImage(new Image("file:Images/gCat.gif"));
          }
          else if (radarTab.isSelected())
          {
             if (location.isEmpty())
             {
-               r = new FetchRadar(":auto");
+               location = ":auto";
             }
             else
             {
-               r = new FetchRadar(location);
+               location = CityFormatter.format(location);
             }
+
+            r = new FetchRadar(location);
             radarView.setImage(new Image(r.getImage()));
          }
       }
@@ -254,7 +231,9 @@ public class Controller
          lblLocation.setText("Can't pull data for " + w.getQuery());
          lblTemperature.setText("");
          lblConditions.setText("");
-         weatherImageView.setImage(new Image("file:Images/na.png")); //puts a question mark on screen when location cannot be pulled
+
+         // Displays a question mark when location cannot be pulled
+         weatherImageView.setImage(new Image("file:Images/na.png"));
       }
    }
 
@@ -270,14 +249,15 @@ public class Controller
          lblFeelsLike.setText(feelsLikeC + "\u00B0C");
          lblDewpoint.setText(dewpointC + "\u00B0C");
          btnTemp.setText("\u00B0C");
+
          // Instantiation for forecast elements in degrees Celsius
          for(int index = 0; index < 7; index++)
          {
-            forecastHis[index] = f7Day.getDayForecasts("maxTempC", index) + "\u00B0C";
+            forecastHis[index] = f.getDayForecasts("maxTempC", index) + "\u00B0C";
          }
          for(int index = 0; index < 7; index++)
          {
-            forecastLos[index] = f7Day.getDayForecasts("minTempC", index) + "\u00B0C";
+            forecastLos[index] = f.getDayForecasts("minTempC", index) + "\u00B0C";
          }
 
          lblForecastHi0.setText(forecastHis[0]);
@@ -308,11 +288,11 @@ public class Controller
          // Instantiation for forecast elements in degrees Fahrenheit
          for(int index = 0; index < 7; index++)
          {
-            forecastHis[index] = f7Day.getDayForecasts("maxTempF", index) + "\u00B0F";
+            forecastHis[index] = f.getDayForecasts("maxTempF", index) + "\u00B0F";
          }
          for(int index = 0; index < 7; index++)
          {
-            forecastLos[index] = f7Day.getDayForecasts("minTempF", index) + "\u00B0F";
+            forecastLos[index] = f.getDayForecasts("minTempF", index) + "\u00B0F";
          }
 
          lblForecastHi0.setText(forecastHis[0]);
