@@ -24,7 +24,7 @@ class FetchRadar
 
             // Build url
             urlString = "https://maps.aerisapi.com/" + APIKeys.CLIENT_ID + "_" + APIKeys.CLIENT_SECRET
-                    + "/flat-dk,radar,counties,interstates,admin-cities-dk/380x390/"
+                    + "/flat-dk,radar,counties,interstates,admin-cities-dk/400x400/"
                     + query + ",8/current.png";
         }
         catch (IOException e)

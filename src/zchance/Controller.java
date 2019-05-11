@@ -11,7 +11,6 @@ import javafx.scene.image.ImageView;
 
 /**
  * Controller for weather-gui
- *
  * @author Zed Chance
  */
 public class Controller
@@ -20,16 +19,13 @@ public class Controller
    TextField tfInput;
 
    @FXML
-   Label lblFeelsLikeTag, lblHumidityTag, lblPressureTag, lblDewpointTag, lblWindTag, lblVisibilityTag,
-         lblPrecipTag, lblSnowDepthTag;
-
-   @FXML
    Label lblLocation, lblTemperature, lblConditions, lblFeelsLike, lblHumidity,
          lblPressure, lblDewpoint, lblWind, lblVisibility, lblPrecip, lblSnowDepth,
          lblForecastHi0, lblForecastLo0, lblForecastHi1, lblForecastLo1, lblForecastHi2, lblForecastLo2,
          lblForecastHi3, lblForecastLo3, lblForecastHi4, lblForecastLo4, lblForecastHi5, lblForecastLo5,
          lblForecastHi6, lblForecastLo6, lblWeekday0, lblWeekday1, lblWeekday2, lblWeekday3, lblWeekday4,
-         lblWeekday5, lblWeekday6;
+         lblWeekday5, lblWeekday6, lblFeelsLikeTag, lblHumidityTag, lblPressureTag, lblDewpointTag,
+         lblWindTag, lblVisibilityTag, lblPrecipTag, lblSnowDepthTag;
 
    @FXML
    Button btnGo, btnTemp;
@@ -367,7 +363,7 @@ public class Controller
    /**
     * Sets visibility for forecast
     */
-   public void showForecast(boolean b)
+   private void showForecast(boolean b)
    {
       lblForecastHi0.setVisible(b);
       lblForecastHi1.setVisible(b);
