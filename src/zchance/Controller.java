@@ -101,7 +101,7 @@ public class Controller
             showLabels(true);
             clearLabels();
             showFCButton(true);
-
+            gCatView.setVisible(false);
 
             tempF = w.getFromOb("tempF");
             tempC = w.getFromOb("tempC");
@@ -208,8 +208,6 @@ public class Controller
             lblWeekday4.setText(weekdays[4]);
             lblWeekday5.setText(weekdays[5]);
             lblWeekday6.setText(weekdays[6]);
-
-            //gCatView.setImage(new Image("file:Images/gCat.gif"));
          }
          else if (radarTab.isSelected())
          {
@@ -228,12 +226,18 @@ public class Controller
       }
       else
       {
+         clearLabels();
+         showLabels(false);
+         showFCButton(false);
+
          lblLocation.setText("Can't pull data for " + w.getQuery());
          lblTemperature.setText("");
          lblConditions.setText("");
 
          // Displays a question mark when location cannot be pulled
          weatherImageView.setImage(new Image("file:Images/na.png"));
+         gCatView.setVisible(true);
+         gCatView.setImage(new Image("file:Images/gCat.gif"));
       }
    }
 
