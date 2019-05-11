@@ -67,9 +67,9 @@
                                     <Font size="19.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="lblConditions" alignment="CENTER" prefHeight="20.0" prefWidth="359.0" style="-fx-font-style: italic; -fx-font-family: italic;" GridPane.rowIndex="2">
+                              <Label fx:id="lblConditions" alignment="CENTER" prefHeight="20.0" prefWidth="359.0" GridPane.rowIndex="2">
                                  <font>
-                                    <Font name="System Italic" size="16.0" />
+                                    <Font size="16.0" />
                                  </font>
                               </Label>
                               <GridPane prefWidth="359.0">
