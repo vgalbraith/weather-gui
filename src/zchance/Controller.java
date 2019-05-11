@@ -223,6 +223,7 @@ public class Controller
 
             r = new FetchRadar(location);
             radarView.setImage(new Image(r.getImage()));
+            gCatView.setVisible(false);
          }
       }
       else
