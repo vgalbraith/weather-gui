@@ -25,7 +25,7 @@ public class Controller
          lblForecastHi3, lblForecastLo3, lblForecastHi4, lblForecastLo4, lblForecastHi5, lblForecastLo5,
          lblForecastHi6, lblForecastLo6, lblWeekday0, lblWeekday1, lblWeekday2, lblWeekday3, lblWeekday4,
          lblWeekday5, lblWeekday6, lblFeelsLikeTag, lblHumidityTag, lblPressureTag, lblDewpointTag,
-         lblWindTag, lblVisibilityTag, lblPrecipTag, lblSnowDepthTag;
+         lblWindTag, lblVisibilityTag, lblPrecipTag, lblSnowDepthTag, lblRadar;
 
    @FXML
    Button btnGo, btnTemp;
@@ -98,6 +98,7 @@ public class Controller
             clearLabels();
             showFCButton(true);
             showForecast(true);
+            weatherImageView.setVisible(true);
             gCatView.setVisible(false);
 
             tempF = w.getFromOb("tempF");
@@ -110,13 +111,13 @@ public class Controller
             if (isFahrenheit)
             {
                // Instantiation for forecast elements in degrees Fahrenheit
-               for(int index = 0; index < 7; index++)
+               for(int i = 0; i < 7; i++)
                {
-                  forecastHis[index] = f.getDayForecasts("maxTempF", index) + "\u00B0F";
+                  forecastHis[i] = f.getDayForecasts("maxTempF", i) + "\u00B0F";
                }
-               for(int index = 0; index < 7; index++)
+               for(int i = 0; i < 7; i++)
                {
-                  forecastLos[index] = f.getDayForecasts("minTempF", index) + "\u00B0F";
+                  forecastLos[i] = f.getDayForecasts("minTempF", i) + "\u00B0F";
                }
 
                lblForecastHi0.setText(forecastHis[0]);
@@ -142,13 +143,13 @@ public class Controller
             else
             {
                // Instantiation for forecast elements in degrees Celsius
-               for(int index = 0; index < 7; index++)
+               for(int i = 0; i < 7; i++)
                {
-                  forecastHis[index] = f.getDayForecasts("maxTempC", index) + "\u00B0C";
+                  forecastHis[i] = f.getDayForecasts("maxTempC", i) + "\u00B0C";
                }
-               for(int index = 0; index < 7; index++)
+               for(int i = 0; i < 7; i++)
                {
-                  forecastLos[index] = f.getDayForecasts("minTempC", index) + "\u00B0C";
+                  forecastLos[i] = f.getDayForecasts("minTempC", i) + "\u00B0C";
                }
 
                lblForecastHi0.setText(forecastHis[0]);
@@ -218,6 +219,7 @@ public class Controller
             }
 
             r = new FetchRadar(location);
+            radarView.setVisible(true);
             radarView.setImage(new Image(r.getImage()));
             gCatView.setVisible(false);
          }
@@ -233,8 +235,11 @@ public class Controller
          lblTemperature.setText("");
          lblConditions.setText("");
 
-         // Displays a question mark when location cannot be pulled
-         weatherImageView.setImage(new Image("file:Images/na.png!"));
+         lblRadar.setText("Can't pull data for " + w.getQuery());
+         radarView.setVisible(false);
+         weatherImageView.setVisible(false);
+
+         // Displays the grumpy cat when location cannot be pulled
          gCatView.setVisible(true);
          gCatView.setImage(new Image("file:Images/gCat.gif"));
       }
@@ -254,13 +259,13 @@ public class Controller
          btnTemp.setText("\u00B0C");
 
          // Instantiation for forecast elements in degrees Celsius
-         for(int index = 0; index < 7; index++)
+         for(int i = 0; i < 7; i++)
          {
-            forecastHis[index] = f.getDayForecasts("maxTempC", index) + "\u00B0C";
+            forecastHis[i] = f.getDayForecasts("maxTempC", i) + "\u00B0C";
          }
-         for(int index = 0; index < 7; index++)
+         for(int i = 0; i < 7; i++)
          {
-            forecastLos[index] = f.getDayForecasts("minTempC", index) + "\u00B0C";
+            forecastLos[i] = f.getDayForecasts("minTempC", i) + "\u00B0C";
          }
 
          lblForecastHi0.setText(forecastHis[0]);
@@ -289,13 +294,13 @@ public class Controller
          btnTemp.setText("\u00B0F");
 
          // Instantiation for forecast elements in degrees Fahrenheit
-         for(int index = 0; index < 7; index++)
+         for(int i = 0; i < 7; i++)
          {
-            forecastHis[index] = f.getDayForecasts("maxTempF", index) + "\u00B0F";
+            forecastHis[i] = f.getDayForecasts("maxTempF", i) + "\u00B0F";
          }
-         for(int index = 0; index < 7; index++)
+         for(int i = 0; i < 7; i++)
          {
-            forecastLos[index] = f.getDayForecasts("minTempF", index) + "\u00B0F";
+            forecastLos[i] = f.getDayForecasts("minTempF", i) + "\u00B0F";
          }
 
          lblForecastHi0.setText(forecastHis[0]);
@@ -396,5 +401,13 @@ public class Controller
       forecastIcon4.setVisible(b);
       forecastIcon5.setVisible(b);
       forecastIcon6.setVisible(b);
+   }
+
+   /**
+    * Sets visibility of radar
+    */
+   private void showRadar(boolean b)
+   {
+      radarView.setVisible(b);
    }
 }

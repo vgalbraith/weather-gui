@@ -269,6 +269,11 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
+                        <Label fx:id="lblRadar" alignment="CENTER" layoutX="15.0" layoutY="63.0" prefHeight="24.0" prefWidth="359.0" text="Start by using the search bar above">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
                         <ImageView fx:id="radarView" fitHeight="390.0" fitWidth="380.0" layoutX="5.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
                      </children></AnchorPane>
               </content>
