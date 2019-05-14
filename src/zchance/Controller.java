@@ -324,6 +324,23 @@ public class Controller
    }
 
    /**
+    * Handle for tab swap
+    */
+   /*
+   radarTab.setOnSelectionChanged(new EventHandler<Event>()
+   {
+      @Override
+      public void handleTabToRadar(Event t)
+      {
+         if (radarTab.isSelected() && w.isSuccessful())
+         {
+            gCatView.setVisible(true);
+         }
+      }
+   });
+   */
+
+   /**
     * Clears all labels
     */
    private void clearLabels()

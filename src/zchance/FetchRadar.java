@@ -1,7 +1,5 @@
 package zchance;
 
-import javafx.scene.image.Image;
-
 import java.io.IOException;
 import java.net.URLEncoder;
 
