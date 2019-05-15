@@ -55,25 +55,10 @@ public class Controller
    private String dewpointC = "0";
 
    /**
-    * These arrays create sets of labels representing the different
-    * names of each day and their respective high and low temps
-    * ex: forecastHi0 = high temp for current day, forecastLo1 =
-    * high temp for next day, forecastDay2 = name of third day.
+    * Fetch objects
     */
-   private String[] forecastHis = new String[7];
-   private String[] forecastLos = new String[7];
    private FetchForecast f;
    private FetchWeather w;
-
-   /**
-    * An array list of the 7day forecast abbreviations
-    */
-   private String[] weekdays = new String[7];
-
-   /**
-    *
-    */
-   private String location;
 
    /**
     * Handles the go button
@@ -82,7 +67,7 @@ public class Controller
    public void handleGo(ActionEvent ae)
    {
       // Get the location
-      location = tfInput.getText();
+      String location = tfInput.getText();
       if (location.isEmpty())
       {
          location = ":auto";
@@ -95,7 +80,9 @@ public class Controller
       loadingCatView.setImage(new Image("file:Images/loading_nyan_cat.gif"));
       loadingCatView.setVisible(true);
 
-
+      //
+      AsyncTask rt = new GetDataInBackground();
+      rt.execute(location);
 
       // Fetch weather and forecast in the background.
       AsyncTask t = new GetWeatherDataInBackground();
@@ -117,31 +104,22 @@ public class Controller
          lblDewpoint.setText(dewpointC + "\u00B0C");
          btnTemp.setText("\u00B0C");
 
-         // Instantiation for forecast elements in degrees Celsius
-         for(int i = 0; i < 7; i++)
-         {
-            forecastHis[i] = f.getDayForecasts("maxTempC", i) + "\u00B0C";
-         }
-         for(int i = 0; i < 7; i++)
-         {
-            forecastLos[i] = f.getDayForecasts("minTempC", i) + "\u00B0C";
-         }
+         // Forecast labels for celsius
+         lblForecastHi0.setText(f.getDayForecasts("maxTempC", 0) + "\u00B0C");
+         lblForecastHi1.setText(f.getDayForecasts("maxTempC", 1) + "\u00B0C");
+         lblForecastHi2.setText(f.getDayForecasts("maxTempC", 2) + "\u00B0C");
+         lblForecastHi3.setText(f.getDayForecasts("maxTempC", 3) + "\u00B0C");
+         lblForecastHi4.setText(f.getDayForecasts("maxTempC", 4) + "\u00B0C");
+         lblForecastHi5.setText(f.getDayForecasts("maxTempC", 5) + "\u00B0C");
+         lblForecastHi6.setText(f.getDayForecasts("maxTempC", 6) + "\u00B0C");
 
-         lblForecastHi0.setText(forecastHis[0]);
-         lblForecastHi1.setText(forecastHis[1]);
-         lblForecastHi2.setText(forecastHis[2]);
-         lblForecastHi3.setText(forecastHis[3]);
-         lblForecastHi4.setText(forecastHis[4]);
-         lblForecastHi5.setText(forecastHis[5]);
-         lblForecastHi6.setText(forecastHis[6]);
-
-         lblForecastLo0.setText(forecastLos[0]);
-         lblForecastLo1.setText(forecastLos[1]);
-         lblForecastLo2.setText(forecastLos[2]);
-         lblForecastLo3.setText(forecastLos[3]);
-         lblForecastLo4.setText(forecastLos[4]);
-         lblForecastLo5.setText(forecastLos[5]);
-         lblForecastLo6.setText(forecastLos[6]);
+         lblForecastLo0.setText(f.getDayForecasts("minTempC", 0) + "\u00B0C");
+         lblForecastLo1.setText(f.getDayForecasts("minTempC", 1) + "\u00B0C");
+         lblForecastLo2.setText(f.getDayForecasts("minTempC", 2) + "\u00B0C");
+         lblForecastLo3.setText(f.getDayForecasts("minTempC", 3) + "\u00B0C");
+         lblForecastLo4.setText(f.getDayForecasts("minTempC", 4) + "\u00B0C");
+         lblForecastLo5.setText(f.getDayForecasts("minTempC", 5) + "\u00B0C");
+         lblForecastLo6.setText(f.getDayForecasts("minTempC", 6) + "\u00B0C");
 
          isFahrenheit = false;
       }
@@ -152,31 +130,22 @@ public class Controller
          lblDewpoint.setText(dewpointF + "\u00B0F");
          btnTemp.setText("\u00B0F");
 
-         // Instantiation for forecast elements in degrees Fahrenheit
-         for(int i = 0; i < 7; i++)
-         {
-            forecastHis[i] = f.getDayForecasts("maxTempF", i) + "\u00B0F";
-         }
-         for(int i = 0; i < 7; i++)
-         {
-            forecastLos[i] = f.getDayForecasts("minTempF", i) + "\u00B0F";
-         }
+         // Forecast labels for fahrenheit
+         lblForecastHi0.setText(f.getDayForecasts("maxTempF", 0) + "\u00B0F");
+         lblForecastHi1.setText(f.getDayForecasts("maxTempF", 1) + "\u00B0F");
+         lblForecastHi2.setText(f.getDayForecasts("maxTempF", 2) + "\u00B0F");
+         lblForecastHi3.setText(f.getDayForecasts("maxTempF", 3) + "\u00B0F");
+         lblForecastHi4.setText(f.getDayForecasts("maxTempF", 4) + "\u00B0F");
+         lblForecastHi5.setText(f.getDayForecasts("maxTempF", 5) + "\u00B0F");
+         lblForecastHi6.setText(f.getDayForecasts("maxTempF", 6) + "\u00B0F");
 
-         lblForecastHi0.setText(forecastHis[0]);
-         lblForecastHi1.setText(forecastHis[1]);
-         lblForecastHi2.setText(forecastHis[2]);
-         lblForecastHi3.setText(forecastHis[3]);
-         lblForecastHi4.setText(forecastHis[4]);
-         lblForecastHi5.setText(forecastHis[5]);
-         lblForecastHi6.setText(forecastHis[6]);
-
-         lblForecastLo0.setText(forecastLos[0]);
-         lblForecastLo1.setText(forecastLos[1]);
-         lblForecastLo2.setText(forecastLos[2]);
-         lblForecastLo3.setText(forecastLos[3]);
-         lblForecastLo4.setText(forecastLos[4]);
-         lblForecastLo5.setText(forecastLos[5]);
-         lblForecastLo6.setText(forecastLos[6]);
+         lblForecastLo0.setText(f.getDayForecasts("minTempF", 0) + "\u00B0F");
+         lblForecastLo1.setText(f.getDayForecasts("minTempF", 1) + "\u00B0F");
+         lblForecastLo2.setText(f.getDayForecasts("minTempF", 2) + "\u00B0F");
+         lblForecastLo3.setText(f.getDayForecasts("minTempF", 3) + "\u00B0F");
+         lblForecastLo4.setText(f.getDayForecasts("minTempF", 4) + "\u00B0F");
+         lblForecastLo5.setText(f.getDayForecasts("minTempF", 5) + "\u00B0F");
+         lblForecastLo6.setText(f.getDayForecasts("minTempF", 6) + "\u00B0F");
 
          isFahrenheit = true;
       }
@@ -259,10 +228,6 @@ public class Controller
             gCatView.setImage(new Image("file:Images/gCat.gif"));
          }
          loadingCatView.setVisible(false);
-
-         // Pull radar image after getting weather
-         AsyncTask rt = new GetRadarDataInBackground();
-         rt.execute(location);
       }
    }
 
@@ -287,59 +252,41 @@ public class Controller
          {
             if (isFahrenheit)
             {
-               // Instantiation for forecast elements in degrees Fahrenheit
-               for(int i = 0; i < 7; i++)
-               {
-                  forecastHis[i] = f.getDayForecasts("maxTempF", i) + "\u00B0F";
-               }
-               for(int i = 0; i < 7; i++)
-               {
-                  forecastLos[i] = f.getDayForecasts("minTempF", i) + "\u00B0F";
-               }
+               // Forecast labels for fahrenheit
+               lblForecastHi0.setText(f.getDayForecasts("maxTempF", 0) + "\u00B0F");
+               lblForecastHi1.setText(f.getDayForecasts("maxTempF", 1) + "\u00B0F");
+               lblForecastHi2.setText(f.getDayForecasts("maxTempF", 2) + "\u00B0F");
+               lblForecastHi3.setText(f.getDayForecasts("maxTempF", 3) + "\u00B0F");
+               lblForecastHi4.setText(f.getDayForecasts("maxTempF", 4) + "\u00B0F");
+               lblForecastHi5.setText(f.getDayForecasts("maxTempF", 5) + "\u00B0F");
+               lblForecastHi6.setText(f.getDayForecasts("maxTempF", 6) + "\u00B0F");
 
-               lblForecastHi0.setText(forecastHis[0]);
-               lblForecastHi1.setText(forecastHis[1]);
-               lblForecastHi2.setText(forecastHis[2]);
-               lblForecastHi3.setText(forecastHis[3]);
-               lblForecastHi4.setText(forecastHis[4]);
-               lblForecastHi5.setText(forecastHis[5]);
-               lblForecastHi6.setText(forecastHis[6]);
-
-               lblForecastLo0.setText(forecastLos[0]);
-               lblForecastLo1.setText(forecastLos[1]);
-               lblForecastLo2.setText(forecastLos[2]);
-               lblForecastLo3.setText(forecastLos[3]);
-               lblForecastLo4.setText(forecastLos[4]);
-               lblForecastLo5.setText(forecastLos[5]);
-               lblForecastLo6.setText(forecastLos[6]);
+               lblForecastLo0.setText(f.getDayForecasts("minTempF", 0) + "\u00B0F");
+               lblForecastLo1.setText(f.getDayForecasts("minTempF", 1) + "\u00B0F");
+               lblForecastLo2.setText(f.getDayForecasts("minTempF", 2) + "\u00B0F");
+               lblForecastLo3.setText(f.getDayForecasts("minTempF", 3) + "\u00B0F");
+               lblForecastLo4.setText(f.getDayForecasts("minTempF", 4) + "\u00B0F");
+               lblForecastLo5.setText(f.getDayForecasts("minTempF", 5) + "\u00B0F");
+               lblForecastLo6.setText(f.getDayForecasts("minTempF", 6) + "\u00B0F");
             }
             else
             {
-               // Instantiation for forecast elements in degrees Celsius
-               for(int i = 0; i < 7; i++)
-               {
-                  forecastHis[i] = f.getDayForecasts("maxTempC", i) + "\u00B0C";
-               }
-               for(int i = 0; i < 7; i++)
-               {
-                  forecastLos[i] = f.getDayForecasts("minTempC", i) + "\u00B0C";
-               }
+               // Forecast labels for celsius
+               lblForecastHi0.setText(f.getDayForecasts("maxTempC", 0) + "\u00B0C");
+               lblForecastHi1.setText(f.getDayForecasts("maxTempC", 1) + "\u00B0C");
+               lblForecastHi2.setText(f.getDayForecasts("maxTempC", 2) + "\u00B0C");
+               lblForecastHi3.setText(f.getDayForecasts("maxTempC", 3) + "\u00B0C");
+               lblForecastHi4.setText(f.getDayForecasts("maxTempC", 4) + "\u00B0C");
+               lblForecastHi5.setText(f.getDayForecasts("maxTempC", 5) + "\u00B0C");
+               lblForecastHi6.setText(f.getDayForecasts("maxTempC", 6) + "\u00B0C");
 
-               lblForecastHi0.setText(forecastHis[0]);
-               lblForecastHi1.setText(forecastHis[1]);
-               lblForecastHi2.setText(forecastHis[2]);
-               lblForecastHi3.setText(forecastHis[3]);
-               lblForecastHi4.setText(forecastHis[4]);
-               lblForecastHi5.setText(forecastHis[5]);
-               lblForecastHi6.setText(forecastHis[6]);
-
-               lblForecastLo0.setText(forecastLos[0]);
-               lblForecastLo1.setText(forecastLos[1]);
-               lblForecastLo2.setText(forecastLos[2]);
-               lblForecastLo3.setText(forecastLos[3]);
-               lblForecastLo4.setText(forecastLos[4]);
-               lblForecastLo5.setText(forecastLos[5]);
-               lblForecastLo6.setText(forecastLos[6]);
+               lblForecastLo0.setText(f.getDayForecasts("minTempC", 0) + "\u00B0C");
+               lblForecastLo1.setText(f.getDayForecasts("minTempC", 1) + "\u00B0C");
+               lblForecastLo2.setText(f.getDayForecasts("minTempC", 2) + "\u00B0C");
+               lblForecastLo3.setText(f.getDayForecasts("minTempC", 3) + "\u00B0C");
+               lblForecastLo4.setText(f.getDayForecasts("minTempC", 4) + "\u00B0C");
+               lblForecastLo5.setText(f.getDayForecasts("minTempC", 5) + "\u00B0C");
+               lblForecastLo6.setText(f.getDayForecasts("minTempC", 6) + "\u00B0C");
             }
 
             forecastIcon0.setImage(new Image("file:Images/" + f.getDayForecasts("icon", 0)));
@@ -350,36 +297,25 @@ public class Controller
             forecastIcon5.setImage(new Image("file:Images/" + f.getDayForecasts("icon", 5)));
             forecastIcon6.setImage(new Image("file:Images/" + f.getDayForecasts("icon", 6)));
 
-            // Handle weekday abbreviations.
-            // Get an abbr list of names from the 7day forecast into weekdays.
-            for(int i = 0; i < weekdays.length; i++)
-            {
-               weekdays[i] = new TimestampMachine().getDay(f.getDayForecasts("timestamp", i));
-            }
-
             // Set weekday labels
             lblWeekday0.setText("Today");
-            lblWeekday1.setText(weekdays[1]);
-            lblWeekday2.setText(weekdays[2]);
-            lblWeekday3.setText(weekdays[3]);
-            lblWeekday4.setText(weekdays[4]);
-            lblWeekday5.setText(weekdays[5]);
-            lblWeekday6.setText(weekdays[6]);
+            lblWeekday1.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 1)));
+            lblWeekday2.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 2)));
+            lblWeekday3.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 3)));
+            lblWeekday4.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 4)));
+            lblWeekday5.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 5)));
+            lblWeekday6.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 6)));
          }
          loadingCatView.setVisible(false);
       }
    }
 
-    private class GetRadarDataInBackground extends AsyncTask<String, FetchRadar>
+    private class GetDataInBackground extends AsyncTask<String, FetchRadar>
     {
         @Override
         public FetchRadar doInBackground(String location)
         {
             // Fetch the radar data
-           if (location.equals(":auto"))
-           {
-              location = w.getLocation();
-           }
            return new FetchRadar(location);
         }
 
