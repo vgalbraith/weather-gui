@@ -71,13 +71,18 @@ public class Controller
    private String[] weekdays = new String[7];
 
    /**
+    *
+    */
+   private String location;
+
+   /**
     * Handles the go button
     * @param ae ActionEvent
     */
    public void handleGo(ActionEvent ae)
    {
       // Get the location
-      String location = tfInput.getText();
+      location = tfInput.getText();
       if (location.isEmpty())
       {
          location = ":auto";
@@ -90,9 +95,7 @@ public class Controller
       loadingCatView.setImage(new Image("file:Images/loading_nyan_cat.gif"));
       loadingCatView.setVisible(true);
 
-      //
-      AsyncTask rt = new GetDataInBackground();
-      rt.execute(location);
+
 
       // Fetch weather and forecast in the background.
       AsyncTask t = new GetWeatherDataInBackground();
@@ -256,6 +259,10 @@ public class Controller
             gCatView.setImage(new Image("file:Images/gCat.gif"));
          }
          loadingCatView.setVisible(false);
+
+         // Pull radar image after getting weather
+         AsyncTask rt = new GetRadarDataInBackground();
+         rt.execute(location);
       }
    }
 
@@ -363,12 +370,16 @@ public class Controller
       }
    }
 
-    private class GetDataInBackground extends AsyncTask<String, FetchRadar>
+    private class GetRadarDataInBackground extends AsyncTask<String, FetchRadar>
     {
         @Override
         public FetchRadar doInBackground(String location)
         {
             // Fetch the radar data
+           if (location.equals(":auto"))
+           {
+              location = w.getLocation();
+           }
            return new FetchRadar(location);
         }
 

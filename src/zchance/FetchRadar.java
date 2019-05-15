@@ -15,11 +15,6 @@ class FetchRadar
     {
         try
         {
-            if (query.equals(":auto"))
-            {
-                FetchWeather w = new FetchWeather(":auto");
-                query = w.getLocation();
-            }
             URLEncoder.encode(query, "UTF-8");
 
             // Build url
