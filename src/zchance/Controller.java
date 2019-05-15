@@ -91,25 +91,22 @@ public class Controller
          location = CityFormatter.format(location);
       }
 
-      if (radarTab.isSelected())
-      {
+      //if (radarTab.isSelected())
+      //{
            AsyncTask rt = new GetDataInBackground();
            rt.execute(location);
-      }
+      //}
 
-      else
-      {
+      //else
+      //{
           // Fetch weather and forecast in the background.
           AsyncTask t = new GetWeatherDataInBackground();
           t.execute(location);
 
           AsyncTask g = new GetForecastDataInBackground();
           g.execute(location);
-      }
+      //}
    }
-
-
-
 
 
 
@@ -210,8 +207,8 @@ public class Controller
          // Update the data on the screen
          if (w.isSuccessful())
          {
-            if (weatherTab.isSelected())
-            {
+            //if (weatherTab.isSelected())
+            //{
                showLabels(true);
                clearLabels();
                showFCButton(true);
@@ -249,7 +246,7 @@ public class Controller
                lblPrecip.setText(w.getFromOb("precipIN") + " IN");
                lblSnowDepth.setText(w.getFromOb("snowDepthIN") + " IN");
                weatherImageView.setImage(new Image("file:Images/" + w.getFromOb("icon")));
-            }
+            //}
          }
          else
          {
@@ -292,8 +289,8 @@ public class Controller
          // Update the data on the screen
          if (w.isSuccessful())
          {
-            if (weatherTab.isSelected())
-            {
+            //if (weatherTab.isSelected())
+            //{
 
                if (isFahrenheit)
                {
@@ -377,7 +374,7 @@ public class Controller
                lblWeekday5.setText(weekdays[5]);
                lblWeekday6.setText(weekdays[6]);
             }
-         }
+         //}
       }
    }
 
