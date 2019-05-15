@@ -99,17 +99,10 @@ public class Controller
 
       else
       {
-          // do in background
-          // w = new FetchWeather(location);
-          //AsyncTask t = new GetWeatherDataInBackground();
-
+          // Fetch weather and forecast in the background.
           AsyncTask t = new GetWeatherDataInBackground();
           t.execute(location);
-          //FetchWeather w = new GetWeatherDataInBackground().doInBackground(location);
 
-          //FetchForecast f = new GetForecastDataInBackground().doInBackground(location);
-
-          //f = new FetchForecast(location);
           AsyncTask g = new GetForecastDataInBackground();
           g.execute(location);
       }
