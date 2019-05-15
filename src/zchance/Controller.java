@@ -191,6 +191,9 @@ public class Controller
       }
    }
 
+   /**
+    *   Handles fetching the weather in the background.
+    */
    private class GetWeatherDataInBackground extends AsyncTask<String, FetchWeather>
    {
       @Override
@@ -287,6 +290,9 @@ public class Controller
       }
    }
 
+    /**
+     *  Handles the background task when fetching the forecast.
+     */
    private class GetForecastDataInBackground extends AsyncTask<String, FetchForecast>
    {
       @Override
