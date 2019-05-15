@@ -80,8 +80,7 @@ public class Controller
     */
    public void handleGo(ActionEvent ae)
    {
-
-
+       // Get the location
       location = tfInput.getText();
       if (location.isEmpty())
       {
@@ -92,20 +91,28 @@ public class Controller
          location = CityFormatter.format(location);
       }
 
-      // do in background
-      // w = new FetchWeather(location);
-      //AsyncTask t = new GetWeatherDataInBackground();
+      if (radarTab.isSelected())
+      {
+           AsyncTask rt = new GetDataInBackground();
+           rt.execute(location);
+      }
 
-      AsyncTask t = new GetWeatherDataInBackground();
-      t.execute(location);
-      //FetchWeather w = new GetWeatherDataInBackground().doInBackground(location);
+      else
+      {
+          // do in background
+          // w = new FetchWeather(location);
+          //AsyncTask t = new GetWeatherDataInBackground();
 
-      //FetchForecast f = new GetForecastDataInBackground().doInBackground(location);
+          AsyncTask t = new GetWeatherDataInBackground();
+          t.execute(location);
+          //FetchWeather w = new GetWeatherDataInBackground().doInBackground(location);
 
-      //f = new FetchForecast(location);
-      AsyncTask g = new GetForecastDataInBackground();
-      g.execute(location);
+          //FetchForecast f = new GetForecastDataInBackground().doInBackground(location);
 
+          //f = new FetchForecast(location);
+          AsyncTask g = new GetForecastDataInBackground();
+          g.execute(location);
+      }
    }
 
 
@@ -251,6 +258,7 @@ public class Controller
                weatherImageView.setImage(new Image("file:Images/" + w.getFromOb("icon")));
             }
 
+            /*
             else if (radarTab.isSelected())
             {
                if (location.isEmpty())
@@ -262,11 +270,18 @@ public class Controller
                   location = CityFormatter.format(location);
                }
 
-               r = new FetchRadar(location);
+                AsyncTask rt = new GetDataInBackground();
+                rt.execute(location);
+
+               //r = new FetchRadar(location);
                radarView.setVisible(true);
                radarView.setImage(new Image(r.getImage()));
                gCatView.setVisible(false);
             }
+
+             */
+
+
          }
          else
          {
@@ -397,6 +412,28 @@ public class Controller
          }
       }
    }
+
+    private class GetDataInBackground extends AsyncTask<String, FetchRadar>
+    {
+        @Override
+        public FetchRadar doInBackground(String location)
+        {
+            // Fetch the radar data
+            r = new FetchRadar(location);
+            return r;
+        }
+
+        @Override
+        public void onPostExecute(FetchRadar r)
+        {
+            // Update the radar data on the screen
+            radarView.setVisible(true);
+            radarView.setImage(new Image(r.getImage()));
+            gCatView.setVisible(false);
+        }
+    }
+
+
 
 
    /**
