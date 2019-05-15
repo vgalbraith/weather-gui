@@ -281,5 +281,6 @@
          </tabs>
       </TabPane>
       <ImageView fx:id="gCatView" fitHeight="150.0" fitWidth="200.0" layoutX="246.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="loadingCatView" fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>

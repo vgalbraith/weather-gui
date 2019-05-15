@@ -33,7 +33,7 @@ public class Controller
    Button btnGo, btnTemp;
 
    @FXML
-   ImageView weatherImageView, radarView, gCatView, forecastIcon0, forecastIcon1, forecastIcon2,
+   ImageView loadingCatView, weatherImageView, radarView, gCatView, forecastIcon0, forecastIcon1, forecastIcon2,
              forecastIcon3, forecastIcon4, forecastIcon5, forecastIcon6;
 
    @FXML
@@ -90,6 +90,9 @@ public class Controller
       {
          location = CityFormatter.format(location);
       }
+
+      loadingCatView.setImage(new Image("file:Images/loading_nyan_cat.gif"));
+      loadingCatView.setVisible(true);
 
       //if (radarTab.isSelected())
       //{
@@ -267,6 +270,9 @@ public class Controller
             gCatView.setVisible(true);
             gCatView.setImage(new Image("file:Images/gCat.gif"));
          }
+
+          loadingCatView.setVisible(false);
+
       }
    }
 
@@ -373,8 +379,9 @@ public class Controller
                lblWeekday4.setText(weekdays[4]);
                lblWeekday5.setText(weekdays[5]);
                lblWeekday6.setText(weekdays[6]);
-            }
-         //}
+            //}
+         }
+         loadingCatView.setVisible(false);
       }
    }
 
@@ -395,6 +402,7 @@ public class Controller
             radarView.setVisible(true);
             radarView.setImage(new Image(r.getImage()));
             gCatView.setVisible(false);
+            loadingCatView.setVisible(false);
         }
     }
 
