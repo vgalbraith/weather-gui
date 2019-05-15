@@ -250,31 +250,6 @@ public class Controller
                lblSnowDepth.setText(w.getFromOb("snowDepthIN") + " IN");
                weatherImageView.setImage(new Image("file:Images/" + w.getFromOb("icon")));
             }
-
-            /*
-            else if (radarTab.isSelected())
-            {
-               if (location.isEmpty())
-               {
-                  location = ":auto";
-               }
-               else
-               {
-                  location = CityFormatter.format(location);
-               }
-
-                AsyncTask rt = new GetDataInBackground();
-                rt.execute(location);
-
-               //r = new FetchRadar(location);
-               radarView.setVisible(true);
-               radarView.setImage(new Image(r.getImage()));
-               gCatView.setVisible(false);
-            }
-
-             */
-
-
          }
          else
          {
