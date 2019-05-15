@@ -61,6 +61,13 @@ public class Controller
    private FetchWeather w;
 
    /**
+    * Background objects
+    */
+   AsyncTask t;
+   AsyncTask g;
+   AsyncTask rt;
+
+   /**
     * Location variable
     */
    private String location;
@@ -85,9 +92,9 @@ public class Controller
       loadingCatView.setVisible(true);
 
       // Fetch weather and forecast in the background.
-      AsyncTask t = new GetWeatherDataInBackground();
+      t = new GetWeatherDataInBackground();
       t.execute(location);
-      AsyncTask g = new GetForecastDataInBackground();
+      g = new GetForecastDataInBackground();
       g.execute(location);
    }
 
@@ -230,7 +237,7 @@ public class Controller
          loadingCatView.setVisible(false);
 
          // Pull radar after pulling weather
-         AsyncTask rt = new GetRadarDataInBackground();
+         rt = new GetRadarDataInBackground();
          rt.execute(location);
       }
    }
@@ -417,4 +424,12 @@ public class Controller
       forecastIcon5.setVisible(b);
       forecastIcon6.setVisible(b);
    }
+
+   public void stop()
+   {
+      t.cancel();
+      g.cancel();
+      rt.cancel();
+   }
+
 }

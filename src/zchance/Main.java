@@ -11,10 +11,13 @@ import javafx.stage.Stage;
  */
 public class Main extends Application
 {
+    FXMLLoader loader;
+
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
+        loader = new FXMLLoader(getClass().getResource("gui.fxml"));
+        Parent root = loader.load();
         primaryStage.setTitle("Hello Weather");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -23,5 +26,11 @@ public class Main extends Application
     public static void main(String[] args)
     {
         launch(args);
+    }
+
+    public void stop()
+    {
+        Controller c = loader.getController();
+        c.stop();
     }
 }
