@@ -115,7 +115,7 @@ public class FetchWeather
       {
          //e.printStackTrace();
       }
-      return "";
+      return "0";
    }
 
    /**
