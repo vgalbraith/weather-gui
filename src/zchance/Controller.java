@@ -53,7 +53,6 @@ public class Controller
    private String tempC = "0";
    private String feelsLikeC = "0";
    private String dewpointC = "0";
-   private String location;
 
    /**
     * These arrays create sets of labels representing the different
@@ -64,7 +63,6 @@ public class Controller
    private String[] forecastHis = new String[7];
    private String[] forecastLos = new String[7];
    private FetchForecast f;
-   private FetchRadar r;
    private FetchWeather w;
 
    /**
@@ -79,7 +77,7 @@ public class Controller
    public void handleGo(ActionEvent ae)
    {
       // Get the location
-      location = tfInput.getText();
+      String location = tfInput.getText();
       if (location.isEmpty())
       {
          location = ":auto";
@@ -92,6 +90,7 @@ public class Controller
       loadingCatView.setImage(new Image("file:Images/loading_nyan_cat.gif"));
       loadingCatView.setVisible(true);
 
+      //
       AsyncTask rt = new GetDataInBackground();
       rt.execute(location);
 
@@ -370,8 +369,7 @@ public class Controller
         public FetchRadar doInBackground(String location)
         {
             // Fetch the radar data
-            r = new FetchRadar(location);
-            return r;
+           return new FetchRadar(location);
         }
 
         @Override
@@ -463,13 +461,5 @@ public class Controller
       forecastIcon4.setVisible(b);
       forecastIcon5.setVisible(b);
       forecastIcon6.setVisible(b);
-   }
-
-   /**
-    * Sets visibility of radar
-    */
-   private void showRadar(boolean b)
-   {
-      radarView.setVisible(b);
    }
 }
