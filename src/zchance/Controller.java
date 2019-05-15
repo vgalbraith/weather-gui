@@ -61,11 +61,6 @@ public class Controller
    private FetchWeather w;
 
    /**
-    * An array list of the 7day forecast abbreviations
-    */
-   private String[] weekdays = new String[7];
-
-   /**
     * Handles the go button
     * @param ae ActionEvent
     */
@@ -302,21 +297,14 @@ public class Controller
             forecastIcon5.setImage(new Image("file:Images/" + f.getDayForecasts("icon", 5)));
             forecastIcon6.setImage(new Image("file:Images/" + f.getDayForecasts("icon", 6)));
 
-            // Handle weekday abbreviations.
-            // Get an abbr list of names from the 7day forecast into weekdays.
-            for(int i = 0; i < weekdays.length; i++)
-            {
-               weekdays[i] = new TimestampMachine().getDay(f.getDayForecasts("timestamp", i));
-            }
-
             // Set weekday labels
             lblWeekday0.setText("Today");
-            lblWeekday1.setText(weekdays[1]);
-            lblWeekday2.setText(weekdays[2]);
-            lblWeekday3.setText(weekdays[3]);
-            lblWeekday4.setText(weekdays[4]);
-            lblWeekday5.setText(weekdays[5]);
-            lblWeekday6.setText(weekdays[6]);
+            lblWeekday1.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 1)));
+            lblWeekday2.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 2)));
+            lblWeekday3.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 3)));
+            lblWeekday4.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 4)));
+            lblWeekday5.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 5)));
+            lblWeekday6.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 6)));
          }
          loadingCatView.setVisible(false);
       }
