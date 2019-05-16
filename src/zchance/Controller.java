@@ -94,6 +94,8 @@ public class Controller
       showForecast(false);
       radarView.setVisible(false);
       weatherImageView.setVisible(false);
+      lblRadar.setVisible(false);
+      gCatView.setVisible(false);
 
       loadingCatView.setImage(new Image("file:Images/loading_nyan_cat.gif"));
       loadingCatView.setVisible(true);
@@ -209,6 +211,10 @@ public class Controller
             // Displays the grumpy cat when location cannot be pulled
             gCatView.setVisible(true);
             gCatView.setImage(new Image("file:Images/gCat.gif"));
+
+            lblRadar.setVisible(true);
+            lblLocation.setVisible(true);
+            loadingCatView.setVisible(false);
          }
       }
    }
