@@ -3,17 +3,8 @@ package zchance;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-class TimestampMachine
+class DateFormatter
 {
-    // Instance Variables
-    private String day;
-
-    // Constructor
-    // Initializes day to ""
-    /*public TimestampMachine()
-    {
-        day = "";
-    }*/
 
     String getDay(String ts)
     {
@@ -23,8 +14,6 @@ class TimestampMachine
         SimpleDateFormat dateFormat = new SimpleDateFormat("EEE", Locale.US);
 
         // Needs to be multiplied by 1000 to convert into milliseconds
-        day = dateFormat.format(timestamp * 1000L);
-
-        return day;
+        return dateFormat.format(timestamp * 1000L);
     }
 }

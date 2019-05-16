@@ -63,9 +63,9 @@ public class Controller
    /**
     * Background objects
     */
-   AsyncTask t;
-   AsyncTask g;
-   AsyncTask rt;
+   private AsyncTask t;
+   private AsyncTask g;
+   private AsyncTask rt;
 
    /**
     * Location variable
@@ -310,12 +310,12 @@ public class Controller
 
             // Set weekday labels
             lblWeekday0.setText("Today");
-            lblWeekday1.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 1)));
-            lblWeekday2.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 2)));
-            lblWeekday3.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 3)));
-            lblWeekday4.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 4)));
-            lblWeekday5.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 5)));
-            lblWeekday6.setText(new TimestampMachine().getDay(f.getDayForecasts("timestamp", 6)));
+            lblWeekday1.setText(new DateFormatter().getDay(f.getDayForecasts("timestamp", 1)));
+            lblWeekday2.setText(new DateFormatter().getDay(f.getDayForecasts("timestamp", 2)));
+            lblWeekday3.setText(new DateFormatter().getDay(f.getDayForecasts("timestamp", 3)));
+            lblWeekday4.setText(new DateFormatter().getDay(f.getDayForecasts("timestamp", 4)));
+            lblWeekday5.setText(new DateFormatter().getDay(f.getDayForecasts("timestamp", 5)));
+            lblWeekday6.setText(new DateFormatter().getDay(f.getDayForecasts("timestamp", 6)));
          }
          loadingCatView.setVisible(false);
       }
@@ -425,11 +425,10 @@ public class Controller
       forecastIcon6.setVisible(b);
    }
 
-   public void stop()
+   void stop()
    {
       t.cancel();
       g.cancel();
       rt.cancel();
    }
-
 }
