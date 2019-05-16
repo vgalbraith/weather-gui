@@ -1,6 +1,7 @@
 package zchance;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,5 +33,18 @@ public class AutoCompleteTest extends Application
    public static void main(String[] args)
    {
       launch(args);
+   }
+
+   public void autoComplete(KeyEvent k)
+   {
+      int charLength = tfInput.getLength();
+      if (charLength > 2)
+      {
+         FetchMapBox f = new FetchMapBox(tfInput.getText());
+         f.fetch();
+         tfInput.setText(f.getPlaceName(0));
+         tfInput.positionCaret(charLength);
+         tfInput.selectRange(charLength, tfInput.getLength());
+      }
    }
 }
