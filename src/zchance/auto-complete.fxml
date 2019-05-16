@@ -6,6 +6,6 @@
 
 <AnchorPane prefHeight="85.0" prefWidth="331.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zchance.AutoCompleteTest">
    <children>
-      <TextField fx:id="tfInput" layoutX="14.0" layoutY="29.0" onKeyReleased="#autoComplete" prefHeight="27.0" prefWidth="304.0" />
+      <TextField fx:id="tfInput" layoutX="14.0" layoutY="29.0" onKeyReleased="#autoCompleteField" prefHeight="27.0" prefWidth="304.0" />
    </children>
 </AnchorPane>

@@ -35,7 +35,7 @@ public class AutoCompleteTest extends Application
       launch(args);
    }
 
-   public void autoComplete(KeyEvent k)
+   public void autoCompleteField(KeyEvent k)
    {
       int charLength = tfInput.getLength();
       if (charLength > 2)
