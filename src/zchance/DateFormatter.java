@@ -5,7 +5,7 @@ import java.util.Locale;
 
 class DateFormatter
 {
-    String getDay(String ts)
+    static String getDay(String ts)
     {
         long timestamp = Long.parseLong(ts);
 
