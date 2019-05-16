@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="85.0" prefWidth="331.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zchance.AutoCompleteTest">
+   <children>
+      <TextField fx:id="tfInput" layoutX="14.0" layoutY="29.0" prefHeight="27.0" prefWidth="304.0" />
+   </children>
+</AnchorPane>
