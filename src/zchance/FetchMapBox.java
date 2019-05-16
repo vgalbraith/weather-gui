@@ -7,16 +7,26 @@ import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
 
+/**
+ * FetchMapBox uses MapBox API to retrieve complete city names and latitude and longitude
+ */
 public class FetchMapBox
 {
    private String query;
    private JsonElement results;
 
+   /**
+    * Constructs a FetchMapBox object
+    * @param q query to search for
+    */
    public FetchMapBox(String q)
    {
       query = q;
    }
 
+   /**
+    * Fetches results
+    */
    public void fetch()
    {
       try
@@ -41,12 +51,22 @@ public class FetchMapBox
       }
    }
 
+   /**
+    * Gets the place name for a query
+    * @param index of result to return (0 - 4)
+    * @return place name as string
+    */
    public String getPlaceName(int index)
    {
       return results.getAsJsonObject().get("features").getAsJsonArray().get(index).getAsJsonObject()
               .get("place_name").getAsString();
    }
 
+   /**
+    * Gets the latitude and longitude
+    * @param index of result to return (0 - 4)
+    * @return lat and longitude with comma inbetween as string
+    */
    public String getCenter(int index)
    {
       String lat = results.getAsJsonObject().get("features").getAsJsonArray().get(index).getAsJsonObject()
