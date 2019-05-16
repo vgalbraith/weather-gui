@@ -41,18 +41,18 @@ public class FetchMapBox
       }
    }
 
-   public String getPlaceName()
+   public String getPlaceName(int index)
    {
-      return results.getAsJsonObject().get("features").getAsJsonArray().get(0).getAsJsonObject()
+      return results.getAsJsonObject().get("features").getAsJsonArray().get(index).getAsJsonObject()
               .get("place_name").getAsString();
    }
 
-   public String getCenter()
+   public String getCenter(int index)
    {
-      String lat = results.getAsJsonObject().get("features").getAsJsonArray().get(0).getAsJsonObject()
+      String lat = results.getAsJsonObject().get("features").getAsJsonArray().get(index).getAsJsonObject()
               .get("center").getAsJsonArray().get(0).getAsString();
 
-      String lon = results.getAsJsonObject().get("features").getAsJsonArray().get(0).getAsJsonObject()
+      String lon = results.getAsJsonObject().get("features").getAsJsonArray().get(index).getAsJsonObject()
               .get("center").getAsJsonArray().get(1).getAsString();
 
       return lat + "," + lon;
