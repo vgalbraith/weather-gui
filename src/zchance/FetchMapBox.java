@@ -40,4 +40,21 @@ public class FetchMapBox
          e.printStackTrace();
       }
    }
+
+   public String getPlaceName()
+   {
+      return results.getAsJsonObject().get("features").getAsJsonArray().get(0).getAsJsonObject()
+              .get("place_name").getAsString();
+   }
+
+   public String getCenter()
+   {
+      String lat = results.getAsJsonObject().get("features").getAsJsonArray().get(0).getAsJsonObject()
+              .get("center").getAsJsonArray().get(0).getAsString();
+
+      String lon = results.getAsJsonObject().get("features").getAsJsonArray().get(0).getAsJsonObject()
+              .get("center").getAsJsonArray().get(1).getAsString();
+
+      return lat + "," + lon;
+   }
 }
