@@ -88,13 +88,20 @@ public class Controller
          location = CityFormatter.format(location);
       }
 
+      clearLabels();
+      showLabels(false);
+      showFCButton(false);
+      showForecast(false);
+      radarView.setVisible(false);
+      weatherImageView.setVisible(false);
+
       loadingCatView.setImage(new Image("file:Images/loading_nyan_cat.gif"));
       loadingCatView.setVisible(true);
 
-      // Fetch weather and forecast in the background.
-      t = new GetWeatherDataInBackground();
+      // Fetch all data in the background.
+      t = new FetchWeatherInBackground();
       t.execute(location);
-      g = new GetForecastDataInBackground();
+      g = new FetchForecastInBackground();
       g.execute(location);
    }
 
@@ -161,36 +168,36 @@ public class Controller
    /**
     *   Handles fetching the weather in the background.
     */
-   private class GetWeatherDataInBackground extends AsyncTask<String, FetchWeather>
+   private class FetchWeatherInBackground extends AsyncTask<String, FetchWeather>
    {
       @Override
       public FetchWeather doInBackground(String location)
       {
          // Fetch the weather data
          w = new FetchWeather(location);
-         return w;
-      }
-
-      @Override
-      public void onPostExecute(FetchWeather w)
-      {
-         // Update the data on the screen
          if (w.isSuccessful())
          {
-            showLabels(true);
-            clearLabels();
-            showFCButton(true);
-            showForecast(true);
-            weatherImageView.setVisible(true);
-            gCatView.setVisible(false);
-
             tempF = w.getFromOb("tempF");
             tempC = w.getFromOb("tempC");
             feelsLikeF = w.getFromOb("feelslikeF");
             feelsLikeC = w.getFromOb("feelslikeC");
             dewpointF = w.getFromOb("dewpointF");
             dewpointC = w.getFromOb("dewpointC");
+         }
 
+         return w;
+      }
+
+      @Override
+      public void onPostExecute(FetchWeather w)
+      {
+         // Pull radar after weather pull is complete in case of auto query
+         rt = new FetchRadarInBackground();
+
+         rt.execute(location);
+         // Update the data on the screen
+         if (w.isSuccessful())
+         {
             if (isFahrenheit)
             {
                lblTemperature.setText(tempF + "\u00B0F");
@@ -235,17 +242,13 @@ public class Controller
             gCatView.setImage(new Image("file:Images/gCat.gif"));
          }
          loadingCatView.setVisible(false);
-
-         // Pull radar after pulling weather
-         rt = new GetRadarDataInBackground();
-         rt.execute(location);
       }
    }
 
     /**
      *  Handles the background task when fetching the forecast.
      */
-   private class GetForecastDataInBackground extends AsyncTask<String, FetchForecast>
+   private class FetchForecastInBackground extends AsyncTask<String, FetchForecast>
    {
       @Override
       public FetchForecast doInBackground(String location)
@@ -317,11 +320,10 @@ public class Controller
             lblWeekday5.setText(new DateFormatter().getDay(f.getDayForecasts("timestamp", 5)));
             lblWeekday6.setText(new DateFormatter().getDay(f.getDayForecasts("timestamp", 6)));
          }
-         loadingCatView.setVisible(false);
       }
    }
 
-    private class GetRadarDataInBackground extends AsyncTask<String, FetchRadar>
+    private class FetchRadarInBackground extends AsyncTask<String, FetchRadar>
     {
         @Override
         public FetchRadar doInBackground(String location)
@@ -337,11 +339,16 @@ public class Controller
         @Override
         public void onPostExecute(FetchRadar r)
         {
-            // Update the radar data on the screen
-            radarView.setVisible(true);
-            radarView.setImage(new Image(r.getImage()));
-            gCatView.setVisible(false);
-            loadingCatView.setVisible(false);
+           showLabels(true);
+           showFCButton(true);
+           showForecast(true);
+           weatherImageView.setVisible(true);
+
+           // Update the radar data on the screen
+           radarView.setVisible(true);
+           radarView.setImage(new Image(r.getImage()));
+           gCatView.setVisible(false);
+           loadingCatView.setVisible(false);
         }
     }
 
