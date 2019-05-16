@@ -71,6 +71,7 @@ public class Controller
     * Location variable
     */
    private String location;
+
    /**
     * Handles the go button
     * @param ae ActionEvent
@@ -168,7 +169,7 @@ public class Controller
    }
 
    /**
-    *   Handles fetching the weather in the background.
+    * Handles fetching the weather in the background.
     */
    private class FetchWeatherInBackground extends AsyncTask<String, FetchWeather>
    {
@@ -297,6 +298,9 @@ public class Controller
       }
    }
 
+   /**
+    * Handles fetching the radar in the background
+    */
    private class FetchRadarInBackground extends AsyncTask<String, FetchRadar>
    {
       @Override
@@ -444,6 +448,9 @@ public class Controller
       forecastIcon6.setVisible(b);
    }
 
+   /**
+    * Stops background threads
+    */
    void stop()
    {
       t.cancel();
