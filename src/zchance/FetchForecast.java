@@ -14,6 +14,7 @@ import java.net.URLEncoder;
 class FetchForecast
 {
     private JsonElement results;
+    private String query;
 
     /**
      * Constructs a FetchForecast object which consists of
@@ -24,7 +25,7 @@ class FetchForecast
         try
         {
             //Encode location
-            String query = URLEncoder.encode(loc, "UTF-8");
+            query = URLEncoder.encode(loc, "UTF-8");
 
             //URL concatenation
             String urlString = "https://api.aerisapi.com/forecasts/" + query +
@@ -70,5 +71,32 @@ class FetchForecast
         {
             return "invalid index";
         }
+    }
+
+    /**
+     * Getter for query
+     * @return query as String
+     */
+    private String getQuery()
+    {
+        return query;
+    }
+
+    /**
+     * Checks if the API query was successful or not
+     * @return success true or false
+     */
+    boolean isSuccessful()
+    {
+        return results.getAsJsonObject().get("success").getAsBoolean();
+    }
+
+    /**
+     * String representation of FetchWeather object
+     * @return string
+     */
+    public String toString()
+    {
+        return "Query: " + getQuery() + ", Success: " + isSuccessful();
     }
 }

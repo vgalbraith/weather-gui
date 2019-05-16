@@ -99,10 +99,10 @@ public class Controller
       loadingCatView.setVisible(true);
 
       // Fetch all data in the background.
-      t = new FetchWeatherInBackground();
-      t.execute(location);
       g = new FetchForecastInBackground();
       g.execute(location);
+      t = new FetchWeatherInBackground();
+      t.execute(location);
    }
 
    /**
@@ -191,44 +191,13 @@ public class Controller
       @Override
       public void onPostExecute(FetchWeather w)
       {
-         // Pull radar after weather pull is complete in case of auto query
+         // Pull radar after weather pull is complete in case of ":auto" query
          rt = new FetchRadarInBackground();
-
          rt.execute(location);
+
          // Update the data on the screen
-         if (w.isSuccessful())
+         if (!w.isSuccessful())
          {
-            if (isFahrenheit)
-            {
-               lblTemperature.setText(tempF + "\u00B0F");
-               lblFeelsLike.setText(feelsLikeF + "\u00B0F");
-               lblDewpoint.setText(dewpointF + "\u00B0F");
-            }
-            else
-            {
-
-               lblTemperature.setText(tempC + "\u00B0C");
-               lblFeelsLike.setText(feelsLikeC + "\u00B0C");
-               lblDewpoint.setText(dewpointC + "\u00B0C");
-            }
-
-            lblLocation.setText(w.getLocation());
-            lblConditions.setText(w.getFromOb("weather"));
-            lblWind.setText(w.getFromOb("windMPH") + " MPH " + w.getFromOb("windDir"));
-            lblPressure.setText(w.getFromOb("pressureIN") + " inHg");
-            lblHumidity.setText(w.getFromOb("humidity") + "%");
-            lblVisibility.setText(w.getFromOb("visibilityMI") + " MI");
-            lblPrecip.setText(w.getFromOb("precipIN") + " IN");
-            lblSnowDepth.setText(w.getFromOb("snowDepthIN") + " IN");
-            weatherImageView.setImage(new Image("file:Images/" + w.getFromOb("icon")));
-         }
-         else
-         {
-            clearLabels();
-            showLabels(false);
-            showFCButton(false);
-            showForecast(false);
-
             lblLocation.setText("Can't pull data for " + w.getQuery());
             lblTemperature.setText("");
             lblConditions.setText("");
@@ -241,13 +210,12 @@ public class Controller
             gCatView.setVisible(true);
             gCatView.setImage(new Image("file:Images/gCat.gif"));
          }
-         loadingCatView.setVisible(false);
       }
    }
 
-    /**
-     *  Handles the background task when fetching the forecast.
-     */
+   /**
+    *  Handles the background task when fetching the forecast.
+    */
    private class FetchForecastInBackground extends AsyncTask<String, FetchForecast>
    {
       @Override
@@ -262,7 +230,7 @@ public class Controller
       public void onPostExecute(FetchForecast f)
       {
          // Update the data on the screen
-         if (w.isSuccessful())
+         if (f.isSuccessful())
          {
             if (isFahrenheit)
             {
@@ -323,34 +291,61 @@ public class Controller
       }
    }
 
-    private class FetchRadarInBackground extends AsyncTask<String, FetchRadar>
-    {
-        @Override
-        public FetchRadar doInBackground(String location)
-        {
-            // Fetch the radar data
-           if (location.equals(":auto"))
-           {
-              location = w.getLocation();
-           }
-           return new FetchRadar(location);
-        }
+   private class FetchRadarInBackground extends AsyncTask<String, FetchRadar>
+   {
+      @Override
+      public FetchRadar doInBackground(String location)
+      {
+         // Fetch the radar data
+         if (location.equals(":auto"))
+         {
+            location = w.getLocation();
+         }
+         return new FetchRadar(location);
+      }
 
-        @Override
-        public void onPostExecute(FetchRadar r)
-        {
-           showLabels(true);
-           showFCButton(true);
-           showForecast(true);
-           weatherImageView.setVisible(true);
+      @Override
+      public void onPostExecute(FetchRadar r)
+      {
+         if (w.isSuccessful())
+         {
+            if (isFahrenheit)
+            {
+               lblTemperature.setText(tempF + "\u00B0F");
+               lblFeelsLike.setText(feelsLikeF + "\u00B0F");
+               lblDewpoint.setText(dewpointF + "\u00B0F");
+            }
+            else
+            {
 
-           // Update the radar data on the screen
-           radarView.setVisible(true);
-           radarView.setImage(new Image(r.getImage()));
-           gCatView.setVisible(false);
-           loadingCatView.setVisible(false);
-        }
-    }
+               lblTemperature.setText(tempC + "\u00B0C");
+               lblFeelsLike.setText(feelsLikeC + "\u00B0C");
+               lblDewpoint.setText(dewpointC + "\u00B0C");
+            }
+
+            lblLocation.setText(w.getLocation());
+            lblConditions.setText(w.getFromOb("weather"));
+            lblWind.setText(w.getFromOb("windMPH") + " MPH " + w.getFromOb("windDir"));
+            lblPressure.setText(w.getFromOb("pressureIN") + " inHg");
+            lblHumidity.setText(w.getFromOb("humidity") + "%");
+            lblVisibility.setText(w.getFromOb("visibilityMI") + " MI");
+            lblPrecip.setText(w.getFromOb("precipIN") + " IN");
+            lblSnowDepth.setText(w.getFromOb("snowDepthIN") + " IN");
+            weatherImageView.setImage(new Image("file:Images/" + w.getFromOb("icon")));
+
+            showLabels(true);
+            showFCButton(true);
+            showForecast(true);
+            weatherImageView.setVisible(true);
+
+            // Update the radar data on the screen
+            radarView.setVisible(true);
+            radarView.setImage(new Image(r.getImage()));
+            gCatView.setVisible(false);
+            loadingCatView.setVisible(false);
+         }
+      }
+   }
 
    /**
     * Clears all labels
@@ -384,6 +379,17 @@ public class Controller
       lblVisibilityTag.setVisible(b);
       lblPrecipTag.setVisible(b);
       lblSnowDepthTag.setVisible(b);
+
+      lblLocation.setVisible(b);
+      lblConditions.setVisible(b);
+      lblWind.setVisible(b);
+      lblPressure.setVisible(b);
+      lblHumidity.setVisible(b);
+      lblDewpoint.setVisible(b);
+      lblVisibility.setVisible(b);
+      lblPrecip.setVisible(b);
+      lblSnowDepth.setVisible(b);
+      lblFeelsLike.setVisible(b);
    }
 
    /**
