@@ -288,12 +288,12 @@ public class Controller
 
             // Set weekday labels
             lblWeekday0.setText("Today");
-            lblWeekday1.setText(DateFormatter.getDay(f.getDayForecasts("timestamp", 1)));
-            lblWeekday2.setText(DateFormatter.getDay(f.getDayForecasts("timestamp", 2)));
-            lblWeekday3.setText(DateFormatter.getDay(f.getDayForecasts("timestamp", 3)));
-            lblWeekday4.setText(DateFormatter.getDay(f.getDayForecasts("timestamp", 4)));
-            lblWeekday5.setText(DateFormatter.getDay(f.getDayForecasts("timestamp", 5)));
-            lblWeekday6.setText(DateFormatter.getDay(f.getDayForecasts("timestamp", 6)));
+            lblWeekday1.setText(DateFormatter.format(f.getDayForecasts("timestamp", 1)));
+            lblWeekday2.setText(DateFormatter.format(f.getDayForecasts("timestamp", 2)));
+            lblWeekday3.setText(DateFormatter.format(f.getDayForecasts("timestamp", 3)));
+            lblWeekday4.setText(DateFormatter.format(f.getDayForecasts("timestamp", 4)));
+            lblWeekday5.setText(DateFormatter.format(f.getDayForecasts("timestamp", 5)));
+            lblWeekday6.setText(DateFormatter.format(f.getDayForecasts("timestamp", 6)));
          }
       }
    }
