@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -45,6 +46,10 @@ public class AutoCompleteTest extends Application
          tfInput.setText(f.getPlaceName(0));
          tfInput.positionCaret(charLength);
          tfInput.selectRange(charLength, tfInput.getLength());
+      }
+      if (k.getCode() == KeyCode.BACK_SPACE || k.getCode() == KeyCode.DELETE)
+      {
+         tfInput.deleteNextChar();
       }
    }
 }
