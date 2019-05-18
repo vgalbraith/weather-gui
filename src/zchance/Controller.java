@@ -133,10 +133,6 @@ public class Controller implements Initializable
     */
    private void autoComplete()
    {
-      /*TODO Make this not search on ANY key event, only letters
-      *  There is an issue when the user tries to arrow down and
-      *  the editor window tries to fetch and causes the suggestion
-      *  to skip down over the top suggestion*/
       int length = comboInput.getEditor().getLength();
       if (length > 2 && length % 2 == 1)
       {
