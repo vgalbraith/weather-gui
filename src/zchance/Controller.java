@@ -88,7 +88,7 @@ public class Controller implements Initializable
     */
    public void initialize(URL url, ResourceBundle rb)
    {
-      /*This is to fix the bug explained here https://stackoverflow.com/a/52061856 */
+      /* This is to fix the bug explained here https://stackoverflow.com/a/52061856 */
       comboSkin = new ComboBoxListViewSkin(comboInput);
       comboSkin.getPopupContent().addEventFilter(KeyEvent.ANY, (event) ->
       {
@@ -116,6 +116,7 @@ public class Controller implements Initializable
             break;
          case LEFT:
          case RIGHT:
+         case DELETE:
             break;
          case ENTER:
             btnGo.fire();
