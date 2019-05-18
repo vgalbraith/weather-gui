@@ -37,13 +37,13 @@ public class FetchTester
        */
 
       // MapBox tests
-      FetchMapBox mb = new FetchMapBox("sacra");
+      FetchMapBox mb = new FetchMapBox("95661");
       mb.fetch();
       System.out.println("Full name: " + mb.getPlaceName(0));
       System.out.println("Lat,Long: " + mb.getCenter(0));
 
-      System.out.println("\nMultiple results:");
-      for (int i = 0; i < 5; i++)
+      System.out.println("\n" + mb.getResultsNumber() +  " result(s):");
+      for (int i = 0; i < mb.getResultsNumber(); i++)
       {
          System.out.println(mb.getPlaceName(i) + "    " + mb.getCenter(i));
       }
