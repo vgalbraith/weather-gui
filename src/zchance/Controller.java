@@ -88,6 +88,7 @@ public class Controller implements Initializable
     */
    public void initialize(URL url, ResourceBundle rb)
    {
+      /*This is to fix the bug explained here https://stackoverflow.com/a/52061856 */
       comboSkin = new ComboBoxListViewSkin(comboInput);
       comboSkin.getPopupContent().addEventFilter(KeyEvent.ANY, (event) ->
       {
@@ -107,6 +108,10 @@ public class Controller implements Initializable
     */
    private void autoComplete(KeyEvent k)
    {
+      /*TODO Make this not search on ANY key event, only letters
+      *  There is an issue when the user tries to arrow down and
+      *  the editor window tries to fetch and causes the suggestion
+      *  to skip down over the top suggestion*/
       int length = comboInput.getEditor().getLength();
       if (length > 2 && length % 2 == 1)
       {
