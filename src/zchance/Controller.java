@@ -3,22 +3,17 @@ package zchance;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.skin.ComboBoxListViewSkin;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import org.controlsfx.control.textfield.AutoCompletionBinding;
-import org.controlsfx.control.textfield.TextFields;
 import sierra.AsyncTask;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.ResourceBundle;
-import java.util.Set;
 
 /**
  * Controller for weather-gui
@@ -27,7 +22,7 @@ import java.util.Set;
 public class Controller implements Initializable
 {
    @FXML
-   TextField tfInput;
+   ComboBox<String> comboInput;
 
    @FXML
    Label lblLocation, lblTemperature, lblConditions, lblFeelsLike, lblHumidity,
@@ -85,55 +80,54 @@ public class Controller implements Initializable
    /**
     * Autocompletion variables
     */
-   private Set<String> suggestions = new HashSet<>();
    private HashMap<String, String> map = new HashMap<>();
-   private AutoCompletionBinding<String> auto;
+   private ComboBoxListViewSkin comboSkin;
 
    /**
     * This initializes the autocompletion field
     */
    public void initialize(URL url, ResourceBundle rb)
    {
-      auto = TextFields.bindAutoCompletion(tfInput, suggestions);
-      tfInput.setOnKeyPressed(this::autoComplete);
+      comboSkin = new ComboBoxListViewSkin(comboInput);
+      comboSkin.getPopupContent().addEventFilter(KeyEvent.ANY, (event) ->
+      {
+         if (event.getCode() == KeyCode.SPACE)
+         {
+            event.consume();
+         }
+      });
+      comboInput.setVisibleRowCount(5);
+      comboInput.getEditor().setOnKeyReleased(this::autoComplete);
+      comboInput.setSkin(comboSkin);
    }
 
    /**
     * Method for generating suggestions using MapBox
-    * Only adds suggestions if it isn't already added
     * @param k key event
     */
    private void autoComplete(KeyEvent k)
    {
-      if (tfInput.getLength() > 2)
+      int length = comboInput.getEditor().getLength();
+      if (length > 2 && length % 2 == 1)
       {
-         FetchMapBox f = new FetchMapBox(tfInput.getText());
+         String temp = comboInput.getEditor().getText();
+         FetchMapBox f = new FetchMapBox(temp);
          f.fetch();
+         comboInput.getItems().clear();
          for (int i = 0; i < 5; i++)
          {
-            if (!suggestions.contains(f.getPlaceName(i)))
-            {
-               bindAuto(f.getPlaceName(i));
-               map.put(f.getPlaceName(i), f.getCenter(i));
-            }
+            comboInput.getItems().add(f.getPlaceName(i));
+            map.put(f.getPlaceName(i), f.getCenter(i));
          }
-         /*This seems to still add multiple autocomplete boxes occasionally*/
+         comboInput.show();
+         comboInput.getEditor().setText(temp);
+         comboInput.getEditor().positionCaret(length);
       }
-   }
-
-   /**
-    * Binds suggestions to the tfInput textfield using ControlsFX's TextFields class
-    * If field is already bound, it disposes current binding and rebinds
-    * @param s string to add to suggestions
-    */
-   private void bindAuto(String s)
-   {
-      suggestions.add(s);
-      if (auto != null)
+      if (k.getCode() == KeyCode.ENTER)
       {
-         auto.dispose();
+         btnGo.fire();
+         comboInput.hide();
       }
-      auto = TextFields.bindAutoCompletion(tfInput, suggestions);
    }
 
    /**
@@ -143,7 +137,7 @@ public class Controller implements Initializable
    public void handleGo(ActionEvent ae)
    {
       // Get the location
-      location = map.get(tfInput.getText());
+      location = map.get(comboInput.getEditor().getText());
       if (location.isEmpty())
       {
          location = ":auto";

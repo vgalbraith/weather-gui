@@ -47,16 +47,20 @@ public class AutoComboTest extends Application implements Initializable
          }
       });
       comboInput.setVisibleRowCount(5);
-      comboInput.getEditor().setOnKeyReleased(this::autoComplete);
+      comboInput.getEditor().setOnKeyReleased(this::autoComplete);;
       comboInput.setSkin(comboSkin);
    }
 
+   /*TODO fix bug where after item is selcted, upon typing 3 more letters field is clear
+   *  There is also an issue where sometimes when the item is selcted, the down arrow
+   *  will not work correctly*/
    private void autoComplete(KeyEvent k)
    {
       int length = comboInput.getEditor().getLength();
       if (length > 2 && length % 2 == 1)
       {
-         FetchMapBox f = new FetchMapBox(comboInput.getEditor().getText());
+         String temp = comboInput.getEditor().getText();
+         FetchMapBox f = new FetchMapBox(temp);
          f.fetch();
          comboInput.getItems().clear();
          for (int i = 0; i < 5; i++)
@@ -67,6 +71,8 @@ public class AutoComboTest extends Application implements Initializable
          {
             comboInput.show();
          }
+         comboInput.getEditor().setText(temp);
+         comboInput.getEditor().positionCaret(length);
       }
    }
 }
