@@ -29,11 +29,18 @@ public class FetchMapBox
     */
    public void fetch()
    {
+      String type = "place";
+      String country = "";
+      if (query.matches("[0-9]+"))
+      {
+         type = "postcode";
+         country = "&country=US";
+      }
       try
       {
          String urlString = "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
                  URLEncoder.encode(query, "UTF-8") + ".json?access_token=" +
-                 APIKeys.MAPBOX_KEY + "&limit=5&types=place";
+                 APIKeys.MAPBOX_KEY + "&limit=5&types=" + type + country;
 
          URL url = new URL(urlString);
 
