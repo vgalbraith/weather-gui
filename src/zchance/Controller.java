@@ -98,15 +98,40 @@ public class Controller implements Initializable
          }
       });
       comboInput.setVisibleRowCount(5);
-      comboInput.getEditor().setOnKeyReleased(this::autoComplete);
+      comboInput.getEditor().setOnKeyReleased(this::keyHandler);
       comboInput.setSkin(comboSkin);
    }
 
    /**
-    * Method for generating suggestions using MapBox
+    * Handles key input from the user
     * @param k key event
     */
-   private void autoComplete(KeyEvent k)
+   private void keyHandler(KeyEvent k)
+   {
+      switch (k.getCode())
+      {
+         case UP:
+         case DOWN:
+            comboInput.show();
+            break;
+         case LEFT:
+         case RIGHT:
+            break;
+         case ENTER:
+            btnGo.fire();
+            comboInput.hide();
+            comboInput.getEditor().positionCaret(comboInput.getEditor().getLength());
+            break;
+         default:
+            autoComplete();
+            break;
+      }
+   }
+
+   /**
+    * Method for generating suggestions using MapBox
+    */
+   private void autoComplete()
    {
       /*TODO Make this not search on ANY key event, only letters
       *  There is an issue when the user tries to arrow down and
@@ -127,11 +152,6 @@ public class Controller implements Initializable
          comboInput.show();
          comboInput.getEditor().setText(temp);
          comboInput.getEditor().positionCaret(length);
-      }
-      if (k.getCode() == KeyCode.ENTER)
-      {
-         btnGo.fire();
-         comboInput.hide();
       }
    }
 
