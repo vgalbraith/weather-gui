@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="178.0" prefWidth="447.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zchance.AutoComboTest">
+   <children>
+      <ComboBox fx:id="comboInput" editable="true" layoutX="41.0" layoutY="47.0" prefHeight="27.0" prefWidth="360.0" promptText="Search" />
+   </children>
+</AnchorPane>
