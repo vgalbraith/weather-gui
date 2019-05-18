@@ -75,6 +75,6 @@ public class FetchMapBox
       String lon = results.getAsJsonObject().get("features").getAsJsonArray().get(index).getAsJsonObject()
               .get("center").getAsJsonArray().get(1).getAsString();
 
-      return lat + "," + lon;
+      return lon + "," + lat;
    }
 }
