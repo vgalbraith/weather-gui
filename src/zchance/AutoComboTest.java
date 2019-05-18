@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.skin.ComboBoxListViewSkin;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -17,6 +19,7 @@ public class AutoComboTest extends Application implements Initializable
 {
    @FXML
    ComboBox<String> comboInput;
+   ComboBoxListViewSkin comboSkin;
 
    @Override
    public void start(Stage primaryStage) throws Exception
@@ -35,13 +38,23 @@ public class AutoComboTest extends Application implements Initializable
 
    public void initialize(URL url, ResourceBundle rb)
    {
+      comboSkin = new ComboBoxListViewSkin(comboInput);
+      comboSkin.getPopupContent().addEventFilter(KeyEvent.ANY, (event) ->
+      {
+         if (event.getCode() == KeyCode.SPACE)
+         {
+            event.consume();
+         }
+      });
       comboInput.setVisibleRowCount(5);
-      comboInput.getEditor().setOnKeyPressed(this::autoComplete);
+      comboInput.getEditor().setOnKeyReleased(this::autoComplete);
+      comboInput.setSkin(comboSkin);
    }
 
    private void autoComplete(KeyEvent k)
    {
-      if (comboInput.getEditor().getLength() > 2)
+      int length = comboInput.getEditor().getLength();
+      if (length > 2 && length % 2 == 1)
       {
          FetchMapBox f = new FetchMapBox(comboInput.getEditor().getText());
          f.fetch();
@@ -50,7 +63,10 @@ public class AutoComboTest extends Application implements Initializable
          {
             comboInput.getItems().add(f.getPlaceName(i));
          }
-         comboInput.show();
+         if (!comboInput.isShowing())
+         {
+            comboInput.show();
+         }
       }
    }
 }
