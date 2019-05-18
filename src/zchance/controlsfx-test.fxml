@@ -5,10 +5,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="144.0" prefWidth="417.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zchance.ControlsFXTest">
    <children>
-      <TextField fx:id="tfInput" layoutX="31.0" layoutY="35.0" onKeyReleased="#autoComplete" prefHeight="27.0" prefWidth="256.0" />
+      <TextField fx:id="tfInput" layoutX="31.0" layoutY="35.0" prefHeight="27.0" prefWidth="256.0" />
       <Button fx:id="btnGo" defaultButton="true" layoutX="321.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleGo" prefHeight="27.0" prefWidth="65.0" text="Go" />
       <Label layoutX="31.0" layoutY="88.0" text="Query: " />
       <Label fx:id="query" layoutX="82.0" layoutY="88.0" prefHeight="17.0" prefWidth="205.0" />

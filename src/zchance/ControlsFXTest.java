@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,19 +12,21 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import org.controlsfx.control.textfield.AutoCompletionBinding;
 import org.controlsfx.control.textfield.TextFields;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.net.URL;
+import java.util.*;
 
 /**
  * Test class for autocompletion using MapBox
  */
-public class ControlsFXTest extends Application
+public class ControlsFXTest extends Application implements Initializable
 {
-   FXMLLoader loader;
-   ArrayList<String> suggestions = new ArrayList<>();
-   HashMap<String, String> map = new HashMap<>();
+   private FXMLLoader loader;
+   private Set<String> suggestions = new HashSet<>();
+   private HashMap<String, String> map = new HashMap<>();
+   private AutoCompletionBinding<String> auto;
 
    @FXML
    TextField tfInput;
@@ -44,6 +47,23 @@ public class ControlsFXTest extends Application
       primaryStage.show();
    }
 
+   public void initialize(URL url, ResourceBundle rb)
+   {
+      auto = TextFields.bindAutoCompletion(tfInput, suggestions);
+
+      tfInput.setOnKeyPressed(this::autoComplete);
+   }
+
+   void bindAuto(String s)
+   {
+      suggestions.add(s);
+      if (auto != null)
+      {
+         auto.dispose();
+      }
+      auto = TextFields.bindAutoCompletion(tfInput, suggestions);
+   }
+
    public void autoComplete(KeyEvent k)
    {
       if (tfInput.getLength() > 2)
@@ -54,15 +74,11 @@ public class ControlsFXTest extends Application
          {
             if (!suggestions.contains(f.getPlaceName(i)))
             {
-               suggestions.add(f.getPlaceName(i));
+               bindAuto(f.getPlaceName(i));
                map.put(f.getPlaceName(i), f.getCenter(i));
             }
          }
-         TextFields.bindAutoCompletion(tfInput, suggestions);
-      }
-      if (tfInput.getLength() < 2)
-      {
-         suggestions.clear();
+         /*TODO This seems to still add multiple autocomplete boxes occasionally*/
       }
    }
 
