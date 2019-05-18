@@ -2,6 +2,7 @@
   <configuration default="false" name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="zchance.Main" />
     <module name="weather" />
+    <option name="VM_PARAMETERS" value="--add-opens=javafx.base/com.sun.javafx.event=org.controlsfx.controls" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="zchance.*" />

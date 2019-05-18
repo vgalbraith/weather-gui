@@ -2,19 +2,29 @@ package zchance;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import org.controlsfx.control.textfield.AutoCompletionBinding;
+import org.controlsfx.control.textfield.TextFields;
 import sierra.AsyncTask;
+
+import java.net.URL;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.ResourceBundle;
+import java.util.Set;
 
 /**
  * Controller for weather-gui
  * @author Zed Chance
  */
-public class Controller
+public class Controller implements Initializable
 {
    @FXML
    TextField tfInput;
@@ -73,20 +83,70 @@ public class Controller
    private String location;
 
    /**
+    * Autocompletion variables
+    */
+   private Set<String> suggestions = new HashSet<>();
+   private HashMap<String, String> map = new HashMap<>();
+   private AutoCompletionBinding<String> auto;
+
+   /**
+    * This initializes the autocompletion field
+    */
+   public void initialize(URL url, ResourceBundle rb)
+   {
+      auto = TextFields.bindAutoCompletion(tfInput, suggestions);
+      tfInput.setOnKeyPressed(this::autoComplete);
+   }
+
+   /**
+    * Method for generating suggestions using MapBox
+    * Only adds suggestions if it isn't already added
+    * @param k key event
+    */
+   private void autoComplete(KeyEvent k)
+   {
+      if (tfInput.getLength() > 2)
+      {
+         FetchMapBox f = new FetchMapBox(tfInput.getText());
+         f.fetch();
+         for (int i = 0; i < 5; i++)
+         {
+            if (!suggestions.contains(f.getPlaceName(i)))
+            {
+               bindAuto(f.getPlaceName(i));
+               map.put(f.getPlaceName(i), f.getCenter(i));
+            }
+         }
+         /*This seems to still add multiple autocomplete boxes occasionally*/
+      }
+   }
+
+   /**
+    * Binds suggestions to the tfInput textfield using ControlsFX's TextFields class
+    * If field is already bound, it disposes current binding and rebinds
+    * @param s string to add to suggestions
+    */
+   private void bindAuto(String s)
+   {
+      suggestions.add(s);
+      if (auto != null)
+      {
+         auto.dispose();
+      }
+      auto = TextFields.bindAutoCompletion(tfInput, suggestions);
+   }
+
+   /**
     * Handles the go button
     * @param ae ActionEvent
     */
    public void handleGo(ActionEvent ae)
    {
       // Get the location
-      location = tfInput.getText();
+      location = map.get(tfInput.getText());
       if (location.isEmpty())
       {
          location = ":auto";
-      }
-      else
-      {
-         location = CityFormatter.format(location);
       }
 
       clearLabels();
