@@ -141,7 +141,7 @@ public class Controller implements Initializable
          FetchMapBox f = new FetchMapBox(temp);
          f.fetch();
          comboInput.getItems().clear();
-         for (int i = 0; i < 5; i++)
+         for (int i = 0; i < f.getResultsNumber(); i++)
          {
             comboInput.getItems().add(f.getPlaceName(i));
             map.put(f.getPlaceName(i), f.getCenter(i));
