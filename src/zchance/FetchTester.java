@@ -9,8 +9,9 @@ public class FetchTester
    {
       /*
       // Aeris current conditions test
-      FetchWeather f = new FetchWeather("sacramento, ca");
+      FetchWeather f = new FetchWeather("dull, scotland");
       System.out.println(f.toString());
+      System.out.println("Error: " + f.getError());
       System.out.println("location: " + f.getLocationName() + ", " + f.getLocationState());
       System.out.println("timestamp: " + f.getFromOb("timestamp"));
       System.out.println("tempF: " + f.getFromOb("tempF"));
@@ -30,12 +31,13 @@ public class FetchTester
       System.out.println("snowDepthIN: " + f.getFromOb("snowDepthIN"));
       System.out.println("precipIN: " + f.getFromOb("precipIN"));
       System.out.println("light: " + f.getFromOb("light"));
-
-      // Aeris forecast test
-      FetchForecast f2 = new FetchForecast("95678");
-      System.out.println("avgTempF: " + f2.getDayForecasts("avgTempF", 1));
        */
 
+      // Aeris forecast test
+      FetchForecast f2 = new FetchForecast("dull, scotland");
+      System.out.println("avgTempF: " + f2.getDayForecasts("avgTempF", 1));
+
+      /*
       // MapBox tests
       FetchMapBox mb = new FetchMapBox("95661");
       mb.fetch();
@@ -47,5 +49,6 @@ public class FetchTester
       {
          System.out.println(mb.getPlaceName(i) + "    " + mb.getCenter(i));
       }
+       */
    }
 }

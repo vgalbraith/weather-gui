@@ -59,7 +59,16 @@ public class FetchWeather
     */
    boolean isSuccessful()
    {
-      return results.getAsJsonObject().get("success").getAsBoolean();
+      return results.getAsJsonObject().get("success").getAsBoolean() && getError() == null;
+   }
+
+   /**
+    * Gets the error for query
+    * @return the error code
+    */
+   String getError()
+   {
+      return results.getAsJsonObject().get("error").getAsJsonObject().get("code").getAsString();
    }
 
    /**
