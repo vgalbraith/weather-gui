@@ -26,7 +26,7 @@
         </rowConstraints>
          <children>
             <Button fx:id="btnGo" mnemonicParsing="false" onAction="#handleGo" prefHeight="27.0" prefWidth="107.0" text="Go" GridPane.columnIndex="1" />
-            <ComboBox fx:id="comboInput" editable="true" prefHeight="27.0" prefWidth="316.0" promptText="Search" />
+            <ComboBox fx:id="comboInput" editable="true" prefHeight="27.0" prefWidth="316.0" promptText="Search or leave blank for auto" />
          </children>
          <opaqueInsets>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
