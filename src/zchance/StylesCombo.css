@@ -1,0 +1,15 @@
+.combo-box .arrow, .combo-box .arrow-button
+ {
+        visibility: hidden;
+        -fx-cursor: text;
+ }
+.combo-box .arrow
+{
+       -fx-padding: 0.5;
+}
+.combo-box .arrow-button
+{
+       -fx-padding: 0;
+}
+
+

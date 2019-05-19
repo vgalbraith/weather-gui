@@ -27,7 +27,10 @@ public class AutoComboTest extends Application implements Initializable
       FXMLLoader loader = new FXMLLoader(getClass().getResource("auto-combo.fxml"));
       Parent root = loader.load();
       primaryStage.setTitle("Auto combo box test");
-      primaryStage.setScene(new Scene(root));
+      Scene scene = new Scene(root);
+
+
+      primaryStage.setScene(scene);
       primaryStage.show();
    }
 
@@ -49,6 +52,9 @@ public class AutoComboTest extends Application implements Initializable
       comboInput.setVisibleRowCount(5);
       comboInput.getEditor().setOnKeyReleased(this::autoComplete);;
       comboInput.setSkin(comboSkin);
+
+      comboInput.getStylesheets().add(Main.class.getResource("StylesCombo.css").toExternalForm());
+
    }
 
    /*TODO fix bug where after item is selcted, upon typing 3 more letters field is clear
