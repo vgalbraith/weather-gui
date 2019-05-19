@@ -160,7 +160,7 @@ public class Controller implements Initializable
    {
       // Get the location
       location = map.get(comboInput.getEditor().getText());
-      if (location == null)
+      if (location == null && comboInput.getEditor().getText().isEmpty())
       {
          location = ":auto";
       }
