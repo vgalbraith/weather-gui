@@ -164,6 +164,10 @@ public class Controller implements Initializable
       {
          location = ":auto";
       }
+      else if (location == null)
+      {
+         location = comboInput.getEditor().getText();
+      }
 
       clearLabels();
       showLabels(false);
