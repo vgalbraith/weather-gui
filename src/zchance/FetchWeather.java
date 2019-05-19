@@ -59,7 +59,7 @@ public class FetchWeather
     */
    boolean isSuccessful()
    {
-      return results.getAsJsonObject().get("success").getAsBoolean() && getError() == null;
+      return results.getAsJsonObject().get("success").getAsBoolean()/* && getError() == null*/;
    }
 
    /**
