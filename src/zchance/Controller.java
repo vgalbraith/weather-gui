@@ -37,7 +37,7 @@ public class Controller implements Initializable
    Button btnGo, btnTemp;
 
    @FXML
-   ImageView loadingCatView, weatherImageView, radarView, gCatView, forecastIcon0, forecastIcon1, forecastIcon2,
+   ImageView loadingCatView, weatherImageView, radarView, legendView, gCatView, forecastIcon0, forecastIcon1, forecastIcon2,
              forecastIcon3, forecastIcon4, forecastIcon5, forecastIcon6;
 
    @FXML
@@ -170,6 +170,7 @@ public class Controller implements Initializable
       showFCButton(false);
       showForecast(false);
       radarView.setVisible(false);
+      legendView.setVisible(false);
       weatherImageView.setVisible(false);
       lblRadar.setVisible(false);
       gCatView.setVisible(false);
@@ -283,6 +284,7 @@ public class Controller implements Initializable
 
             lblRadar.setText("Can't pull data for " + w.getQuery());
             radarView.setVisible(false);
+            legendView.setVisible(false);
             weatherImageView.setVisible(false);
 
             // Displays the grumpy cat when location cannot be pulled
@@ -427,6 +429,8 @@ public class Controller implements Initializable
             // Update the radar data on the screen
             radarView.setVisible(true);
             radarView.setImage(new Image(r.getImage()));
+            legendView.setVisible(true);
+            legendView.setImage(new Image("file:Images/legend.png"));
             gCatView.setVisible(false);
             loadingCatView.setVisible(false);
          }
