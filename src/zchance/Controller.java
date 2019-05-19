@@ -166,7 +166,7 @@ public class Controller implements Initializable
       }
       else if (location == null)
       {
-         location = comboInput.getEditor().getText();
+         location = CityFormatter.format(comboInput.getEditor().getText());
       }
 
       clearLabels();
