@@ -28,8 +28,7 @@ public class AutoComboTest extends Application implements Initializable
       Parent root = loader.load();
       primaryStage.setTitle("Auto combo box test");
       Scene scene = new Scene(root);
-
-
+      scene.getStylesheets().add("zchance/Styles.css");
       primaryStage.setScene(scene);
       primaryStage.show();
    }
@@ -52,8 +51,6 @@ public class AutoComboTest extends Application implements Initializable
       comboInput.setVisibleRowCount(5);
       comboInput.getEditor().setOnKeyReleased(this::autoComplete);;
       comboInput.setSkin(comboSkin);
-
-      comboInput.getStylesheets().add(Main.class.getResource("StylesCombo.css").toExternalForm());
 
    }
 

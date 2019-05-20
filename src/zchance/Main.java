@@ -19,7 +19,9 @@ public class Main extends Application
         loader = new FXMLLoader(getClass().getResource("gui.fxml"));
         Parent root = loader.load();
         primaryStage.setTitle("Hello Weather");
-        primaryStage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("zchance/Styles.css");
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
