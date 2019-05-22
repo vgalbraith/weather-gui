@@ -23,7 +23,7 @@
     -fx-border-width: 0;
     -fx-border-radius: 4px;
     -fx-border-color: #000;
-    -fx-background-insets: -.5, 0, 0, 0;
+    -fx-background-insets: -1, 0, 0, 0;
     -fx-background-color: #666;
     -fx-shadow-highlight-color: #000;
     -fx-base: #444;
@@ -52,25 +52,26 @@
 .dark-combo:focused
 {
     -fx-background-color:#777;
-    -fx-border-color: #000;
-    -fx-border-radius: 2px;
+    -fx-border-color: #111;
+    -fx-border-radius: 0px;
 }
 
 .button
 {
     -fx-text-fill: #eee;
-    -fx-base: #777;
-    -fx-cell-hover-color: f7ca88;
+    -fx-background-color: #777;
+    -fx-background-insets: -1, 0, 0, 0;
+    -fx-border-radius: 0px 2px 2px 2px;
 }
 
 .button:hover
 {
-    -fx-base: #999;
+    -fx-background-color: #999;
 }
 
 .button:pressed
 {
-    -fx-base: #777;
+    -fx-background-color: #777;
 }
 
 /* Set all the label colors - overrides the current red and blue hi/lo colors */
