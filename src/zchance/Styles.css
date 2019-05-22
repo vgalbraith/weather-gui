@@ -23,14 +23,13 @@
        -fx-padding: 0;
 }
 
-.combo-box
+.combo-box-base
 {
-    -fx-background-color: #777;
+    -fx-background-fill: #777;
 }
 
 .button
 {
-    -fx-font: #111;
     -fx-background-color: #777;
     -fx-cell-hover-color: f7ca88;
 }
@@ -49,6 +48,21 @@
 .label
 {
     -fx-text-fill: f8f8f8;
+}
+
+.hi-label
+{
+    -fx-text-fill: rgb(175, 72, 72);
+}
+
+.lo-label
+{
+    -fx-text-fill: rgb(75, 101, 185);
+}
+
+.day-label
+{
+    -fx-text-fill: #888;
 }
 
 /*  this sets the background color behind the tabs */
