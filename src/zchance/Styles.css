@@ -101,6 +101,11 @@
     -fx-background-color: #1a1a1a;
 }
 
+.tab-pane:top .tab-header-area .focus-indicator
+{
+    -fx-border-color: none;
+}
+
 /* this sets the tab-pane border color the same as the root-background  */
 .tab-pane
 {
@@ -134,6 +139,9 @@
 .tab-pane .tab:selected
 {
     -fx-background-color: #383838;
+    -fx-border-width: 0px 0px 1px 0px;
+    -fx-border-style: solid;
+    -fx-border-color: #383838;
 }
 
 /* this sets the color of tabs when the mouse is over it  */
