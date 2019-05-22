@@ -28,6 +28,7 @@
     -fx-shadow-highlight-color: #000;
     -fx-base: #444;
     -fx-text-fill:#fff;
+    -fx-prompt-text-fill: #ccc;
 }
 
 .dark-combo .list-cell
