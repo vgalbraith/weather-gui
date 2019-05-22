@@ -81,7 +81,6 @@ public class Controller implements Initializable
     * Autocompletion variables
     */
    private HashMap<String, String> map = new HashMap<>();
-   private ComboBoxListViewSkin comboSkin;
 
    /**
     * This initializes the autocompletion field
@@ -89,7 +88,7 @@ public class Controller implements Initializable
    public void initialize(URL url, ResourceBundle rb)
    {
       /* This is to fix the bug explained here https://stackoverflow.com/a/52061856 */
-      comboSkin = new ComboBoxListViewSkin(comboInput);
+      ComboBoxListViewSkin comboSkin = new ComboBoxListViewSkin(comboInput);
       comboSkin.getPopupContent().addEventFilter(KeyEvent.ANY, (event) ->
       {
          if (event.getCode() == KeyCode.SPACE)

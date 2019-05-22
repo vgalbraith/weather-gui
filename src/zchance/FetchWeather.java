@@ -66,7 +66,7 @@ public class FetchWeather
     * Checks if the API query has an error or not
     * @return error true or false
     */
-   boolean isError()
+   private boolean isError()
    {
       return !results.getAsJsonObject().get("error").isJsonObject();
    }
@@ -84,7 +84,7 @@ public class FetchWeather
     * Returns the location name
     * @return location name
     */
-   String getLocationName()
+   private String getLocationName()
    {
       return results.getAsJsonObject().get("response").getAsJsonObject()
                     .get("place").getAsJsonObject().get("name")
@@ -95,7 +95,7 @@ public class FetchWeather
     * Returns the location's state
     * @return location's state
     */
-   String getLocationState()
+   private String getLocationState()
    {
       return results.getAsJsonObject().get("response").getAsJsonObject()
                     .get("place").getAsJsonObject().get("state")
