@@ -26,7 +26,7 @@
         </rowConstraints>
          <children>
             <Button fx:id="btnGo" mnemonicParsing="false" onAction="#handleGo" prefHeight="27.0" prefWidth="107.0" stylesheets="@Styles.css" text="Go" GridPane.columnIndex="1" />
-            <ComboBox fx:id="comboInput" editable="true" prefHeight="27.0" prefWidth="316.0" promptText="Search or leave blank for auto" styleClass="combo-box-base" stylesheets="@Styles.css" />
+            <ComboBox fx:id="comboInput" editable="true" prefHeight="27.0" prefWidth="316.0" promptText="Search or leave blank for auto" styleClass="dark-combo" stylesheets="@Styles.css" />
          </children>
          <opaqueInsets>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
@@ -61,7 +61,7 @@
                                     <Font size="19.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="lblConditions" alignment="CENTER" prefHeight="20.0" prefWidth="359.0" GridPane.rowIndex="2">
+                              <Label fx:id="lblConditions" alignment="CENTER" prefHeight="20.0" prefWidth="359.0" styleClass="day-label" stylesheets="@Styles.css" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -92,7 +92,7 @@
                                     </Pane>
                                  </children>
                               </GridPane>
-                              <GridPane prefWidth="359.0" GridPane.rowIndex="3">
+                              <GridPane prefWidth="359.0" styleClass="forecast-background" stylesheets="@Styles.css" GridPane.rowIndex="3">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -108,56 +108,56 @@
                                  <children>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Label fx:id="lblForecastHi0" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" styleClass="hi-label" stylesheets="@Styles.css"/>
-                                          <Label fx:id="lblForecastLo0" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" styleClass="lo-label" stylesheets="@Styles.css"/>
+                                          <Label fx:id="lblForecastHi0" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" styleClass="hi-label" stylesheets="@Styles.css" />
+                                          <Label fx:id="lblForecastLo0" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" styleClass="lo-label" stylesheets="@Styles.css" />
                                           <Label fx:id="lblWeekday0" alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" styleClass="day-label" stylesheets="@Styles.css" />
                                           <ImageView fx:id="forecastIcon0" fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </Pane>
                                     <Pane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                                        <children>
-                                          <Label fx:id="lblForecastHi1" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" styleClass="hi-label" stylesheets="@Styles.css"/>
-                                          <Label fx:id="lblForecastLo1" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" styleClass="lo-label" stylesheets="@Styles.css"/>
+                                          <Label fx:id="lblForecastHi1" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" styleClass="hi-label" stylesheets="@Styles.css" />
+                                          <Label fx:id="lblForecastLo1" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" styleClass="lo-label" stylesheets="@Styles.css" />
                                           <ImageView fx:id="forecastIcon1" fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                           <Label fx:id="lblWeekday1" alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" styleClass="day-label" stylesheets="@Styles.css" />
                                        </children>
                                     </Pane>
                                     <Pane layoutX="61.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                                        <children>
-                                          <Label fx:id="lblForecastHi2" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" styleClass="hi-label" stylesheets="@Styles.css"/>
-                                          <Label fx:id="lblForecastLo2" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" styleClass="lo-label" stylesheets="@Styles.css"/>
+                                          <Label fx:id="lblForecastHi2" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" styleClass="hi-label" stylesheets="@Styles.css" />
+                                          <Label fx:id="lblForecastLo2" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" styleClass="lo-label" stylesheets="@Styles.css" />
                                           <ImageView fx:id="forecastIcon2" fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                           <Label fx:id="lblWeekday2" alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" styleClass="day-label" stylesheets="@Styles.css" />
                                        </children>
                                     </Pane>
                                     <Pane layoutX="112.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
                                        <children>
-                                          <Label fx:id="lblForecastHi3" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" styleClass="hi-label" stylesheets="@Styles.css"/>
-                                          <Label fx:id="lblForecastLo3" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" styleClass="lo-label" stylesheets="@Styles.css"/>
+                                          <Label fx:id="lblForecastHi3" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" styleClass="hi-label" stylesheets="@Styles.css" />
+                                          <Label fx:id="lblForecastLo3" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" styleClass="lo-label" stylesheets="@Styles.css" />
                                           <ImageView fx:id="forecastIcon3" fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                           <Label fx:id="lblWeekday3" alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" styleClass="day-label" stylesheets="@Styles.css" />
                                        </children>
                                     </Pane>
                                     <Pane layoutX="163.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
                                        <children>
-                                          <Label fx:id="lblForecastHi4" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" styleClass="hi-label" stylesheets="@Styles.css"/>
-                                          <Label fx:id="lblForecastLo4" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" styleClass="lo-label" stylesheets="@Styles.css"/>
+                                          <Label fx:id="lblForecastHi4" alignment="CENTER" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" styleClass="hi-label" stylesheets="@Styles.css" />
+                                          <Label fx:id="lblForecastLo4" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" styleClass="lo-label" stylesheets="@Styles.css" />
                                           <ImageView fx:id="forecastIcon4" fitHeight="32.0" fitWidth="32.0" layoutX="10.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                           <Label fx:id="lblWeekday4" alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" styleClass="day-label" stylesheets="@Styles.css" />
                                        </children>
                                     </Pane>
                                     <Pane layoutX="214.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5">
                                        <children>
-                                          <Label fx:id="lblForecastHi5" alignment="CENTER" layoutX="1.0" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" styleClass="hi-label" stylesheets="@Styles.css"/>
-                                          <Label fx:id="lblForecastLo5" alignment="CENTER" layoutX="1.0" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" styleClass="lo-label" stylesheets="@Styles.css"/>
+                                          <Label fx:id="lblForecastHi5" alignment="CENTER" layoutX="1.0" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" styleClass="hi-label" stylesheets="@Styles.css" />
+                                          <Label fx:id="lblForecastLo5" alignment="CENTER" layoutX="1.0" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" styleClass="lo-label" stylesheets="@Styles.css" />
                                           <ImageView fx:id="forecastIcon5" fitHeight="32.0" fitWidth="32.0" layoutX="11.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                           <Label fx:id="lblWeekday5" alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" styleClass="day-label" stylesheets="@Styles.css" />
                                        </children>
                                     </Pane>
                                     <Pane layoutX="265.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6">
                                        <children>
-                                          <Label fx:id="lblForecastHi6" alignment="CENTER" layoutX="1.0" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" styleClass="hi-label" stylesheets="@Styles.css"/>
-                                          <Label fx:id="lblForecastLo6" alignment="CENTER" layoutX="1.0" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" styleClass="lo-label" stylesheets="@Styles.css"/>
+                                          <Label fx:id="lblForecastHi6" alignment="CENTER" layoutX="1.0" layoutY="56.0" prefHeight="17.0" prefWidth="51.0" styleClass="hi-label" stylesheets="@Styles.css" />
+                                          <Label fx:id="lblForecastLo6" alignment="CENTER" layoutX="1.0" layoutY="71.0" prefHeight="17.0" prefWidth="51.0" styleClass="lo-label" stylesheets="@Styles.css" />
                                           <ImageView fx:id="forecastIcon6" fitHeight="32.0" fitWidth="32.0" layoutX="11.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                                           <Label fx:id="lblWeekday6" alignment="CENTER" layoutY="88.0" prefHeight="17.0" prefWidth="51.0" styleClass="day-label" stylesheets="@Styles.css" />
                                        </children>

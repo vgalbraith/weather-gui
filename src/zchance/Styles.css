@@ -1,8 +1,3 @@
-.background
-{
-    -fx-background-color: #000;
-}
-
 .root
 {
     -fx-background-color: #1a1a1a;
@@ -10,38 +5,57 @@
 
 /* This code hides the arrow in the search bar */
 .combo-box .arrow, .combo-box .arrow-button
- {
-        visibility: hidden;
-        -fx-cursor: text;
- }
+{
+    visibility: hidden;
+    -fx-cursor: text;
+}
 .combo-box .arrow
 {
-       -fx-padding: 0.5;
+    -fx-padding: 0.5;
 }
 .combo-box .arrow-button
 {
-       -fx-padding: 0;
+    -fx-padding: 0;
 }
 
-.combo-box-base
+.dark-combo .text-field
 {
-    -fx-background-fill: #777;
+    -fx-border-width: 0;
+    -fx-border-radius: 4px;
+    -fx-border-color: #000;
+    -fx-background-insets: -.5, 0, 0, 0;
+    -fx-shadow-highlight-color: #000;
+    -fx-base: #444;
+    -fx-text-fill:#fff;
+}
+
+.dark-combo .list-view
+{
+
+}
+
+.dark-combo:focused
+{
+    -fx-background-color:#777;
+    -fx-border-color: #000;
+    -fx-border-radius: 2px;
 }
 
 .button
 {
-    -fx-background-color: #777;
+    -fx-text-fill: #eee;
+    -fx-base: #777;
     -fx-cell-hover-color: f7ca88;
 }
 
 .button:hover
 {
-    -fx-background-color: #999;
+    -fx-base: #999;
 }
 
 .button:pressed
 {
-    -fx-background-color: #777;
+    -fx-base: #777;
 }
 
 /* Set all the label colors - overrides the current red and blue hi/lo colors */
