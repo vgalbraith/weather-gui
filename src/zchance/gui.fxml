@@ -34,7 +34,7 @@
       </GridPane>
       <TabPane layoutY="53.0" prefHeight="447.0" prefWidth="389.0">
          <tabs>
-            <Tab fx:id="weatherTab" closable="false" style="-fx-padding: 10px; -fx-pref-width: 185px; -fx-alignment: CENTER;" text="Weather Conditions">
+            <Tab fx:id="weatherTab" closable="false" style="-fx-padding: 10 38 10 38; -fx-pref-width: 185px; -fx-alignment: CENTER;" text="Weather Conditions">
                <content>
                   <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="389.0">
                     <columnConstraints>
@@ -259,7 +259,7 @@
                   </GridPane>
                </content>
             </Tab>
-            <Tab fx:id="radarTab" closable="false" style="-fx-pref-width: 185px; -fx-padding: 10px;" text="Radar">
+            <Tab fx:id="radarTab" closable="false" style="-fx-padding: 10 73 10 73; -fx-pref-width: 185px; -fx-alignment: CENTER;" text="Radar">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>

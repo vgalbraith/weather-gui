@@ -11,14 +11,14 @@ import javafx.stage.Stage;
  */
 public class Main extends Application
 {
-    FXMLLoader loader;
+    private FXMLLoader loader;
 
     @Override
     public void start(Stage primaryStage) throws Exception
     {
         loader = new FXMLLoader(getClass().getResource("gui.fxml"));
         Parent root = loader.load();
-        primaryStage.setTitle("Hello Weather");
+        primaryStage.setTitle("Sounds of Silent Weather");
         Scene scene = new Scene(root);
         scene.getStylesheets().add("zchance/Styles.css");
         primaryStage.setScene(scene);

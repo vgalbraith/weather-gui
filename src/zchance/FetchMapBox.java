@@ -3,7 +3,6 @@ package zchance;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-
 import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -11,7 +10,7 @@ import java.net.URLEncoder;
 /**
  * FetchMapBox uses MapBox API to retrieve complete city names and latitude and longitude
  */
-public class FetchMapBox
+class FetchMapBox
 {
    private String query;
    private JsonElement results;
@@ -20,7 +19,7 @@ public class FetchMapBox
     * Constructs a FetchMapBox object
     * @param q query to search for
     */
-   public FetchMapBox(String q)
+   FetchMapBox(String q)
    {
       query = q;
    }
@@ -28,7 +27,7 @@ public class FetchMapBox
    /**
     * Fetches results
     */
-   public void fetch()
+   void fetch()
    {
       String type = "place";
       String country = "";
@@ -64,7 +63,7 @@ public class FetchMapBox
     * @param index of result to return (0 - 4)
     * @return place name as string
     */
-   public String getPlaceName(int index)
+   String getPlaceName(int index)
    {
       return results.getAsJsonObject().get("features").getAsJsonArray().get(index).getAsJsonObject()
               .get("place_name").getAsString();
@@ -75,7 +74,7 @@ public class FetchMapBox
     * @param index of result to return (0 - 4)
     * @return lat and longitude with comma inbetween as string
     */
-   public String getCenter(int index)
+   String getCenter(int index)
    {
       String lat = results.getAsJsonObject().get("features").getAsJsonArray().get(index).getAsJsonObject()
               .get("center").getAsJsonArray().get(0).getAsString();
@@ -86,7 +85,7 @@ public class FetchMapBox
       return lon + "," + lat;
    }
 
-   public int getResultsNumber()
+   int getResultsNumber()
    {
       JsonArray temp = results.getAsJsonObject().get("features").getAsJsonArray();
       return temp.size();
