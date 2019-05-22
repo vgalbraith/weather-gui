@@ -10,7 +10,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import sierra.AsyncTask;
-
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
@@ -267,7 +266,6 @@ public class Controller implements Initializable
             dewpointF = w.getFromOb("dewpointF");
             dewpointC = w.getFromOb("dewpointC");
          }
-
          return w;
       }
 
