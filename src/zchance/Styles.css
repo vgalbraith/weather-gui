@@ -1,3 +1,8 @@
+.background
+{
+    -fx-background-color: #000;
+}
+
 .root
 {
     -fx-background-color: #1a1a1a;
@@ -18,10 +23,26 @@
        -fx-padding: 0;
 }
 
+.combo-box
+{
+    -fx-background-color: #777;
+}
 
 .button
 {
+    -fx-font: #111;
+    -fx-background-color: #777;
     -fx-cell-hover-color: f7ca88;
+}
+
+.button:hover
+{
+    -fx-background-color: #999;
+}
+
+.button:pressed
+{
+    -fx-background-color: #777;
 }
 
 /* Set all the label colors - overrides the current red and blue hi/lo colors */
@@ -31,9 +52,9 @@
 }
 
 /*  this sets the background color behind the tabs */
-.tab-pane .tab-header-area .tab-header-background {
+.tab-pane .tab-header-area .tab-header-background
+{
     -fx-background-color: #1a1a1a;
-
 }
 
 /* this sets the tab-pane border color the same as the root-background  */
