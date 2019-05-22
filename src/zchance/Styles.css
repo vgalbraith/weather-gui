@@ -1,3 +1,9 @@
+.root
+{
+    -fx-background-color: #1a1a1a;
+}
+
+/* This code hides the arrow in the search bar */
 .combo-box .arrow, .combo-box .arrow-button
  {
         visibility: hidden;
@@ -11,3 +17,76 @@
 {
        -fx-padding: 0;
 }
+
+
+.button
+{
+    -fx-cell-hover-color: f7ca88;
+}
+
+/* Set all the label colors - overrides the current red and blue hi/lo colors */
+.label
+{
+    -fx-text-fill: f8f8f8;
+}
+
+/*  this sets the background color behind the tabs */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #1a1a1a;
+
+}
+
+/* this sets the tab-pane border color the same as the root-background  */
+.tab-pane
+{
+    -fx-border-color: #1a1a1a;
+
+    /* this set the color of the selected tab background */
+    -fx-background-color: #383838;
+}
+
+/* this does not work - trying to hide the line below the tabs  */
+.nav-tabs
+{
+    margin-bottom: -4px;
+}
+
+/* this sets the non selected tab color  */
+.tab-pane .tab
+{
+    -fx-background-color: #282828;
+}
+
+/* this does not work */
+.tab .tab-label
+{
+    -fx-alignment: CENTER;
+    -fx-text-fill: #b8b8b8;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: #383838;
+}
+
+/* this sets the color of tabs when the mouse is over it  */
+.tab-pane .tab:hover
+{
+    -fx-background-color: #585858;
+}
+
+.tab:selected .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: #f8f8f8;
+}
+
+/* this is nonsense */
+.tab-pane:top *.tab-header-area
+{
+    /*-fx-background-insets: 0, 0 0 1 0;
+    /* -fx-padding: 0.416667em 0.166667em 0.0em 0.833em; /* 5 2 0 10 */
+    /*-fx-padding: 0.416667em 0.166667em 0.0em 0.0em; /* overridden as 5 2 0 0 */
+}
+
